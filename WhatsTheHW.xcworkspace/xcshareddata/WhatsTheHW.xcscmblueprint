@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "FC9742F7F462E3FAC7F33461CA9ED7AB7293C948",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "F830EAE984C84AB3039CB55FB6B8D89F1A3D19AB" : 0,
+    "FC9742F7F462E3FAC7F33461CA9ED7AB7293C948" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "B0AB5EB8-7640-4A51-BBBD-8A8D13816579",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "F830EAE984C84AB3039CB55FB6B8D89F1A3D19AB" : "",
+    "FC9742F7F462E3FAC7F33461CA9ED7AB7293C948" : "WhatsTheHW\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "WhatsTheHW",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "WhatsTheHW.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Alan7996\/WhatsTheHWYCIS.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F830EAE984C84AB3039CB55FB6B8D89F1A3D19AB"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Alan7996\/WhatsTheHW.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "FC9742F7F462E3FAC7F33461CA9ED7AB7293C948"
+    }
+  ]
+}
