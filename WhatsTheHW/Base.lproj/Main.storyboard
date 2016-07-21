@@ -5,6 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
         <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
@@ -378,10 +379,10 @@
             </objects>
             <point key="canvasLocation" x="2593" y="648"/>
         </scene>
-        <!--View Controller-->
+        <!--Set Due Date View Controller-->
         <scene sceneID="ogU-Yp-5ia">
             <objects>
-                <viewController id="9mB-dP-82L" sceneMemberID="viewController">
+                <viewController id="9mB-dP-82L" customClass="SetDueDateViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ngs-Ze-R4E"/>
                         <viewControllerLayoutGuide type="bottom" id="Jpb-h5-74S"/>
@@ -389,12 +390,53 @@
                     <view key="view" contentMode="scaleToFill" id="2f6-Fl-b3a">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ODu-Rc-JSW">
+                                <rect key="frame" x="115" y="232" width="370" height="186"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="370" id="DTo-eK-AtZ"/>
+                                    <constraint firstAttribute="height" constant="186" id="eWS-LW-fMK"/>
+                                </constraints>
+                                <date key="date" timeIntervalSinceReferenceDate="490778729.99001098">
+                                    <!--2016-07-21 07:25:29 +0000-->
+                                </date>
+                            </datePicker>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select due date for the assignment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoc-ls-dap">
+                                <rect key="frame" x="193" y="152" width="214" height="58"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="214" id="UkR-RG-Xr6"/>
+                                    <constraint firstAttribute="height" constant="58" id="qSA-XD-Scc"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lho-8o-Sjk">
+                                <rect key="frame" x="265" y="439" width="70" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="70" id="1tW-9C-mOf"/>
+                                    <constraint firstAttribute="height" constant="30" id="6Xx-gF-E6e"/>
+                                </constraints>
+                                <state key="normal" title="Done"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lho-8o-Sjk" firstAttribute="centerX" secondItem="2f6-Fl-b3a" secondAttribute="centerX" id="GV4-Ja-bhv"/>
+                            <constraint firstItem="qoc-ls-dap" firstAttribute="top" secondItem="Ngs-Ze-R4E" secondAttribute="bottom" constant="88" id="JUt-wY-xez"/>
+                            <constraint firstItem="ODu-Rc-JSW" firstAttribute="top" secondItem="qoc-ls-dap" secondAttribute="bottom" constant="22" id="iTe-0s-FnU"/>
+                            <constraint firstItem="ODu-Rc-JSW" firstAttribute="centerX" secondItem="2f6-Fl-b3a" secondAttribute="centerX" id="nGA-6E-3yA"/>
+                            <constraint firstItem="lho-8o-Sjk" firstAttribute="top" secondItem="ODu-Rc-JSW" secondAttribute="bottom" constant="21" id="r5W-ed-anV"/>
+                            <constraint firstItem="qoc-ls-dap" firstAttribute="centerX" secondItem="2f6-Fl-b3a" secondAttribute="centerX" id="yrX-6f-fCk"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="datePicker" destination="ODu-Rc-JSW" id="gO8-N8-MnR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vap-0K-TVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3309" y="1035"/>
+            <point key="canvasLocation" x="4123" y="648"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hsK-Zl-hBx">
@@ -491,13 +533,29 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ggy-ch-0a9" userLabel="Assignment Modification Time">
-                                <rect key="frame" x="324" y="162" width="256" height="46"/>
+                                <rect key="frame" x="477" y="162" width="103" height="46"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="46" id="4Ew-Rj-uaT"/>
-                                    <constraint firstAttribute="width" constant="256" id="o3q-f8-lFo"/>
+                                    <constraint firstAttribute="width" constant="103" id="o3q-f8-lFo"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIm-YP-je9" userLabel="Calendar">
+                                <rect key="frame" x="20" y="166" width="38" height="39"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="aIm-YP-je9" secondAttribute="height" multiplier="38:39" id="HO3-a8-mzb"/>
+                                </constraints>
+                                <state key="normal" image="Calendar.png"/>
+                                <connections>
+                                    <action selector="setDueDate:" destination="uQc-d0-n02" eventType="touchUpInside" id="Hhe-dT-Rmu"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2c-eq-bos" userLabel="Assignment Due Date">
+                                <rect key="frame" x="66" y="166" width="354" height="39"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -508,16 +566,23 @@
                             <constraint firstItem="BXx-hH-EIa" firstAttribute="leading" secondItem="YAx-Dh-4w6" secondAttribute="leading" id="451-7u-x95"/>
                             <constraint firstItem="LXa-XJ-88f" firstAttribute="centerX" secondItem="BXx-hH-EIa" secondAttribute="centerX" id="AWd-UJ-IXL"/>
                             <constraint firstItem="BXx-hH-EIa" firstAttribute="leading" secondItem="HTO-YZ-Xby" secondAttribute="leadingMargin" id="GIu-pF-Nfx"/>
+                            <constraint firstItem="m2c-eq-bos" firstAttribute="top" secondItem="BXx-hH-EIa" secondAttribute="bottom" constant="12" id="H01-EN-51U"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="m2c-eq-bos" secondAttribute="trailing" constant="160" id="LyP-EJ-kdo"/>
                             <constraint firstItem="BXx-hH-EIa" firstAttribute="top" secondItem="LXa-XJ-88f" secondAttribute="bottom" constant="50" id="VwI-2V-rHP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ggy-ch-0a9" secondAttribute="trailing" id="Xwz-ts-iFW"/>
                             <constraint firstItem="LXa-XJ-88f" firstAttribute="top" secondItem="HTO-YZ-Xby" secondAttribute="top" id="Z7B-qC-ZhC"/>
                             <constraint firstItem="Ggy-ch-0a9" firstAttribute="leading" secondItem="HTO-YZ-Xby" secondAttribute="leadingMargin" id="aCs-8a-aSn"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YAx-Dh-4w6" secondAttribute="trailing" id="cQ2-NY-sZQ"/>
                             <constraint firstAttribute="trailing" secondItem="LXa-XJ-88f" secondAttribute="trailing" id="dEI-tV-Xql"/>
+                            <constraint firstItem="YAx-Dh-4w6" firstAttribute="top" secondItem="m2c-eq-bos" secondAttribute="bottom" constant="25" id="ggm-zG-Iba"/>
+                            <constraint firstItem="m2c-eq-bos" firstAttribute="leading" secondItem="aIm-YP-je9" secondAttribute="trailing" constant="8" id="gpi-uD-5oI"/>
+                            <constraint firstItem="aIm-YP-je9" firstAttribute="top" secondItem="BXx-hH-EIa" secondAttribute="bottom" constant="12" id="hgK-Lb-eb7"/>
                             <constraint firstItem="YAx-Dh-4w6" firstAttribute="top" secondItem="Ggy-ch-0a9" secondAttribute="bottom" constant="22" id="hpi-yg-EQG"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="aIm-YP-je9" secondAttribute="leading" id="p26-lD-Hsj"/>
                             <constraint firstItem="YAx-Dh-4w6" firstAttribute="leading" secondItem="HTO-YZ-Xby" secondAttribute="leadingMargin" constant="92" id="q26-T9-8i5"/>
                             <constraint firstItem="Ggy-ch-0a9" firstAttribute="top" secondItem="BXx-hH-EIa" secondAttribute="bottom" constant="20" id="qI2-MY-USe"/>
                             <constraint firstItem="LXa-XJ-88f" firstAttribute="leading" secondItem="HTO-YZ-Xby" secondAttribute="leading" id="yBo-2o-S5j"/>
+                            <constraint firstItem="YAx-Dh-4w6" firstAttribute="top" secondItem="aIm-YP-je9" secondAttribute="bottom" constant="25" id="zgN-g6-5xC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
@@ -548,16 +613,20 @@
                         <outlet property="assignmentInstructionTextField" destination="YAx-Dh-4w6" id="Cp4-HN-5lF"/>
                         <outlet property="assignmentModificationTimeLabel" destination="Ggy-ch-0a9" id="PFA-fi-l6q"/>
                         <outlet property="assignmentTitleTextField" destination="BXx-hH-EIa" id="yg9-2W-18e"/>
+                        <segue destination="9mB-dP-82L" kind="show" identifier="setDueDate" id="fcN-xw-efP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dw5-PJ-pme" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="NCp-0N-luL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3309" y="313"/>
+            <point key="canvasLocation" x="3365" y="648"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Calendar.png" width="102" height="102"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="I7v-sG-PqF"/>
-        <segue reference="GNm-JX-umu"/>
+        <segue reference="Yza-sV-a85"/>
     </inferredMetricsTieBreakers>
 </document>

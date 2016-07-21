@@ -13,9 +13,14 @@ class DisplayAssignmentViewController: UIViewController {
     @IBOutlet weak var assignmentTitleTextField: UITextField!
     @IBOutlet weak var assignmentInstructionTextField: UITextField!
     @IBOutlet weak var assignmentModificationTimeLabel: UILabel!
+    @IBOutlet weak var assignmentDueDate: UILabel!
+    @IBAction func setDueDate(sender: AnyObject) {
+        self.performSegueWithIdentifier("setDueDate", sender: self)
+    }
     
     var assignment: Assignment?
     var course: Course?
+//    var assignmentDueDateInput: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +36,7 @@ class DisplayAssignmentViewController: UIViewController {
                 let newAssignment = Assignment()
                 newAssignment.title = assignmentTitleTextField.text ?? ""
                 newAssignment.instruction = assignmentInstructionTextField.text ?? ""
+//                newAssignment.dueDate = assignmentDueDateInput!
                 
                 RealmHelper.updateAssignment(assignment, newAssignment: newAssignment)
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
@@ -42,6 +48,7 @@ class DisplayAssignmentViewController: UIViewController {
                 assignment.instruction = assignmentInstructionTextField.text ?? ""
                 assignment.modificationTime = NSDate()
                 assignment.assignmentClass = course!.name
+//                assignment.dueDate = assignmentDueDateInput!
                 
                 print("assignmentNameText: " +  assignmentTitleTextField.text!)
                 print("assignmentName: " + assignment.title)

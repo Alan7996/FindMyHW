@@ -11,8 +11,9 @@
 		FB7D4F221D3767130000EA1B /* ListAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */; };
 		FB7D4F261D3768A60000EA1B /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F251D3768A60000EA1B /* Assignment.swift */; };
 		FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */; };
-		FBAE8B431D409EFD004015E3 /* CustomDatePickerViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FBAE8B421D409EFD004015E3 /* CustomDatePickerViewController.xib */; };
 		FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */; };
+		FBF2D3631D40B265005799A7 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF2D3621D40B265005799A7 /* Calendar.png */; };
+		FBF2D3651D40B805005799A7 /* SetDueDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF2D3641D40B805005799A7 /* SetDueDateViewController.swift */; };
 		FBF99CAA1D36123200263E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CA91D36123200263E76 /* AppDelegate.swift */; };
 		FBF99CAF1D36123200263E76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF99CAD1D36123200263E76 /* Main.storyboard */; };
 		FBF99CB11D36123200263E76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBF99CB01D36123200263E76 /* Assets.xcassets */; };
@@ -32,8 +33,9 @@
 		FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewController.swift; sourceTree = "<group>"; };
 		FB7D4F251D3768A60000EA1B /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewCell.swift; sourceTree = "<group>"; };
-		FBAE8B421D409EFD004015E3 /* CustomDatePickerViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CustomDatePickerViewController.xib; sourceTree = "<group>"; };
 		FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentViewController.swift; sourceTree = "<group>"; };
+		FBF2D3621D40B265005799A7 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
+		FBF2D3641D40B805005799A7 /* SetDueDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDueDateViewController.swift; sourceTree = "<group>"; };
 		FBF99CA61D36123200263E76 /* WhatsTheHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTheHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF99CA91D36123200263E76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBF99CAE1D36123200263E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		FBF99CA81D36123200263E76 /* WhatsTheHW */ = {
 			isa = PBXGroup;
 			children = (
+				FBF2D3621D40B265005799A7 /* Calendar.png */,
 				FBF99CC11D3612CA00263E76 /* Helpers */,
 				FBF99CC01D3612C000263E76 /* Extensions */,
 				FBF99CBF1D3612B500263E76 /* Controllers */,
@@ -107,7 +110,6 @@
 				FBF99CB01D36123200263E76 /* Assets.xcassets */,
 				FBF99CB21D36123200263E76 /* LaunchScreen.storyboard */,
 				FBF99CB51D36123200263E76 /* Info.plist */,
-				FBAE8B421D409EFD004015E3 /* CustomDatePickerViewController.xib */,
 			);
 			path = WhatsTheHW;
 			sourceTree = "<group>";
@@ -138,6 +140,7 @@
 				FBF99CCE1D3614DE00263E76 /* DisplayCourseViewController.swift */,
 				FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */,
 				FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */,
+				FBF2D3641D40B805005799A7 /* SetDueDateViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -220,7 +223,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBF99CB41D36123200263E76 /* LaunchScreen.storyboard in Resources */,
-				FBAE8B431D409EFD004015E3 /* CustomDatePickerViewController.xib in Resources */,
+				FBF2D3631D40B265005799A7 /* Calendar.png in Resources */,
 				FBF99CB11D36123200263E76 /* Assets.xcassets in Resources */,
 				FBF99CAF1D36123200263E76 /* Main.storyboard in Resources */,
 			);
@@ -289,6 +292,7 @@
 				FBF99CCB1D36134200263E76 /* Course.swift in Sources */,
 				FBF99CCD1D3614BC00263E76 /* ListCoursesTableViewController.swift in Sources */,
 				FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */,
+				FBF2D3651D40B805005799A7 /* SetDueDateViewController.swift in Sources */,
 				FBF99CD31D3617BF00263E76 /* ListCoursesTableViewCell.swift in Sources */,
 				FBF99CC31D3612E300263E76 /* RealmHelper.swift in Sources */,
 				FBF99CAA1D36123200263E76 /* AppDelegate.swift in Sources */,
