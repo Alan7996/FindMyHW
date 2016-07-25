@@ -10,25 +10,35 @@ import UIKit
 import RealmSwift
 
 class SetDueDateViewController: UIViewController {
-    @IBOutlet weak var datePicker: UIDatePicker!
+    
     var dueDate: String?
     
-    func datePickerChanged(datePicker:UIDatePicker) {
+    @IBOutlet weak var myDatePicker: UIDatePicker!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    @IBAction func datePickerAction(sender: AnyObject) {
         var dateFormatter = NSDateFormatter()
-        
-        dateFormatter.dateStyle = NSDateFormatterStyle.ShortStyle
-        dateFormatter.timeStyle = NSDateFormatterStyle.ShortStyle
-        
-        dueDate = dateFormatter.stringFromDate(datePicker.date)
+        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dueDate = dateFormatter.stringFromDate(myDatePicker.date)
+        print(dueDate!)
+    }
+
+    @IBAction func clickDoneAction(sender: AnyObject) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+        //        displayAssignmentViewController.assignmentDueDateInput = self.dueDate
+        //        displayAssignmentViewController.assignmentDueDate.text = self.dueDate
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
-            if identifier == "setDueDate" {
-                print("Done button tapped")
+            if identifier == "doneButtonClicked" {
+                print("Done button tapped : \(dueDate)")
                 
                 let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
-//                displayAssignmentViewController.assignmentDueDateInput = dueDate
+                displayAssignmentViewController.assignmentDueDateInput = self.dueDate
             }
         }
     }

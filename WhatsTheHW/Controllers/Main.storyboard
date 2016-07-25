@@ -382,7 +382,7 @@
         <!--Set Due Date View Controller-->
         <scene sceneID="ogU-Yp-5ia">
             <objects>
-                <viewController id="9mB-dP-82L" customClass="SetDueDateViewController" sceneMemberID="viewController">
+                <viewController id="9mB-dP-82L" customClass="SetDueDateViewController" customModule="WhatsTheHW" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ngs-Ze-R4E"/>
                         <viewControllerLayoutGuide type="bottom" id="Jpb-h5-74S"/>
@@ -391,16 +391,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="ODu-Rc-JSW">
-                                <rect key="frame" x="115" y="232" width="370" height="186"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="370" id="DTo-eK-AtZ"/>
-                                    <constraint firstAttribute="height" constant="186" id="eWS-LW-fMK"/>
-                                </constraints>
-                                <date key="date" timeIntervalSinceReferenceDate="490778729.99001098">
-                                    <!--2016-07-21 07:25:29 +0000-->
-                                </date>
-                            </datePicker>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select due date for the assignment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qoc-ls-dap">
                                 <rect key="frame" x="193" y="152" width="214" height="58"/>
                                 <constraints>
@@ -411,32 +401,46 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="a0z-1b-G1J">
+                                <rect key="frame" x="0.0" y="227" width="600" height="216"/>
+                                <date key="date" timeIntervalSinceReferenceDate="490848574.74132299">
+                                    <!--2016-07-22 02:49:34 +0000-->
+                                </date>
+                                <connections>
+                                    <action selector="datePickerAction:" destination="9mB-dP-82L" eventType="valueChanged" id="Stc-EO-2Be"/>
+                                </connections>
+                            </datePicker>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lho-8o-Sjk">
-                                <rect key="frame" x="265" y="439" width="70" height="30"/>
+                                <rect key="frame" x="265" y="466" width="70" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="70" id="1tW-9C-mOf"/>
                                     <constraint firstAttribute="height" constant="30" id="6Xx-gF-E6e"/>
                                 </constraints>
                                 <state key="normal" title="Done"/>
+                                <connections>
+                                    <action selector="clickDoneAction:" destination="9mB-dP-82L" eventType="touchUpInside" id="lfE-6c-LAO"/>
+                                    <segue destination="uQc-d0-n02" kind="show" identifier="doneButtonClicked" id="Fty-9c-TyM"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="a0z-1b-G1J" firstAttribute="top" secondItem="qoc-ls-dap" secondAttribute="bottom" constant="17" id="5KF-sP-1YO"/>
                             <constraint firstItem="lho-8o-Sjk" firstAttribute="centerX" secondItem="2f6-Fl-b3a" secondAttribute="centerX" id="GV4-Ja-bhv"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a0z-1b-G1J" secondAttribute="trailing" constant="-20" id="HHU-q5-JPg"/>
                             <constraint firstItem="qoc-ls-dap" firstAttribute="top" secondItem="Ngs-Ze-R4E" secondAttribute="bottom" constant="88" id="JUt-wY-xez"/>
-                            <constraint firstItem="ODu-Rc-JSW" firstAttribute="top" secondItem="qoc-ls-dap" secondAttribute="bottom" constant="22" id="iTe-0s-FnU"/>
-                            <constraint firstItem="ODu-Rc-JSW" firstAttribute="centerX" secondItem="2f6-Fl-b3a" secondAttribute="centerX" id="nGA-6E-3yA"/>
-                            <constraint firstItem="lho-8o-Sjk" firstAttribute="top" secondItem="ODu-Rc-JSW" secondAttribute="bottom" constant="21" id="r5W-ed-anV"/>
+                            <constraint firstItem="lho-8o-Sjk" firstAttribute="top" secondItem="a0z-1b-G1J" secondAttribute="bottom" constant="23" id="KTv-os-WHb"/>
+                            <constraint firstItem="a0z-1b-G1J" firstAttribute="leading" secondItem="2f6-Fl-b3a" secondAttribute="leadingMargin" constant="-20" id="Zqk-4Q-xb9"/>
                             <constraint firstItem="qoc-ls-dap" firstAttribute="centerX" secondItem="2f6-Fl-b3a" secondAttribute="centerX" id="yrX-6f-fCk"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="datePicker" destination="ODu-Rc-JSW" id="gO8-N8-MnR"/>
+                        <outlet property="myDatePicker" destination="a0z-1b-G1J" id="fpu-zm-HYy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vap-0K-TVR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4123" y="648"/>
+            <point key="canvasLocation" x="4269" y="642"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hsK-Zl-hBx">
@@ -500,26 +504,6 @@
                                     </mask>
                                 </variation>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YAx-Dh-4w6" userLabel="Assignment Instructions">
-                                <rect key="frame" x="20" y="230" width="560" height="200"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="1TV-N8-lKR"/>
-                                    <constraint firstAttribute="width" constant="200" id="Tj1-iy-Fc8"/>
-                                    <constraint firstAttribute="height" constant="200" id="UCc-yK-df4"/>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="rMm-S0-aDt"/>
-                                    <constraint firstAttribute="height" constant="40" id="xDM-Bq-j1C"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="1TV-N8-lKR"/>
-                                        <exclude reference="Tj1-iy-Fc8"/>
-                                        <exclude reference="rMm-S0-aDt"/>
-                                        <exclude reference="xDM-Bq-j1C"/>
-                                    </mask>
-                                </variation>
-                            </textField>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXa-XJ-88f">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <constraints>
@@ -549,7 +533,7 @@
                                 </constraints>
                                 <state key="normal" image="Calendar.png"/>
                                 <connections>
-                                    <action selector="setDueDate:" destination="uQc-d0-n02" eventType="touchUpInside" id="Hhe-dT-Rmu"/>
+                                    <segue destination="9mB-dP-82L" kind="presentation" identifier="setDueDate" id="PY4-bz-OVY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m2c-eq-bos" userLabel="Assignment Due Date">
@@ -558,38 +542,42 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="uat-tT-xI4">
+                                <rect key="frame" x="20" y="228" width="560" height="260"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="lCL-SP-06A" firstAttribute="top" secondItem="YAx-Dh-4w6" secondAttribute="bottom" constant="294" id="301-k7-XOT"/>
                             <constraint firstItem="Ggy-ch-0a9" firstAttribute="top" secondItem="BXx-hH-EIa" secondAttribute="bottom" constant="8" id="3zj-i1-rDq"/>
-                            <constraint firstItem="BXx-hH-EIa" firstAttribute="leading" secondItem="YAx-Dh-4w6" secondAttribute="leading" id="451-7u-x95"/>
                             <constraint firstItem="LXa-XJ-88f" firstAttribute="centerX" secondItem="BXx-hH-EIa" secondAttribute="centerX" id="AWd-UJ-IXL"/>
+                            <constraint firstItem="uat-tT-xI4" firstAttribute="top" secondItem="aIm-YP-je9" secondAttribute="bottom" constant="23" id="Cei-aI-hsC"/>
                             <constraint firstItem="BXx-hH-EIa" firstAttribute="leading" secondItem="HTO-YZ-Xby" secondAttribute="leadingMargin" id="GIu-pF-Nfx"/>
                             <constraint firstItem="m2c-eq-bos" firstAttribute="top" secondItem="BXx-hH-EIa" secondAttribute="bottom" constant="12" id="H01-EN-51U"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="uat-tT-xI4" secondAttribute="leading" id="IlE-tQ-q2O"/>
+                            <constraint firstItem="uat-tT-xI4" firstAttribute="top" secondItem="Ggy-ch-0a9" secondAttribute="bottom" constant="20" id="Jmv-4z-Cn5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="m2c-eq-bos" secondAttribute="trailing" constant="160" id="LyP-EJ-kdo"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="uat-tT-xI4" secondAttribute="trailing" id="V2U-J9-Gpu"/>
                             <constraint firstItem="BXx-hH-EIa" firstAttribute="top" secondItem="LXa-XJ-88f" secondAttribute="bottom" constant="50" id="VwI-2V-rHP"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Ggy-ch-0a9" secondAttribute="trailing" id="Xwz-ts-iFW"/>
                             <constraint firstItem="LXa-XJ-88f" firstAttribute="top" secondItem="HTO-YZ-Xby" secondAttribute="top" id="Z7B-qC-ZhC"/>
                             <constraint firstItem="Ggy-ch-0a9" firstAttribute="leading" secondItem="HTO-YZ-Xby" secondAttribute="leadingMargin" id="aCs-8a-aSn"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="YAx-Dh-4w6" secondAttribute="trailing" id="cQ2-NY-sZQ"/>
                             <constraint firstAttribute="trailing" secondItem="LXa-XJ-88f" secondAttribute="trailing" id="dEI-tV-Xql"/>
-                            <constraint firstItem="YAx-Dh-4w6" firstAttribute="top" secondItem="m2c-eq-bos" secondAttribute="bottom" constant="25" id="ggm-zG-Iba"/>
                             <constraint firstItem="m2c-eq-bos" firstAttribute="leading" secondItem="aIm-YP-je9" secondAttribute="trailing" constant="8" id="gpi-uD-5oI"/>
                             <constraint firstItem="aIm-YP-je9" firstAttribute="top" secondItem="BXx-hH-EIa" secondAttribute="bottom" constant="12" id="hgK-Lb-eb7"/>
-                            <constraint firstItem="YAx-Dh-4w6" firstAttribute="top" secondItem="Ggy-ch-0a9" secondAttribute="bottom" constant="22" id="hpi-yg-EQG"/>
+                            <constraint firstItem="uat-tT-xI4" firstAttribute="top" secondItem="m2c-eq-bos" secondAttribute="bottom" constant="23" id="ksS-nu-hDf"/>
                             <constraint firstAttribute="leadingMargin" secondItem="aIm-YP-je9" secondAttribute="leading" id="p26-lD-Hsj"/>
-                            <constraint firstItem="YAx-Dh-4w6" firstAttribute="leading" secondItem="HTO-YZ-Xby" secondAttribute="leadingMargin" constant="92" id="q26-T9-8i5"/>
                             <constraint firstItem="Ggy-ch-0a9" firstAttribute="top" secondItem="BXx-hH-EIa" secondAttribute="bottom" constant="20" id="qI2-MY-USe"/>
+                            <constraint firstItem="lCL-SP-06A" firstAttribute="top" secondItem="uat-tT-xI4" secondAttribute="bottom" constant="68" id="vr0-SK-QTJ"/>
                             <constraint firstItem="LXa-XJ-88f" firstAttribute="leading" secondItem="HTO-YZ-Xby" secondAttribute="leading" id="yBo-2o-S5j"/>
-                            <constraint firstItem="YAx-Dh-4w6" firstAttribute="top" secondItem="aIm-YP-je9" secondAttribute="bottom" constant="25" id="zgN-g6-5xC"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="q26-T9-8i5"/>
                                 <exclude reference="aCs-8a-aSn"/>
                                 <exclude reference="qI2-MY-USe"/>
-                                <exclude reference="301-k7-XOT"/>
                             </mask>
                         </variation>
                     </view>
@@ -610,10 +598,10 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="assignmentInstructionTextField" destination="YAx-Dh-4w6" id="Cp4-HN-5lF"/>
+                        <outlet property="assignmentDueDate" destination="m2c-eq-bos" id="SWG-0J-IPz"/>
+                        <outlet property="assignmentInstructionTextView" destination="uat-tT-xI4" id="mYi-8m-y9R"/>
                         <outlet property="assignmentModificationTimeLabel" destination="Ggy-ch-0a9" id="PFA-fi-l6q"/>
                         <outlet property="assignmentTitleTextField" destination="BXx-hH-EIa" id="yg9-2W-18e"/>
-                        <segue destination="9mB-dP-82L" kind="show" identifier="setDueDate" id="fcN-xw-efP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dw5-PJ-pme" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -626,7 +614,7 @@
         <image name="Calendar.png" width="102" height="102"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="Fty-9c-TyM"/>
         <segue reference="I7v-sG-PqF"/>
-        <segue reference="Yza-sV-a85"/>
     </inferredMetricsTieBreakers>
 </document>

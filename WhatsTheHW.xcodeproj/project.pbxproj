@@ -8,14 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		12A41AC6057777BF99E0ECB0 /* Pods_WhatsTheHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */; };
+		FB07FF5C1D41B8A200914BD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB07FF5B1D41B8A200914BD0 /* Main.storyboard */; };
+		FB07FF641D41C07C00914BD0 /* SetDueDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB07FF631D41C07C00914BD0 /* SetDueDateViewController.swift */; };
 		FB7D4F221D3767130000EA1B /* ListAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */; };
 		FB7D4F261D3768A60000EA1B /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F251D3768A60000EA1B /* Assignment.swift */; };
 		FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */; };
 		FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */; };
 		FBF2D3631D40B265005799A7 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF2D3621D40B265005799A7 /* Calendar.png */; };
-		FBF2D3651D40B805005799A7 /* SetDueDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF2D3641D40B805005799A7 /* SetDueDateViewController.swift */; };
 		FBF99CAA1D36123200263E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CA91D36123200263E76 /* AppDelegate.swift */; };
-		FBF99CAF1D36123200263E76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF99CAD1D36123200263E76 /* Main.storyboard */; };
 		FBF99CB11D36123200263E76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBF99CB01D36123200263E76 /* Assets.xcassets */; };
 		FBF99CB41D36123200263E76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF99CB21D36123200263E76 /* LaunchScreen.storyboard */; };
 		FBF99CC31D3612E300263E76 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CC21D3612E300263E76 /* RealmHelper.swift */; };
@@ -30,15 +30,15 @@
 		1AB7554A7D177B0262B9BB6E /* Pods-WhatsTheHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW.debug.xcconfig"; sourceTree = "<group>"; };
 		70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsTheHW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBF1BCF6FDA2D4303805476 /* Pods-WhatsTheHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW.release.xcconfig"; sourceTree = "<group>"; };
+		FB07FF5B1D41B8A200914BD0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Controllers/Main.storyboard; sourceTree = "<group>"; };
+		FB07FF631D41C07C00914BD0 /* SetDueDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDueDateViewController.swift; sourceTree = "<group>"; };
 		FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewController.swift; sourceTree = "<group>"; };
 		FB7D4F251D3768A60000EA1B /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewCell.swift; sourceTree = "<group>"; };
 		FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentViewController.swift; sourceTree = "<group>"; };
 		FBF2D3621D40B265005799A7 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
-		FBF2D3641D40B805005799A7 /* SetDueDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDueDateViewController.swift; sourceTree = "<group>"; };
 		FBF99CA61D36123200263E76 /* WhatsTheHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTheHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF99CA91D36123200263E76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		FBF99CAE1D36123200263E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		FBF99CB01D36123200263E76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBF99CB31D36123200263E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBF99CB51D36123200263E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,7 +106,7 @@
 				FBF99CBF1D3612B500263E76 /* Controllers */,
 				FBF99CBD1D3612AE00263E76 /* Views */,
 				FBF99CA91D36123200263E76 /* AppDelegate.swift */,
-				FBF99CAD1D36123200263E76 /* Main.storyboard */,
+				FB07FF5B1D41B8A200914BD0 /* Main.storyboard */,
 				FBF99CB01D36123200263E76 /* Assets.xcassets */,
 				FBF99CB21D36123200263E76 /* LaunchScreen.storyboard */,
 				FBF99CB51D36123200263E76 /* Info.plist */,
@@ -140,7 +140,7 @@
 				FBF99CCE1D3614DE00263E76 /* DisplayCourseViewController.swift */,
 				FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */,
 				FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */,
-				FBF2D3641D40B805005799A7 /* SetDueDateViewController.swift */,
+				FB07FF631D41C07C00914BD0 /* SetDueDateViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -225,7 +225,7 @@
 				FBF99CB41D36123200263E76 /* LaunchScreen.storyboard in Resources */,
 				FBF2D3631D40B265005799A7 /* Calendar.png in Resources */,
 				FBF99CB11D36123200263E76 /* Assets.xcassets in Resources */,
-				FBF99CAF1D36123200263E76 /* Main.storyboard in Resources */,
+				FB07FF5C1D41B8A200914BD0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -291,8 +291,8 @@
 				FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */,
 				FBF99CCB1D36134200263E76 /* Course.swift in Sources */,
 				FBF99CCD1D3614BC00263E76 /* ListCoursesTableViewController.swift in Sources */,
+				FB07FF641D41C07C00914BD0 /* SetDueDateViewController.swift in Sources */,
 				FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */,
-				FBF2D3651D40B805005799A7 /* SetDueDateViewController.swift in Sources */,
 				FBF99CD31D3617BF00263E76 /* ListCoursesTableViewCell.swift in Sources */,
 				FBF99CC31D3612E300263E76 /* RealmHelper.swift in Sources */,
 				FBF99CAA1D36123200263E76 /* AppDelegate.swift in Sources */,
@@ -302,14 +302,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		FBF99CAD1D36123200263E76 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBF99CAE1D36123200263E76 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		FBF99CB21D36123200263E76 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

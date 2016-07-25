@@ -11,16 +11,13 @@ import RealmSwift
 
 class DisplayAssignmentViewController: UIViewController {
     @IBOutlet weak var assignmentTitleTextField: UITextField!
-    @IBOutlet weak var assignmentInstructionTextField: UITextField!
+    @IBOutlet weak var assignmentInstructionTextView: UITextView!
     @IBOutlet weak var assignmentModificationTimeLabel: UILabel!
     @IBOutlet weak var assignmentDueDate: UILabel!
-    @IBAction func setDueDate(sender: AnyObject) {
-        self.performSegueWithIdentifier("setDueDate", sender: self)
-    }
     
     var assignment: Assignment?
     var course: Course?
-//    var assignmentDueDateInput: String?
+    var assignmentDueDateInput: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,8 +32,10 @@ class DisplayAssignmentViewController: UIViewController {
             if let assignment = assignment {
                 let newAssignment = Assignment()
                 newAssignment.title = assignmentTitleTextField.text ?? ""
-                newAssignment.instruction = assignmentInstructionTextField.text ?? ""
-//                newAssignment.dueDate = assignmentDueDateInput!
+                newAssignment.instruction = assignmentInstructionTextView.text ?? ""
+                if let assignmentDueDateInput = assignmentDueDateInput {
+                        newAssignment.dueDate = assignmentDueDateInput
+                }
                 
                 RealmHelper.updateAssignment(assignment, newAssignment: newAssignment)
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
@@ -45,10 +44,12 @@ class DisplayAssignmentViewController: UIViewController {
                 // if note does not exist, create new note
                 let assignment = Assignment()
                 assignment.title = assignmentTitleTextField.text ?? ""
-                assignment.instruction = assignmentInstructionTextField.text ?? ""
+                assignment.instruction = assignmentInstructionTextView.text ?? ""
                 assignment.modificationTime = NSDate()
                 assignment.assignmentClass = course!.name
-//                assignment.dueDate = assignmentDueDateInput!
+                if let assignmentDueDateInput = assignmentDueDateInput {
+                    assignment.dueDate = assignmentDueDateInput
+                }
                 
                 print("assignmentNameText: " +  assignmentTitleTextField.text!)
                 print("assignmentName: " + assignment.title)
@@ -59,17 +60,26 @@ class DisplayAssignmentViewController: UIViewController {
                 
                 print("\(listAssignmentsTableViewController.assignments.count) assignments in listAssignmentsTableViewController")
             }
-
+//        } else if segue.identifier == "setDueDate" {
+//            let setDueDateViewController = segue.destinationViewController as! SetDueDateViewController
+//            setDueDateViewController.displayAssignmentViewController = self
         }
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if let assignment = assignment {
             assignmentTitleTextField.text = assignment.title
-            assignmentInstructionTextField.text = assignment.instruction
+            assignmentInstructionTextView.text = assignment.instruction
         } else {
             assignmentTitleTextField.text = ""
-            assignmentInstructionTextField.text = ""
+            assignmentInstructionTextView.text = ""
+        }
+    }
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        print("View did appear : \(assignmentDueDateInput)")
+        if let assignmentDueDateInput = assignmentDueDateInput {
+            assignmentDueDate.text = assignmentDueDateInput
         }
     }
     

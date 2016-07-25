@@ -13,6 +13,6 @@ class Assignment: Object {
     dynamic var title = ""
     dynamic var instruction = ""
     dynamic var modificationTime = NSDate()
-    dynamic var dueDate = "" //NSDate()
+    dynamic var dueDate = ""
     dynamic var assignmentClass = ""
 }
