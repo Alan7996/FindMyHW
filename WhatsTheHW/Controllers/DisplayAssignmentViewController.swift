@@ -17,11 +17,22 @@ class DisplayAssignmentViewController: UIViewController {
     
     var assignment: Assignment?
     var course: Course?
-    var assignmentDueDateInput: String?
+    var assignmentDueDateInput: String = "5/4/2017"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print (course?.name)
+        
+        if let assignment = assignment {
+            assignmentTitleTextField.text = assignment.title
+            assignmentInstructionTextView.text = assignment.instruction
+            print("dueDate2 2: " + (dueDate2 ?? "0/0/2016")!)
+            assignmentDueDate.text = dueDate2 ?? "0/0/2016"
+        } else {
+            assignmentTitleTextField.text = ""
+            assignmentInstructionTextView.text = ""
+            assignmentDueDate.text = ""
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -33,9 +44,7 @@ class DisplayAssignmentViewController: UIViewController {
                 let newAssignment = Assignment()
                 newAssignment.title = assignmentTitleTextField.text ?? ""
                 newAssignment.instruction = assignmentInstructionTextView.text ?? ""
-                if let assignmentDueDateInput = assignmentDueDateInput {
-                        newAssignment.dueDate = assignmentDueDateInput
-                }
+                newAssignment.dueDate = assignmentDueDateInput ?? ""
                 
                 RealmHelper.updateAssignment(assignment, newAssignment: newAssignment)
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
@@ -47,9 +56,7 @@ class DisplayAssignmentViewController: UIViewController {
                 assignment.instruction = assignmentInstructionTextView.text ?? ""
                 assignment.modificationTime = NSDate()
                 assignment.assignmentClass = course!.name
-                if let assignmentDueDateInput = assignmentDueDateInput {
-                    assignment.dueDate = assignmentDueDateInput
-                }
+                assignment.dueDate = assignmentDueDateInput
                 
                 print("assignmentNameText: " +  assignmentTitleTextField.text!)
                 print("assignmentName: " + assignment.title)
@@ -60,27 +67,31 @@ class DisplayAssignmentViewController: UIViewController {
                 
                 print("\(listAssignmentsTableViewController.assignments.count) assignments in listAssignmentsTableViewController")
             }
-//        } else if segue.identifier == "setDueDate" {
-//            let setDueDateViewController = segue.destinationViewController as! SetDueDateViewController
-//            setDueDateViewController.displayAssignmentViewController = self
+        } else if segue.identifier == "setDueDate" {
+            let setDueDateViewController = segue.destinationViewController as! SetDueDateViewController
+            setDueDateViewController.assignmentObject = assignment
         }
     }
+    
+    @IBAction func prepareForUnwind(segue: UIStoryboardSegue){
+        if let assignment = assignment {
+            print("dueDate2 2: " + (dueDate2 ?? "0/0/2016")!)
+            assignmentDueDate.text = dueDate2 ?? "0/0/2016"
+        } else {
+            assignmentDueDate.text = ""
+        }
+
+    }
+    
+    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        if let assignment = assignment {
-            assignmentTitleTextField.text = assignment.title
-            assignmentInstructionTextView.text = assignment.instruction
-        } else {
-            assignmentTitleTextField.text = ""
-            assignmentInstructionTextView.text = ""
-        }
+        
+        
     }
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        print("View did appear : \(assignmentDueDateInput)")
-        if let assignmentDueDateInput = assignmentDueDateInput {
-            assignmentDueDate.text = assignmentDueDateInput
-        }
+      
     }
     
 }
