@@ -9,7 +9,10 @@
 import UIKit
 import RealmSwift
 
-class ListAssignmentsTableViewController: UITableViewController {
+class ListAssignmentsTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+    let searchController = UISearchController(searchResultsController: nil)
+    var filteredAssignments = [Assignment]()
+    
     var course: Course?
     var assignmentArray = [Assignment]()
     var assignments: Results<Assignment>! {
@@ -27,10 +30,18 @@ class ListAssignmentsTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        definesPresentationContext = true
+        tableView.tableHeaderView = searchController.searchBar
         tableView.dataSource = self
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if searchController.active && searchController.searchBar.text != "" {
+            return filteredAssignments.count
+        }
+        
         if assignments != nil {
             print("return \(assignmentArray.count) rows")
             return assignmentArray.count
@@ -40,14 +51,16 @@ class ListAssignmentsTableViewController: UITableViewController {
         }
     }
     
-    func addAssignment(x: Assignment) {
-        assignmentArray.append(x)
-    }
-    
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("listAssignmentsTableViewCell", forIndexPath: indexPath) as! ListAssignmentsTableViewCell
         
-        let assignment = assignmentArray[indexPath.row]
+        let assignment: Assignment
+        
+        if searchController.active && searchController.searchBar.text != "" {
+            assignment = filteredAssignments[indexPath.row]
+        } else {
+            assignment = assignmentArray[indexPath.row]
+        }
         
         cell.assignmentNameLabel.text = assignment.title
 
@@ -95,6 +108,7 @@ class ListAssignmentsTableViewController: UITableViewController {
             }
         }
     }
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         if editingStyle == .Delete {
@@ -102,10 +116,24 @@ class ListAssignmentsTableViewController: UITableViewController {
             assignments = RealmHelper.retrieveAssignments()
         }
     }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredAssignments = assignmentArray.filter { assignment in
+            return assignment.title.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        tableView.reloadData()
+    }
+    
     @IBAction func unwindToListCoursesViewController(segue: UIStoryboardSegue) {
         
         // for now, simply defining the method is sufficient.
         // we'll add code later
         
+    }
+}
+extension ListAssignmentsTableViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        filterContentForSearchText(searchController.searchBar.text!)
     }
 }

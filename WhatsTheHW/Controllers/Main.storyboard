@@ -220,14 +220,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" id="3AM-pm-Dfb">
-                            <rect key="frame" x="0.0" y="64" width="600" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listAssignmentsTableViewCell" rowHeight="215" id="nNs-RM-X7a" userLabel="listAssignmentsTableViewCell" customClass="ListAssignmentsTableViewCell" customModule="WhatsTheHW" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="136" width="600" height="215"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="215"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nNs-RM-X7a" id="8Hj-Vc-Z7E">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="214"/>
