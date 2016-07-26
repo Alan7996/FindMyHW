@@ -61,6 +61,8 @@ class ListAssignmentsTableViewController: UITableViewController {
         
         cell.assignmentInstructionLabel.sizeToFit()
         
+        cell.assignmentDueDateLabel.text = assignment.dueDate
+        
         return cell
     }
     
@@ -85,7 +87,7 @@ class ListAssignmentsTableViewController: UITableViewController {
             } else if identifier == "displayAssignment" {
                 print("Table view cell tapped")
                 let indexPath = tableView.indexPathForSelectedRow!
-                let assignment = assignments[indexPath.row]
+                let assignment = assignmentArray[indexPath.row]
                 let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
                 displayAssignmentViewController.assignment = assignment
                 displayAssignmentViewController.course = course

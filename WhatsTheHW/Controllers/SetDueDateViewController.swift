@@ -9,8 +9,6 @@
 import UIKit
 import RealmSwift
 
-var dueDate2:String!
-
 class SetDueDateViewController: UIViewController {
     
     var dueDate: String?
@@ -24,11 +22,12 @@ class SetDueDateViewController: UIViewController {
     
     @IBAction func datePickerAction(sender: AnyObject) {
         var dateFormatter = NSDateFormatter()
-        dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+        dateFormatter.dateFormat = "M/dd/yy, HH:mm a"
         dueDate = dateFormatter.stringFromDate(myDatePicker.date)
+        dateFormatter.AMSymbol = "AM"
+        dateFormatter.PMSymbol = "PM"
         print(dueDate!)
-        dueDate2 = dueDate
-        print("dueDate2 .1: " + dueDate2)
+//        dueDate2 = dueDate
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboard){
@@ -42,18 +41,19 @@ class SetDueDateViewController: UIViewController {
         //        displayAssignmentViewController.assignmentDueDate.text = self.dueDate
     }
     
-//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-//        if let identifier = segue.identifier {
-//            if identifier == "unwindDone" {
-//                print("Done button tapped : \(dueDate)")
-//                
-//                let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            if identifier == "unwindDone" {
+                print("Done button tapped : \(dueDate)")
+                
+                let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
 //                print("date from other: " + displayAssignmentViewController.assignmentDueDateInput)
 //                print("self.dueDate: " + self.dueDate!)
-//                
-////                assignmentObject?.dueDate = dueDate!
-////                displayAssignmentViewController.assignment = assignmentObject
-//            }
-//        }
-//    }
+                
+                displayAssignmentViewController.assignmentDueDate.text = dueDate
+//                assignmentObject?.dueDate = dueDate!
+//                displayAssignmentViewController.assignment = assignmentObject
+            }
+        }
+    }
 }

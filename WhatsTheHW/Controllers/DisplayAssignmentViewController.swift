@@ -17,17 +17,17 @@ class DisplayAssignmentViewController: UIViewController {
     
     var assignment: Assignment?
     var course: Course?
-    var assignmentDueDateInput: String = "5/4/2017"
     
     override func viewDidLoad() {
         super.viewDidLoad()
         print (course?.name)
-        
+        self.assignmentInstructionTextView.layer.borderWidth = 0.5
+        self.assignmentInstructionTextView.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0.5, alpha: 0.5 )).CGColor
+        self.assignmentInstructionTextView.layer.cornerRadius = 10
         if let assignment = assignment {
             assignmentTitleTextField.text = assignment.title
             assignmentInstructionTextView.text = assignment.instruction
-            print("dueDate2 2: " + (dueDate2 ?? "0/0/2016")!)
-            assignmentDueDate.text = dueDate2 ?? "0/0/2016"
+            assignmentDueDate.text = assignment.dueDate
         } else {
             assignmentTitleTextField.text = ""
             assignmentInstructionTextView.text = ""
@@ -44,7 +44,7 @@ class DisplayAssignmentViewController: UIViewController {
                 let newAssignment = Assignment()
                 newAssignment.title = assignmentTitleTextField.text ?? ""
                 newAssignment.instruction = assignmentInstructionTextView.text ?? ""
-                newAssignment.dueDate = assignmentDueDateInput ?? ""
+                newAssignment.dueDate = assignmentDueDate.text ?? ""
                 
                 RealmHelper.updateAssignment(assignment, newAssignment: newAssignment)
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
@@ -56,10 +56,11 @@ class DisplayAssignmentViewController: UIViewController {
                 assignment.instruction = assignmentInstructionTextView.text ?? ""
                 assignment.modificationTime = NSDate()
                 assignment.assignmentClass = course!.name
-                assignment.dueDate = assignmentDueDateInput
+                assignment.dueDate = assignmentDueDate.text ?? ""
                 
                 print("assignmentNameText: " +  assignmentTitleTextField.text!)
                 print("assignmentName: " + assignment.title)
+                print("asisgnmentDueDate: " + assignment.dueDate)
                 
                 RealmHelper.addAssignment(assignment)
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
@@ -74,12 +75,11 @@ class DisplayAssignmentViewController: UIViewController {
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue){
-        if let assignment = assignment {
-            print("dueDate2 2: " + (dueDate2 ?? "0/0/2016")!)
-            assignmentDueDate.text = dueDate2 ?? "0/0/2016"
-        } else {
-            assignmentDueDate.text = ""
-        }
+//        if let assignment = assignment {
+//            assignmentDueDate.text = dueDate2 ?? "0/0/2016"
+//        } else {
+//            assignmentDueDate.text = ""
+//        }
 
     }
     

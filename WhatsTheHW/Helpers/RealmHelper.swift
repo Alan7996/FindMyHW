@@ -49,6 +49,7 @@ class RealmHelper {
             assignmentToBeUpdated.title = newAssignment.title
             assignmentToBeUpdated.instruction = newAssignment.instruction
             assignmentToBeUpdated.modificationTime = newAssignment.modificationTime
+            assignmentToBeUpdated.dueDate = newAssignment.dueDate
         }
     }
     static func retrieveCourses() -> Results<Course> {
