@@ -6,7 +6,10 @@ target 'WhatsTheHW' do
   use_frameworks!
 
   # Pods for WhatsTheHW
+  pod 'Bond', '4.0.0'
   pod 'Realm'
   pod 'RealmSwift'
+  pod 'Parse'
+  pod 'ParseUI'
 
 end

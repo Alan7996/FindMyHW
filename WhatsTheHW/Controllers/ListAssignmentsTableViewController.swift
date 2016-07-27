@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import Parse
 
 class ListAssignmentsTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     let searchController = UISearchController(searchResultsController: nil)

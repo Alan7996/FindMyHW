@@ -11,6 +11,7 @@
 
 import UIKit
 import RealmSwift
+import Parse
 
 class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
