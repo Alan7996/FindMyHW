@@ -10,7 +10,6 @@
 
 
 import UIKit
-import RealmSwift
 import Parse
 
 class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
@@ -18,9 +17,29 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     let searchController = UISearchController(searchResultsController: nil)
     var filteredCourses = [Course]()
     
-    var courses: Results<Course>? {
-        didSet {
-            tableView.reloadData()
+    var users: [User] = []
+    var courses: [Course] = []
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        let coursesQuery = PFQuery(className: "User")
+        coursesQuery.whereKey("enrolledCourse", equalTo:PFUser.currentUser()!)
+        
+        let enrolledCoursesFromThisUser = User.query()
+        enrolledCoursesFromThisUser!.whereKey("username", matchesKey: "username", inQuery: coursesQuery)
+
+        let query = PFQuery.orQueryWithSubqueries([enrolledCoursesFromThisUser!])
+
+        query.includeKey("user")
+        
+        query.orderByDescending("name")
+
+        query.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
+
+            self.courses = result as? [Course] ?? []
+
+            self.tableView.reloadData()
         }
     }
     
