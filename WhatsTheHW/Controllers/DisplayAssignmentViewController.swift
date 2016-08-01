@@ -7,7 +7,7 @@
 //
 
 import UIKit
-import RealmSwift
+import Parse
 
 class DisplayAssignmentViewController: UIViewController {
     @IBOutlet weak var assignmentTitleTextField: UITextField!
@@ -27,7 +27,7 @@ class DisplayAssignmentViewController: UIViewController {
         if let assignment = assignment {
             assignmentTitleTextField.text = assignment.title
             assignmentInstructionTextView.text = assignment.instruction
-            assignmentDueDate.text = assignment.dueDate
+            assignmentDueDate.text = String(assignment.dueDate)
         } else {
             assignmentTitleTextField.text = ""
             assignmentInstructionTextView.text = ""
@@ -44,27 +44,27 @@ class DisplayAssignmentViewController: UIViewController {
                 let newAssignment = Assignment()
                 newAssignment.title = assignmentTitleTextField.text ?? ""
                 newAssignment.instruction = assignmentInstructionTextView.text ?? ""
-                newAssignment.dueDate = assignmentDueDate.text ?? ""
+//                newAssignment.dueDate = assignmentDueDate.text ?? ""
                 
-                RealmHelper.updateAssignment(assignment, newAssignment: newAssignment)
+//                RealmHelper.updateAssignment(assignment, newAssignment: newAssignment)
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
-                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
+//                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
             } else {
                 // if assignment does not exist, create new assignment
                 let assignment = Assignment()
                 assignment.title = assignmentTitleTextField.text ?? ""
                 assignment.instruction = assignmentInstructionTextView.text ?? ""
-                assignment.modificationTime = NSDate()
-                assignment.assignmentClass = course!.name!
-                assignment.dueDate = assignmentDueDate.text ?? ""
+//                assignment.modificationTime = NSDate()
+//                assignment.assignmentClass = course!.name!
+//                assignment.dueDate = assignmentDueDate.text ?? ""
                 
                 print("assignmentNameText: " +  assignmentTitleTextField.text!)
-                print("assignmentName: " + assignment.title)
-                print("asisgnmentDueDate: " + assignment.dueDate)
+                print("assignmentName: " + assignment.title!)
+//                print("asisgnmentDueDate: " + assignment.dueDate)
                 
-                RealmHelper.addAssignment(assignment)
+//                RealmHelper.addAssignment(assignment)
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
-                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
+//                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
                 
                 print("\(listAssignmentsTableViewController.assignments.count) assignments in listAssignmentsTableViewController")
             }

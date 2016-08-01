@@ -7,8 +7,6 @@ target 'WhatsTheHW' do
 
   # Pods for WhatsTheHW
   pod 'Bond', '4.0.0'
-  pod 'Realm'
-  pod 'RealmSwift'
   pod 'Parse'
   pod 'ParseUI'
   pod 'ConvenienceKit'

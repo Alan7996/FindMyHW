@@ -22,7 +22,6 @@
 		FBF99CAA1D36123200263E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CA91D36123200263E76 /* AppDelegate.swift */; };
 		FBF99CB11D36123200263E76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBF99CB01D36123200263E76 /* Assets.xcassets */; };
 		FBF99CB41D36123200263E76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF99CB21D36123200263E76 /* LaunchScreen.storyboard */; };
-		FBF99CC31D3612E300263E76 /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CC21D3612E300263E76 /* RealmHelper.swift */; };
 		FBF99CC51D3612FC00263E76 /* NSDate+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CC41D3612FC00263E76 /* NSDate+convertToString.swift */; };
 		FBF99CCB1D36134200263E76 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CCA1D36134200263E76 /* Course.swift */; };
 		FBF99CCD1D3614BC00263E76 /* ListCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CCC1D3614BC00263E76 /* ListCoursesTableViewController.swift */; };
@@ -50,7 +49,6 @@
 		FBF99CB01D36123200263E76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FBF99CB31D36123200263E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBF99CB51D36123200263E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FBF99CC21D3612E300263E76 /* RealmHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		FBF99CC41D3612FC00263E76 /* NSDate+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+convertToString.swift"; sourceTree = "<group>"; };
 		FBF99CCA1D36134200263E76 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
 		FBF99CCC1D3614BC00263E76 /* ListCoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCoursesTableViewController.swift; sourceTree = "<group>"; };
@@ -165,7 +163,6 @@
 		FBF99CC11D3612CA00263E76 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				FBF99CC21D3612E300263E76 /* RealmHelper.swift */,
 				FB818C881D49D9C1001042C1 /* ParseHelper.swift */,
 				FB818C8C1D49ED35001042C1 /* ParseLoginHelper.swift */,
 				FB818C8A1D49DC63001042C1 /* ErrorHandling.swift */,
@@ -310,7 +307,6 @@
 				FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */,
 				FBF99CD31D3617BF00263E76 /* ListCoursesTableViewCell.swift in Sources */,
 				FB818C8B1D49DC63001042C1 /* ErrorHandling.swift in Sources */,
-				FBF99CC31D3612E300263E76 /* RealmHelper.swift in Sources */,
 				FBF99CAA1D36123200263E76 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

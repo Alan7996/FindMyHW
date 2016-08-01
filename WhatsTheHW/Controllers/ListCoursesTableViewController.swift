@@ -17,7 +17,6 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     let searchController = UISearchController(searchResultsController: nil)
     var filteredCourses = [Course]()
     
-    var users: [User] = []
     var courses: [Course] = []
     var coursesArray = NSMutableArray()
     
@@ -33,10 +32,6 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        
-//        var tableViewFooter = UIView(frame: CGRect(x: 0, y: 0, width: 600, height: 50))
-//        tableViewFooter.backgroundColor = UIColor.greenColor()
-//        tableView.tableFooterView  = tableViewFooter
         
         let allCoursesQuery = PFQuery(className: "Course")
         allCoursesQuery.whereKeyExists("name")
@@ -106,7 +101,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
                 listAssignmentsTableViewController.course = course
                 print (course.name)
-                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
+//                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
                 
             } else if identifier == "addCourse" {
                 print("+ button tapped")
@@ -125,15 +120,19 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         var footerView : UIView?
         footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
         
-        let addCourseBtn = UIButton(type: UIButtonType.System)
-        addCourseBtn.backgroundColor = UIColor.greenColor()
-        addCourseBtn.setTitle("Add Course", forState: UIControlState.Normal)
-        addCourseBtn.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
-        addCourseBtn.addTarget(self, action: "addCourse:", forControlEvents: UIControlEvents.TouchUpInside)
-        
-        footerView?.addSubview(addCourseBtn)
-        
-        return footerView
+        if searchController.searchBar.text == "" {
+            let addCourseBtn = UIButton(type: UIButtonType.System)
+            addCourseBtn.backgroundColor = UIColor.greenColor()
+            addCourseBtn.setTitle("Add Course", forState: UIControlState.Normal)
+            addCourseBtn.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
+            addCourseBtn.addTarget(self, action: "addCourse:", forControlEvents: UIControlEvents.TouchUpInside)
+            
+            footerView?.addSubview(addCourseBtn)
+            
+            return footerView
+        } else {
+            return footerView
+        }
     }
 
     func addCourse(sender: UIButton!) {

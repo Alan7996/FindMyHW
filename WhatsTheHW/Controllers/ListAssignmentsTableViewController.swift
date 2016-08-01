@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 import Parse
 
 class ListAssignmentsTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
@@ -15,27 +14,30 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
     var filteredAssignments = [Assignment]()
     
     var course: Course?
-    var assignmentArray = [Assignment]()
-    var assignments: Results<Assignment>! {
-        didSet {
-            assignmentArray = [Assignment]()
-            for assignment in assignments {
-                if assignment.assignmentClass == course!.name {
-                    assignmentArray.append(assignment)
-                }
-            }
-            print(assignmentArray)
-            tableView.reloadData()
-        }
-    }
+    var assignments: [Assignment] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         tableView.dataSource = self
+        
+        let currentCourseAssignmentsQuery = PFQuery(className: "Assignment")
+        
+        currentCourseAssignmentsQuery.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
+            for object in result! {
+                if object["course"].objectId == ((self.course?.name)!) {
+                    self.assignments.append(object as! Assignment)
+                }
+            }
+            
+            print(self.assignments)
+            
+            self.tableView.reloadData()
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -43,13 +45,7 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
             return filteredAssignments.count
         }
         
-        if assignments != nil {
-            print("return \(assignmentArray.count) rows")
-            return assignmentArray.count
-        } else {
-            print("return 0 rows")
-            return 0
-        }
+        return assignments.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -60,12 +56,12 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         if searchController.active && searchController.searchBar.text != "" {
             assignment = filteredAssignments[indexPath.row]
         } else {
-            assignment = assignmentArray[indexPath.row]
+            assignment = assignments[indexPath.row]
         }
         
         cell.assignmentNameLabel.text = assignment.title
 
-        cell.assignmentModificationTimeLabel.text = assignment.modificationTime.convertToString()
+//        cell.assignmentModificationTimeLabel.text = assignment.modificationTime.convertToString()
 
         cell.assignmentInstructionLabel.text = assignment.instruction
         
@@ -75,24 +71,17 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         
         cell.assignmentInstructionLabel.sizeToFit()
         
-        cell.assignmentDueDateLabel.text = assignment.dueDate
+//        cell.assignmentDueDateLabel.text = assignment.dueDate
         
         return cell
     }
-    
-    func countAssignments() -> Int{
-        if assignmentArray.count != 0 {
-            return assignmentArray.count
-        } else {
-            return 0
-        }
-    }
+
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             if identifier == "addAssignment" {
                 print("+ button tapped")
                 
-                print (assignmentArray.count)
+                print (assignments.count)
                 let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
                 displayAssignmentViewController.course = course
 
@@ -101,7 +90,7 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
             } else if identifier == "displayAssignment" {
                 print("Table view cell tapped")
                 let indexPath = tableView.indexPathForSelectedRow!
-                let assignment = assignmentArray[indexPath.row]
+                let assignment = assignments[indexPath.row]
                 let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
                 displayAssignmentViewController.assignment = assignment
                 displayAssignmentViewController.course = course
@@ -113,14 +102,14 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         if editingStyle == .Delete {
-            RealmHelper.deleteAssignment(assignments[indexPath.row])
-            assignments = RealmHelper.retrieveAssignments()
+//            RealmHelper.deleteAssignment(assignments[indexPath.row])
+//            assignments = RealmHelper.retrieveAssignments()
         }
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredAssignments = assignmentArray.filter { assignment in
-            return assignment.title.lowercaseString.containsString(searchText.lowercaseString)
+        filteredAssignments = assignments.filter { assignment in
+            return assignment.title!.lowercaseString.containsString(searchText.lowercaseString)
         }
         
         tableView.reloadData()

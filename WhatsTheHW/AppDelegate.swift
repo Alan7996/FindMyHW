@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import RealmSwift
 import Parse
 
 @UIApplicationMain
@@ -36,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //         print(Realm.Configuration.defaultConfiguration.fileURL)
         
         Course.registerSubclass()
+        Assignment.registerSubclass()
         
         // Set up the Parse SDK
         let configuration = ParseClientConfiguration {
