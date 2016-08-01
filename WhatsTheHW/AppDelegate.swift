@@ -15,10 +15,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    override init() {
+        super.init()
+        
+//        parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
+//            // Initialize the ParseLoginHelper with a callback
+//            if let error = error {
+//                ErrorHandling.defaultErrorHandler(error)
+//            } else if let _ = user {
+//                // if login was successful, display the TabBarController
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("TabBarController")
+//                self.window?.rootViewController!.presentViewController(tabBarController, animated: true, completion: nil)
+//            }
+//        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
-         print(Realm.Configuration.defaultConfiguration.fileURL)
+//         print(Realm.Configuration.defaultConfiguration.fileURL)
+        
+        Course.registerSubclass()
         
         // Set up the Parse SDK
         let configuration = ParseClientConfiguration {
@@ -42,6 +59,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let acl = PFACL()
         acl.publicReadAccess = true
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
+        
+        // check if we have logged in user
+        
+//        let user = PFUser.currentUser()
+        
+//        let startViewController: UIViewController
+//        
+//        if (user != nil) {
+//            // if we have a user, set the TabBarController to be the initial view controller
+//            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//            startViewController = storyboard.instantiateViewControllerWithIdentifier("TabBarController") as! UITabBarController
+//        } else {
+//            // Otherwise set the LoginViewController to be the first
+//            let loginViewController = PFLogInViewController()
+//            loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten, .Facebook]
+//            loginViewController.delegate = parseLoginHelper
+//            loginViewController.signUpController?.delegate = parseLoginHelper
+//            
+//            startViewController = loginViewController
+//        }
+//        
+//        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+//        self.window?.rootViewController = startViewController;
+//        self.window?.makeKeyAndVisible()
         
         return true
     }

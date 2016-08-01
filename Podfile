@@ -11,5 +11,6 @@ target 'WhatsTheHW' do
   pod 'RealmSwift'
   pod 'Parse'
   pod 'ParseUI'
+  pod 'ConvenienceKit'
 
 end

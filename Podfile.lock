@@ -1,6 +1,7 @@
 PODS:
   - Bolts/Tasks (1.7.0)
   - Bond (4.0.0)
+  - ConvenienceKit (0.4.0)
   - Parse (1.13.0):
     - Bolts/Tasks (~> 1.6)
   - ParseUI (1.2.0):
@@ -14,6 +15,7 @@ PODS:
 
 DEPENDENCIES:
   - Bond (= 4.0.0)
+  - ConvenienceKit
   - Parse
   - ParseUI
   - Realm
@@ -22,11 +24,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
   Bond: b729cdb22552def86efd4adfd8b8d93061eb4649
+  ConvenienceKit: ba1ad8797897dc0d011676e961a2f3e9b270c841
   Parse: f51c24d2feb412e4b2d6cc73d37cb24e8d0089bc
   ParseUI: af2eba584799da4a9fbdac0e178662d7438b502e
   Realm: 2e15e39d35b08abb529e212ed5d8af107b5236c8
   RealmSwift: d73ea2af08c3676dbdd5e4b669651a0f492162a4
 
-PODFILE CHECKSUM: 733171eb4e1bbe122587bbfd040b6db75e26d901
+PODFILE CHECKSUM: 543ab39e212a8b8533ca44b53d43d36f9d200c31
 
 COCOAPODS: 1.0.1

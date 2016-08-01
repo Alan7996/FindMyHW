@@ -11,7 +11,7 @@ import Parse
 
 class Course: PFObject, PFSubclassing {
     @NSManaged var name: String?
-    @NSManaged var teacher: PFUser?
+    @NSManaged var teacher: String?
     var course: Course?
     var courseUploadTask: UIBackgroundTaskIdentifier?
     
@@ -26,19 +26,24 @@ class Course: PFObject, PFSubclassing {
     override class func initialize() {
         var onceToken : dispatch_once_t = 0;
         dispatch_once(&onceToken) {
+            // inform Parse about this subclass
             self.registerSubclass()
         }
     }
     
-    func addCourse() {
-        if let course = course {
-            teacher = PFUser.currentUser()
+    func addCourse(courseName: String, teacherName: String) {
+        if let course = course.value {
+            self.name = courseName
+            self.teacher = teacherName
             
             courseUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
                 UIApplication.sharedApplication().endBackgroundTask(self.courseUploadTask!)
             }
             
             saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
+                if let error = error {
+                    ErrorHandling.defaultErrorHandler(error)
+                }
                 UIApplication.sharedApplication().endBackgroundTask(self.courseUploadTask!)
             }
         }

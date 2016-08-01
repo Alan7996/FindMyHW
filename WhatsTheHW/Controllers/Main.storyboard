@@ -157,38 +157,25 @@
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kn9-8J-FUJ" userLabel="Course Teacher Text Field">
-                                <rect key="frame" x="20" y="215" width="200" height="40"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiK-bP-WM7">
+                                <rect key="frame" x="20" y="194" width="301" height="51"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="0al-TB-JZc"/>
-                                    <constraint firstAttribute="height" constant="40" id="XRn-wq-IbU"/>
-                                    <constraint firstAttribute="width" constant="97" id="i60-6r-1uz"/>
+                                    <constraint firstAttribute="width" constant="301" id="Dee-jz-xcD"/>
+                                    <constraint firstAttribute="height" constant="51" id="GmS-Q1-5qi"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="i60-6r-1uz"/>
-                                    </mask>
-                                </variation>
-                            </textField>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="2Gl-1N-GBr" firstAttribute="leading" secondItem="IHq-mB-GJO" secondAttribute="leadingMargin" id="CZe-UO-pAj"/>
-                            <constraint firstItem="zvK-en-pGq" firstAttribute="top" secondItem="kn9-8J-FUJ" secondAttribute="bottom" constant="294" id="DRW-rY-v2W"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="kn9-8J-FUJ" secondAttribute="leading" id="L63-Pk-aun"/>
-                            <constraint firstItem="kn9-8J-FUJ" firstAttribute="top" secondItem="2Gl-1N-GBr" secondAttribute="bottom" constant="41" id="RwU-EH-5di"/>
-                            <constraint firstItem="kn9-8J-FUJ" firstAttribute="leading" secondItem="IHq-mB-GJO" secondAttribute="leadingMargin" constant="92" id="Wj1-7s-hkn"/>
+                            <constraint firstItem="KiK-bP-WM7" firstAttribute="top" secondItem="2Gl-1N-GBr" secondAttribute="bottom" constant="20" id="TZY-zk-xmH"/>
                             <constraint firstItem="2Gl-1N-GBr" firstAttribute="top" secondItem="50I-Ds-yXd" secondAttribute="bottom" constant="50" id="YMF-bV-41c"/>
                             <constraint firstItem="2Gl-1N-GBr" firstAttribute="trailing" secondItem="IHq-mB-GJO" secondAttribute="trailingMargin" id="sSy-Iq-JCX"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="KiK-bP-WM7" secondAttribute="leading" id="tWE-ne-OHj"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="Wj1-7s-hkn"/>
-                                <exclude reference="DRW-rY-v2W"/>
-                            </mask>
-                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Content" id="quQ-zH-0Uo" userLabel="Detail">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gne-5D-R3i">
@@ -204,7 +191,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="courseNameTextField" destination="2Gl-1N-GBr" id="s9h-IZ-U19"/>
-                        <outlet property="courseTeacherTextField" destination="kn9-8J-FUJ" id="awa-Aa-6Jb"/>
+                        <outlet property="courseTeacherLabel" destination="KiK-bP-WM7" id="blk-Pa-cWH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="As2-Kq-XOE" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,6 +13,9 @@
 		FB7D4F221D3767130000EA1B /* ListAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */; };
 		FB7D4F261D3768A60000EA1B /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F251D3768A60000EA1B /* Assignment.swift */; };
 		FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */; };
+		FB818C891D49D9C1001042C1 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB818C881D49D9C1001042C1 /* ParseHelper.swift */; };
+		FB818C8B1D49DC63001042C1 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB818C8A1D49DC63001042C1 /* ErrorHandling.swift */; };
+		FB818C8D1D49ED35001042C1 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB818C8C1D49ED35001042C1 /* ParseLoginHelper.swift */; };
 		FB92AC391D4895A5007779AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB92AC381D4895A5007779AB /* User.swift */; };
 		FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */; };
 		FBF2D3631D40B265005799A7 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF2D3621D40B265005799A7 /* Calendar.png */; };
@@ -36,6 +39,9 @@
 		FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewController.swift; sourceTree = "<group>"; };
 		FB7D4F251D3768A60000EA1B /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewCell.swift; sourceTree = "<group>"; };
+		FB818C881D49D9C1001042C1 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		FB818C8A1D49DC63001042C1 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		FB818C8C1D49ED35001042C1 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
 		FB92AC381D4895A5007779AB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentViewController.swift; sourceTree = "<group>"; };
 		FBF2D3621D40B265005799A7 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
@@ -160,6 +166,9 @@
 			isa = PBXGroup;
 			children = (
 				FBF99CC21D3612E300263E76 /* RealmHelper.swift */,
+				FB818C881D49D9C1001042C1 /* ParseHelper.swift */,
+				FB818C8C1D49ED35001042C1 /* ParseLoginHelper.swift */,
+				FB818C8A1D49DC63001042C1 /* ErrorHandling.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -292,12 +301,15 @@
 				FBF99CC51D3612FC00263E76 /* NSDate+convertToString.swift in Sources */,
 				FBF99CCF1D3614DE00263E76 /* DisplayCourseViewController.swift in Sources */,
 				FB7D4F221D3767130000EA1B /* ListAssignmentsTableViewController.swift in Sources */,
+				FB818C8D1D49ED35001042C1 /* ParseLoginHelper.swift in Sources */,
 				FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */,
 				FBF99CCB1D36134200263E76 /* Course.swift in Sources */,
 				FBF99CCD1D3614BC00263E76 /* ListCoursesTableViewController.swift in Sources */,
 				FB07FF641D41C07C00914BD0 /* SetDueDateViewController.swift in Sources */,
+				FB818C891D49D9C1001042C1 /* ParseHelper.swift in Sources */,
 				FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */,
 				FBF99CD31D3617BF00263E76 /* ListCoursesTableViewCell.swift in Sources */,
+				FB818C8B1D49DC63001042C1 /* ErrorHandling.swift in Sources */,
 				FBF99CC31D3612E300263E76 /* RealmHelper.swift in Sources */,
 				FBF99CAA1D36123200263E76 /* AppDelegate.swift in Sources */,
 			);

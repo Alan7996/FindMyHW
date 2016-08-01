@@ -8,12 +8,14 @@
 
 import UIKit
 import RealmSwift
+import Parse
 
 class DisplayCourseViewController: UIViewController {
     @IBOutlet weak var courseNameTextField: UITextField!
-    @IBOutlet weak var courseTeacherTextField: UITextField!
+    @IBOutlet weak var courseTeacherLabel: UILabel!
     
     var course: Course?
+    let username = PFUser.currentUser()?.username
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,38 +24,40 @@ class DisplayCourseViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let listCoursesTableViewController = segue.destinationViewController as! ListCoursesTableViewController
         if segue.identifier == "Save" {
-            // if note exists, update title and content
+            // if course exists, update name and teacher
             print("save clicked")
             if let course = course {
                 let newCourse = Course()
                 newCourse.name = courseNameTextField.text ?? ""
-                newCourse.teacher = courseTeacherTextField.text ?? ""
+                newCourse.teacher = username
                 
                 
-                RealmHelper.updateCourse(course, newCourse: newCourse)
+//                RealmHelper.updateCourse(course, newCourse: newCourse)
             } else {
-                // if note does not exist, create new note
+                // if course does not exist, create new course
                 let course = Course()
                 course.name = courseNameTextField.text ?? ""
-                course.teacher = courseTeacherTextField.text ?? ""
-                course.modificationTime = NSDate()
+                course.teacher = username
+//                course.modificationTime = NSDate()
                 
                 print("courseNameText: " +  courseNameTextField.text!)
-                print("courseName: " + course.name)
+                print("courseName: " + course.name!)
                 
-                RealmHelper.addCourse(course)
+                course.addCourse(course.name!, teacherName: course.teacher!)
             }
-            listCoursesTableViewController.courses = RealmHelper.retrieveCourses()
+            listCoursesTableViewController.tableView.reloadData()
+            print("Data reloaded")
+//            listCoursesTableViewController.courses = RealmHelper.retrieveCourses()
         }
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         if let course = course {
             courseNameTextField.text = course.name
-            courseTeacherTextField.text = course.teacher
+            courseTeacherLabel.text = course.teacher
         } else {
             courseNameTextField.text = ""
-            courseTeacherTextField.text = ""
+            courseTeacherLabel.text = username
         }
     }
     

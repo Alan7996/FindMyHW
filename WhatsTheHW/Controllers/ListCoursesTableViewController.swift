@@ -19,28 +19,11 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     
     var users: [User] = []
     var courses: [Course] = []
+//    var coursesArray = NSMutableArray()
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
-        let coursesQuery = PFQuery(className: "User")
-        coursesQuery.whereKey("enrolledCourse", equalTo:PFUser.currentUser()!)
-        
-        let enrolledCoursesFromThisUser = User.query()
-        enrolledCoursesFromThisUser!.whereKey("username", matchesKey: "username", inQuery: coursesQuery)
-
-        let query = PFQuery.orQueryWithSubqueries([enrolledCoursesFromThisUser!])
-
-        query.includeKey("user")
-        
-        query.orderByDescending("name")
-
-        query.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
-
-            self.courses = result as? [Course] ?? []
-
-            self.tableView.reloadData()
-        }
     }
     
     override func viewDidLoad() {
@@ -49,7 +32,35 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-        courses = RealmHelper.retrieveCourses()
+//        let allCoursesQuery = PFQuery(className: "Course")
+//        allCoursesQuery.whereKeyExists("name")
+//        
+//        allCoursesQuery.findObjectsInBackgroundWithBlock {
+//            (courses: [PFObject]?, error: NSError?) -> Void in
+//            
+//            if error == nil {
+//                // Do something with the found objects
+//                for course in courses! {
+//                    self.coursesArray.addObject(course)
+//                }
+//            }
+//        }
+        
+        let currentUserCoursesQuery = PFQuery(className: "Course")
+        
+        currentUserCoursesQuery.whereKeyExists("studentRelation")
+        
+        currentUserCoursesQuery.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
+            for object in result! {
+                if object["studentRelation"].containsObject((PFUser.currentUser()?.username)!) {
+                    self.courses.append(object as! Course)
+                }
+            }
+            
+            print(self.courses)
+            
+            self.tableView.reloadData()
+        }
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -57,11 +68,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
             return filteredCourses.count
         }
         
-        if let number = courses?.count{
-            return number
-        } else {
-            return 0
-        }
+        return courses.count
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -72,12 +79,12 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         if searchController.active && searchController.searchBar.text != "" {
             course = filteredCourses[indexPath.row]
         } else {
-            course = courses![indexPath.row]
+            course = courses[indexPath.row]
         }
         
         cell.courseNameLabel.text = course.name
         
-        cell.courseModificationTimeLabel.text = course.modificationTime.convertToString()
+//        cell.courseModificationTimeLabel.text = course.modificationTime.convertToString()
         
         cell.courseTeacherLabel.text = course.teacher
 
@@ -89,7 +96,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
                 print("Table view cell tapped")
                 
                 let indexPath = tableView.indexPathForSelectedRow!
-                let course = courses![indexPath.row]
+                let course = courses[indexPath.row]
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
                 listAssignmentsTableViewController.course = course
                 print (course.name)
@@ -103,8 +110,8 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         if editingStyle == .Delete {
-            RealmHelper.deleteCourse(courses![indexPath.row])
-            courses = RealmHelper.retrieveCourses()
+//            RealmHelper.deleteCourse(courses[indexPath.row])
+//            courses = RealmHelper.retrieveCourses()
         }
     }
     @IBAction func unwindToListCoursesViewController(segue: UIStoryboardSegue) {
@@ -115,8 +122,8 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredCourses = courses!.filter { course in
-            return course.name.lowercaseString.containsString(searchText.lowercaseString)
+        filteredCourses = courses.filter { course in
+            return course.name!.lowercaseString.containsString(searchText.lowercaseString)
         }
         
         tableView.reloadData()

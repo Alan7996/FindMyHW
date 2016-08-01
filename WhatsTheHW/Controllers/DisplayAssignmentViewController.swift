@@ -38,7 +38,7 @@ class DisplayAssignmentViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == "Save" {
-            // if assignment exists, update title and content
+            // if assignment exists, update title, instruction and due date
             print("save clicked")
             if let assignment = assignment {
                 let newAssignment = Assignment()
@@ -50,12 +50,12 @@ class DisplayAssignmentViewController: UIViewController {
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
                 listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
             } else {
-                // if note does not exist, create new note
+                // if assignment does not exist, create new assignment
                 let assignment = Assignment()
                 assignment.title = assignmentTitleTextField.text ?? ""
                 assignment.instruction = assignmentInstructionTextView.text ?? ""
                 assignment.modificationTime = NSDate()
-                assignment.assignmentClass = course!.name
+                assignment.assignmentClass = course!.name!
                 assignment.dueDate = assignmentDueDate.text ?? ""
                 
                 print("assignmentNameText: " +  assignmentTitleTextField.text!)
