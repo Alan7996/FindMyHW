@@ -19,7 +19,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     
     var users: [User] = []
     var courses: [Course] = []
-//    var coursesArray = NSMutableArray()
+    var coursesArray = NSMutableArray()
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
@@ -28,23 +28,29 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
-//        let allCoursesQuery = PFQuery(className: "Course")
-//        allCoursesQuery.whereKeyExists("name")
-//        
-//        allCoursesQuery.findObjectsInBackgroundWithBlock {
-//            (courses: [PFObject]?, error: NSError?) -> Void in
-//            
-//            if error == nil {
-//                // Do something with the found objects
-//                for course in courses! {
-//                    self.coursesArray.addObject(course)
-//                }
-//            }
-//        }
+        
+//        var tableViewFooter = UIView(frame: CGRect(x: 0, y: 0, width: 600, height: 50))
+//        tableViewFooter.backgroundColor = UIColor.greenColor()
+//        tableView.tableFooterView  = tableViewFooter
+        
+        let allCoursesQuery = PFQuery(className: "Course")
+        allCoursesQuery.whereKeyExists("name")
+        
+        allCoursesQuery.findObjectsInBackgroundWithBlock {
+            (courses: [PFObject]?, error: NSError?) -> Void in
+            
+            if error == nil {
+                // Do something with the found objects
+                for course in courses! {
+                    self.coursesArray.addObject(course)
+                }
+            }
+        }
         
         let currentUserCoursesQuery = PFQuery(className: "Course")
         
@@ -114,6 +120,29 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
 //            courses = RealmHelper.retrieveCourses()
         }
     }
+    
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        var footerView : UIView?
+        footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
+        
+        let addCourseBtn = UIButton(type: UIButtonType.System)
+        addCourseBtn.backgroundColor = UIColor.greenColor()
+        addCourseBtn.setTitle("Add Course", forState: UIControlState.Normal)
+        addCourseBtn.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
+        addCourseBtn.addTarget(self, action: "addCourse:", forControlEvents: UIControlEvents.TouchUpInside)
+        
+        footerView?.addSubview(addCourseBtn)
+        
+        return footerView
+    }
+
+    func addCourse(sender: UIButton!) {
+        print("Add Course tapped")
+        //add functionality to append the user's name to studentRelation array
+        //also need a functionality to delete the user's name from the array
+        //possibly create a new viewcontroller to handle all of these
+    }
+    
     @IBAction func unwindToListCoursesViewController(segue: UIStoryboardSegue) {
         
         // for now, simply defining the method is sufficient.

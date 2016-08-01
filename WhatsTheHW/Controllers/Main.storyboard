@@ -35,22 +35,6 @@
                                             <color key="textColor" red="0.27058823529999998" green="0.59215686270000001" blue="0.78039215689999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Teacher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry0-Fx-0aW" userLabel="Course Teacher Label">
-                                            <rect key="frame" x="21" y="29" width="511" height="22"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="384" id="Bj4-KM-qpb"/>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="384" id="YxY-Pp-9R5"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                            <variation key="default">
-                                                <mask key="constraints">
-                                                    <exclude reference="Bj4-KM-qpb"/>
-                                                    <exclude reference="YxY-Pp-9R5"/>
-                                                </mask>
-                                            </variation>
-                                        </label>
                                         <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Modification Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdb-5X-u2z" userLabel="Course Modification Time Label">
                                             <rect key="frame" x="444" y="0.0" width="148" height="21"/>
                                             <constraints>
@@ -64,6 +48,22 @@
                                             <variation key="default">
                                                 <mask key="constraints">
                                                     <exclude reference="1yA-wZ-m72"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Teacher" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ry0-Fx-0aW" userLabel="Course Teacher Label">
+                                            <rect key="frame" x="21" y="29" width="511" height="22"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="384" id="Bj4-KM-qpb"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="384" id="YxY-Pp-9R5"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Bj4-KM-qpb"/>
+                                                    <exclude reference="YxY-Pp-9R5"/>
                                                 </mask>
                                             </variation>
                                         </label>
