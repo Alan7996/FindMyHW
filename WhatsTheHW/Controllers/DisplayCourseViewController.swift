@@ -43,11 +43,10 @@ class DisplayCourseViewController: UIViewController {
                 print("courseNameText: " +  courseNameTextField.text!)
                 print("courseName: " + course.name!)
                 
-                course.addCourse(course.name!, teacherName: course.teacher!)
+                course.addCourse(course)
             }
             listCoursesTableViewController.tableView.reloadData()
             print("Data reloaded")
-//            listCoursesTableViewController.courses = RealmHelper.retrieveCourses()
         }
     }
     override func viewWillAppear(animated: Bool) {

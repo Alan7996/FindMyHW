@@ -31,21 +31,18 @@ class Course: PFObject, PFSubclassing {
         }
     }
     
-    func addCourse(courseName: String, teacherName: String) {
-        if let course = course.value {
-            self.name = courseName
-            self.teacher = teacherName
-            
-            courseUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
-                UIApplication.sharedApplication().endBackgroundTask(self.courseUploadTask!)
+    func addCourse(course1: Course) {
+        course = course1
+        
+        courseUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+            UIApplication.sharedApplication().endBackgroundTask(self.courseUploadTask!)
+        }
+        
+        saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
+            if let error = error {
+                ErrorHandling.defaultErrorHandler(error)
             }
-            
-            saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
-                if let error = error {
-                    ErrorHandling.defaultErrorHandler(error)
-                }
-                UIApplication.sharedApplication().endBackgroundTask(self.courseUploadTask!)
-            }
+            UIApplication.sharedApplication().endBackgroundTask(self.courseUploadTask!)
         }
     }
 }
