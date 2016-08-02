@@ -18,13 +18,19 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("1")
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         tableView.dataSource = self
+        
+        
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        assignments = []
         
         let currentCourseAssignmentsQuery = PFQuery(className: "Assignment")
         
@@ -39,10 +45,6 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
             
             self.tableView.reloadData()
         }
-    }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

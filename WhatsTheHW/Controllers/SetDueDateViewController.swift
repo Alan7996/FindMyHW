@@ -38,6 +38,7 @@ class SetDueDateViewController: UIViewController {
                 
                 let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
                 
+                
                 displayAssignmentViewController.dueDate = dueDate
                 
                 displayAssignmentViewController.assignmentDueDate.text = DateHelper.stringFromDate(dueDate!)

@@ -62,9 +62,6 @@ class DisplayAssignmentViewController: UIViewController {
                 
                 parseAssignment.saveInBackground()
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
-                
-//                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
-                listAssignmentsTableViewController.tableView.reloadData()
             } else {
                 // if assignment does not exist, create new assignment
                 let newAssignment = Assignment()
@@ -78,8 +75,6 @@ class DisplayAssignmentViewController: UIViewController {
                 newAssignment.addAssignment(newAssignment)
                 
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
-                
-                listAssignmentsTableViewController.tableView.reloadData()
             }
         } else if segue.identifier == "setDueDate" {
             let setDueDateViewController = segue.destinationViewController as! SetDueDateViewController
@@ -89,10 +84,26 @@ class DisplayAssignmentViewController: UIViewController {
     
     override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
         if identifier == "Save" {
-            if dueDate == nil {
+            if assignmentTitleTextField.text == "" {
+                let alert = UIAlertView()
+                alert.title = "No Title"
+                alert.message = "Please Set The Title"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                
+                return false
+            } else if dueDate == nil {
                 let alert = UIAlertView()
                 alert.title = "No Due Date"
                 alert.message = "Please Set The Due Date"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                
+                return false
+            } else if assignmentInstructionTextView.text == "" {
+                let alert = UIAlertView()
+                alert.title = "No Instruction"
+                alert.message = "Please Set The Instruction"
                 alert.addButtonWithTitle("Ok")
                 alert.show()
                 

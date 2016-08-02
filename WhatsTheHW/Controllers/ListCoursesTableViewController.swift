@@ -60,8 +60,6 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
             
             self.courses.sortInPlace({ $0.name!.compare($1.name!) == NSComparisonResult.OrderedAscending})
             
-            print(self.courses)
-            
             self.tableView.reloadData()
         }
     }
