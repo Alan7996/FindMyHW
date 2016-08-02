@@ -17,21 +17,35 @@ class DisplayAssignmentViewController: UIViewController {
     
     var assignment: Assignment?
     var course: Course?
+    var dueDate: NSDate?
+    var objectID: String?
+    var parseAssignment: Assignment?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print (course?.name)
+        
         self.assignmentInstructionTextView.layer.borderWidth = 0.5
         self.assignmentInstructionTextView.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0.5, alpha: 0.5 )).CGColor
         self.assignmentInstructionTextView.layer.cornerRadius = 10
+        
         if let assignment = assignment {
             assignmentTitleTextField.text = assignment.title
             assignmentInstructionTextView.text = assignment.instruction
-            assignmentDueDate.text = String(assignment.dueDate)
+            assignmentDueDate.text = DateHelper.stringFromDate(assignment.dueDate!)
         } else {
             assignmentTitleTextField.text = ""
             assignmentInstructionTextView.text = ""
             assignmentDueDate.text = ""
+        }
+        
+        let currentCourseAssignmentsQuery = PFQuery(className: "Assignment")
+        
+        currentCourseAssignmentsQuery.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
+            for object in result! {
+                if object.objectId == self.objectID {
+                    self.parseAssignment = object as? Assignment
+                }
+            }
         }
     }
     
@@ -40,33 +54,32 @@ class DisplayAssignmentViewController: UIViewController {
         if segue.identifier == "Save" {
             // if assignment exists, update title, instruction and due date
             print("save clicked")
-            if let assignment = assignment {
+            if let parseAssignment = assignment {
+                
+                parseAssignment.title = assignmentTitleTextField.text ?? ""
+                parseAssignment.instruction = assignmentInstructionTextView.text ?? ""
+                parseAssignment.dueDate = dueDate
+                
+                parseAssignment.saveInBackground()
+                let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
+                
+//                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
+                listAssignmentsTableViewController.tableView.reloadData()
+            } else {
+                // if assignment does not exist, create new assignment
                 let newAssignment = Assignment()
                 newAssignment.title = assignmentTitleTextField.text ?? ""
                 newAssignment.instruction = assignmentInstructionTextView.text ?? ""
-//                newAssignment.dueDate = assignmentDueDate.text ?? ""
+                newAssignment.dueDate = dueDate
                 
-//                RealmHelper.updateAssignment(assignment, newAssignment: newAssignment)
+                newAssignment.setObject(PFUser.currentUser()!, forKey: "user")
+                newAssignment.setObject(course!, forKey: "course")
+                
+                newAssignment.addAssignment(newAssignment)
+                
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
-//                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
-            } else {
-                // if assignment does not exist, create new assignment
-                let assignment = Assignment()
-                assignment.title = assignmentTitleTextField.text ?? ""
-                assignment.instruction = assignmentInstructionTextView.text ?? ""
-//                assignment.modificationTime = NSDate()
-//                assignment.assignmentClass = course!.name!
-//                assignment.dueDate = assignmentDueDate.text ?? ""
                 
-                print("assignmentNameText: " +  assignmentTitleTextField.text!)
-                print("assignmentName: " + assignment.title!)
-//                print("asisgnmentDueDate: " + assignment.dueDate)
-                
-//                RealmHelper.addAssignment(assignment)
-                let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
-//                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
-                
-                print("\(listAssignmentsTableViewController.assignments.count) assignments in listAssignmentsTableViewController")
+                listAssignmentsTableViewController.tableView.reloadData()
             }
         } else if segue.identifier == "setDueDate" {
             let setDueDateViewController = segue.destinationViewController as! SetDueDateViewController
@@ -74,13 +87,27 @@ class DisplayAssignmentViewController: UIViewController {
         }
     }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+        if identifier == "Save" {
+            if dueDate == nil {
+                let alert = UIAlertView()
+                alert.title = "No Due Date"
+                alert.message = "Please Set The Due Date"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                
+                return false
+            }
+            else {
+                return true
+            }
+        }
+        // by default, transition
+        return true
+    }
+    
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue){
-//        if let assignment = assignment {
-//            assignmentDueDate.text = dueDate2 ?? "0/0/2016"
-//        } else {
-//            assignmentDueDate.text = ""
-//        }
-
+        
     }
     
     

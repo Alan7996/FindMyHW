@@ -18,6 +18,7 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("1")
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false
@@ -29,15 +30,19 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         
         currentCourseAssignmentsQuery.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
             for object in result! {
-                if object["course"].objectId == ((self.course?.name)!) {
+                if object["course"].objectId == ((self.course?.objectId)!) {
                     self.assignments.append(object as! Assignment)
                 }
             }
             
-            print(self.assignments)
+            self.assignments.sortInPlace({ $0.dueDate!.compare($1.dueDate!) == NSComparisonResult.OrderedAscending})
             
             self.tableView.reloadData()
         }
+    }
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -61,8 +66,6 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         
         cell.assignmentNameLabel.text = assignment.title
 
-//        cell.assignmentModificationTimeLabel.text = assignment.modificationTime.convertToString()
-
         cell.assignmentInstructionLabel.text = assignment.instruction
         
         cell.assignmentInstructionLabel.numberOfLines = 0
@@ -71,7 +74,9 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         
         cell.assignmentInstructionLabel.sizeToFit()
         
-//        cell.assignmentDueDateLabel.text = assignment.dueDate
+        cell.assignmentModificationTimeLabel.text = DateHelper.stringFromDate(assignment.updatedAt!)
+        
+        cell.assignmentDueDateLabel.text = DateHelper.stringFromDate(assignment.dueDate!)
         
         return cell
     }
@@ -80,12 +85,8 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         if let identifier = segue.identifier {
             if identifier == "addAssignment" {
                 print("+ button tapped")
-                
-                print (assignments.count)
                 let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
                 displayAssignmentViewController.course = course
-
-                print (course?.name)
                 
             } else if identifier == "displayAssignment" {
                 print("Table view cell tapped")
@@ -94,7 +95,7 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
                 let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
                 displayAssignmentViewController.assignment = assignment
                 displayAssignmentViewController.course = course
-                print (course?.name)
+                displayAssignmentViewController.objectID = assignment.objectId
             }
         }
     }

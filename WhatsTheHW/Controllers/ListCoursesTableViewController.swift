@@ -58,6 +58,8 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
                 }
             }
             
+            self.courses.sortInPlace({ $0.name!.compare($1.name!) == NSComparisonResult.OrderedAscending})
+            
             print(self.courses)
             
             self.tableView.reloadData()
@@ -85,7 +87,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         
         cell.courseNameLabel.text = course.name
         
-//        cell.courseModificationTimeLabel.text = course.modificationTime.convertToString()
+        cell.courseModificationTimeLabel.text = DateHelper.stringFromDate(course.updatedAt!)
         
         cell.courseTeacherLabel.text = course.teacher
 
@@ -101,7 +103,6 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
                 let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
                 listAssignmentsTableViewController.course = course
                 print (course.name)
-//                listAssignmentsTableViewController.assignments = RealmHelper.retrieveAssignments()
                 
             } else if identifier == "addCourse" {
                 print("+ button tapped")

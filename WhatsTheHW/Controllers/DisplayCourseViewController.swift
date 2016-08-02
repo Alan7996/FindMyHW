@@ -26,23 +26,24 @@ class DisplayCourseViewController: UIViewController {
             // if course exists, update name and teacher
             print("save clicked")
             if let course = course {
+                course.name = courseNameTextField.text ?? ""
+                course.teacher = username
+                
+                course.saveInBackground()
+                //hasn't been check if works yet, original:
+                //let newCourse = Course()
+                //newCourse.name = courseNameTextField.text ?? ""
+                //newCourse.teacher = username
+            } else {
+                // if course does not exist, create new course
                 let newCourse = Course()
                 newCourse.name = courseNameTextField.text ?? ""
                 newCourse.teacher = username
                 
-                
-//                RealmHelper.updateCourse(course, newCourse: newCourse)
-            } else {
-                // if course does not exist, create new course
-                let course = Course()
-                course.name = courseNameTextField.text ?? ""
-                course.teacher = username
-//                course.modificationTime = NSDate()
-                
                 print("courseNameText: " +  courseNameTextField.text!)
-                print("courseName: " + course.name!)
+                print("courseName: " + newCourse.name!)
                 
-                course.addCourse(course)
+                newCourse.addCourse(newCourse)
             }
             listCoursesTableViewController.tableView.reloadData()
             print("Data reloaded")

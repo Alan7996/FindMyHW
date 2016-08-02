@@ -10,6 +10,7 @@
 		12A41AC6057777BF99E0ECB0 /* Pods_WhatsTheHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */; };
 		FB07FF5C1D41B8A200914BD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB07FF5B1D41B8A200914BD0 /* Main.storyboard */; };
 		FB07FF641D41C07C00914BD0 /* SetDueDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB07FF631D41C07C00914BD0 /* SetDueDateViewController.swift */; };
+		FB28E65B1D5032BA00EE755D /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB28E65A1D5032BA00EE755D /* DateHelper.swift */; };
 		FB7D4F221D3767130000EA1B /* ListAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */; };
 		FB7D4F261D3768A60000EA1B /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F251D3768A60000EA1B /* Assignment.swift */; };
 		FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */; };
@@ -35,6 +36,7 @@
 		8FBF1BCF6FDA2D4303805476 /* Pods-WhatsTheHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW.release.xcconfig"; sourceTree = "<group>"; };
 		FB07FF5B1D41B8A200914BD0 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Controllers/Main.storyboard; sourceTree = "<group>"; };
 		FB07FF631D41C07C00914BD0 /* SetDueDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDueDateViewController.swift; sourceTree = "<group>"; };
+		FB28E65A1D5032BA00EE755D /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewController.swift; sourceTree = "<group>"; };
 		FB7D4F251D3768A60000EA1B /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 				FB818C881D49D9C1001042C1 /* ParseHelper.swift */,
 				FB818C8C1D49ED35001042C1 /* ParseLoginHelper.swift */,
 				FB818C8A1D49DC63001042C1 /* ErrorHandling.swift */,
+				FB28E65A1D5032BA00EE755D /* DateHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */,
 				FBF99CCB1D36134200263E76 /* Course.swift in Sources */,
 				FBF99CCD1D3614BC00263E76 /* ListCoursesTableViewController.swift in Sources */,
+				FB28E65B1D5032BA00EE755D /* DateHelper.swift in Sources */,
 				FB07FF641D41C07C00914BD0 /* SetDueDateViewController.swift in Sources */,
 				FB818C891D49D9C1001042C1 /* ParseHelper.swift in Sources */,
 				FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */,
