@@ -19,13 +19,13 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     var filteredCourses = [Course]()
     
     var courses: [Course] = []
-    var coursesArray = NSMutableArray()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         searchController.searchResultsUpdater = self
-        searchController.dimsBackgroundDuringPresentation = false
+        searchController.dimsBackgroundDuringPresentation = true
+        searchController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
@@ -39,21 +39,6 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         super.viewWillAppear(animated)
         
         courses = []
-        coursesArray = []
-        
-        let allCoursesQuery = PFQuery(className: "Course")
-        allCoursesQuery.whereKeyExists("name")
-        
-        allCoursesQuery.findObjectsInBackgroundWithBlock {
-            (courses: [PFObject]?, error: NSError?) -> Void in
-            
-            if error == nil {
-                // Do something with the found objects
-                for course in courses! {
-                    self.coursesArray.addObject(course)
-                }
-            }
-        }
         
         let currentUserCoursesQuery = PFQuery(className: "Course")
         
@@ -99,6 +84,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
 
         return cell
     }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             if identifier == "displayCourse" {
@@ -112,6 +98,9 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
                 
             } else if identifier == "addCourse" {
                 print("+ button tapped")
+            } else if identifier == "searchToAddCourse" {
+                print("Add Course button tapped")
+                let searchCoursesTableViewController = segue.destinationViewController as! SearchCoursesTableViewController
             }
         }
     }
@@ -144,6 +133,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
 
     func addCourse(sender: UIButton!) {
         print("Add Course tapped")
+        self.performSegueWithIdentifier("searchToAddCourse", sender: sender)
         //add functionality to append the user's name to studentRelation array
         //also need a functionality to delete the user's name from the array
         //possibly create a new viewcontroller to handle all of these

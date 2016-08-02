@@ -1,15 +1,14 @@
 //
-//  ListCoursesTableViewCell.swift
+//  SearchCoursesTableViewCell.swift
 //  WhatsTheHW
 //
-//  Created by 수현 on 7/13/16.
+//  Created by 수현 on 8/2/16.
 //  Copyright © 2016 MakeSchool. All rights reserved.
 //
 
 import UIKit
 
-class ListCoursesTableViewCell: UITableViewCell {
+class SearchCoursesTableViewCell: UITableViewCell {
     @IBOutlet weak var courseNameLabel: UILabel!
-    @IBOutlet weak var courseModificationTimeLabel: UILabel!
     @IBOutlet weak var courseTeacherLabel: UILabel!
 }
