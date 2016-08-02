@@ -6,10 +6,14 @@
 //  Copyright © 2016 MakeSchool. All rights reserved.
 //
 
+// Pull to refresh needs to be implemented
+
 import UIKit
 import Parse
 
 class ListAssignmentsTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+//    var refreshControl1: UIRefreshControl!
+    
     let searchController = UISearchController(searchResultsController: nil)
     var filteredAssignments = [Assignment]()
     
@@ -25,7 +29,10 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         tableView.tableHeaderView = searchController.searchBar
         tableView.dataSource = self
         
-        
+//        refreshControl1 = UIRefreshControl()
+//        refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
+//        refreshControl1.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+//        tableView.addSubview(refreshControl1)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -51,7 +58,7 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         if searchController.active && searchController.searchBar.text != "" {
             return filteredAssignments.count
         }
-        
+
         return assignments.count
     }
     
@@ -117,6 +124,13 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         
         tableView.reloadData()
     }
+    
+//    func refresh(sender:AnyObject) {
+//        // Code to refresh table view
+//        viewWillAppear(true)
+//        tableView.numberOfRowsInSection(0)
+//        refreshControl1.endRefreshing()
+//    }
     
     @IBAction func unwindToListCoursesViewController(segue: UIStoryboardSegue) {
         

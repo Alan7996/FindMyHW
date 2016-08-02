@@ -13,17 +13,13 @@ import UIKit
 import Parse
 
 class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+    var refreshControl1: UIRefreshControl!
     
     let searchController = UISearchController(searchResultsController: nil)
     var filteredCourses = [Course]()
     
     var courses: [Course] = []
     var coursesArray = NSMutableArray()
-    
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-        
-    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +28,18 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         searchController.dimsBackgroundDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        
+        refreshControl1 = UIRefreshControl()
+        refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl1.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl1)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        courses = []
+        coursesArray = []
         
         let allCoursesQuery = PFQuery(className: "Course")
         allCoursesQuery.whereKeyExists("name")
@@ -139,6 +147,12 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         //add functionality to append the user's name to studentRelation array
         //also need a functionality to delete the user's name from the array
         //possibly create a new viewcontroller to handle all of these
+    }
+    
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        viewWillAppear(true)
+        refreshControl1.endRefreshing()
     }
     
     @IBAction func unwindToListCoursesViewController(segue: UIStoryboardSegue) {
