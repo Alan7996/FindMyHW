@@ -31,6 +31,17 @@ class ParseHelper {
         }
     }
     
+    static func saveObjectInBackgroundWithBlock(object:PFObject) {
+        object.saveInBackgroundWithBlock{(success, error) in
+            if success == true {
+                print("save completed")
+            } else {
+                print("save failed")
+            }
+        print("\(object) saved to parse")
+        }
+    }
+
 }
 
 extension PFObject {

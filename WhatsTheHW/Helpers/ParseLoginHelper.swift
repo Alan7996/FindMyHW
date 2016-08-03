@@ -27,7 +27,12 @@ class ParseLoginHelper : NSObject {
         self.callback = callback
     }
 }
-
+extension ParseLoginHelper : PFLogInViewControllerDelegate {
+    
+    func logInViewController(logInController: PFLogInViewController, didLogInUser user: PFUser) {
+        self.callback(user, nil)
+    }
+}
 extension ParseLoginHelper : PFSignUpViewControllerDelegate {
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {

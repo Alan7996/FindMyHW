@@ -13,6 +13,7 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
     let searchController = UISearchController(searchResultsController: nil)
     var filteredCourses = [Course]()
     var coursesArray: [Course] = []
+    var selectedCourse: Course?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,10 +30,9 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
         
         coursesArray = []
         
-        let allCoursesQuery = PFQuery(className: "Course")
-        allCoursesQuery.whereKeyExists("name")
+        let notEnrolledCoursesQuery = PFQuery(className: "Course")
         
-        allCoursesQuery.findObjectsInBackgroundWithBlock {
+        notEnrolledCoursesQuery.findObjectsInBackgroundWithBlock {
             (courses: [PFObject]?, error: NSError?) -> Void in
             
             if error == nil {
@@ -49,6 +49,7 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
             
             self.tableView.reloadData()
         }
+        print("View appeared")
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -79,6 +80,19 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         //adds currentuser.username to selected course's studentRelation array & refresh the table
+        let courseToBeAdded = PFQuery(className: "Course")
+        
+        courseToBeAdded.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
+            for object in result! {
+                if object.objectId == self.coursesArray[indexPath.row].objectId {
+                    var array = object["studentRelation"] as! [String]
+                    array.append((PFUser.currentUser()?.username)!)
+                    object["studentRelation"] = array
+                    ParseHelper.saveObjectInBackgroundWithBlock(object)
+                }
+            }
+            self.viewWillAppear(true)
+        }
     }
     
     @IBAction func unwindToListCoursesViewController(segue: UIStoryboardSegue) {

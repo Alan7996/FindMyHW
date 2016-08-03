@@ -89,6 +89,21 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         
         return cell
     }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
+                            forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if (indexPath.row == 0) {
+            cell.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(0.2))
+            cell.layer.borderWidth = 2.0
+            cell.layer.borderColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0)).CGColor
+        } else if (indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(0.05))
+        } else {
+            cell.backgroundColor = UIColor.whiteColor()
+        }
+    }
 
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {

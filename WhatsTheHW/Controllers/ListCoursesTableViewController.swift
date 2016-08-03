@@ -12,6 +12,8 @@
 import UIKit
 import Parse
 
+var coursesGlobal = [Course]()
+
 class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     var refreshControl1: UIRefreshControl!
     
@@ -28,6 +30,9 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         searchController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        
+        navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
+        //currently showing a different RGBA value, need to check on actual device
         
         refreshControl1 = UIRefreshControl()
         refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
@@ -53,6 +58,8 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
             
             self.courses.sortInPlace({ $0.name!.compare($1.name!) == NSComparisonResult.OrderedAscending})
             
+            coursesGlobal = self.courses
+            
             self.tableView.reloadData()
         }
     }
@@ -72,8 +79,12 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         
         if searchController.active && searchController.searchBar.text != "" {
             course = filteredCourses[indexPath.row]
-        } else {
+        } else if (courses != []) {
             course = courses[indexPath.row]
+        } else {
+            course = coursesGlobal[indexPath.row]
+            // app crashes when swiped twice with "fatal eror: Index out of range"
+            // issue is still not fixed and needs to be fixed in future
         }
         
         cell.courseNameLabel.text = course.name
@@ -83,6 +94,18 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         cell.courseTeacherLabel.text = course.teacher
 
         return cell
+    }
+    
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
+                   forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if (indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(0.1))
+        } else {
+            cell.backgroundColor = UIColor.whiteColor()
+        }
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -118,7 +141,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         
         if searchController.searchBar.text == "" {
             let addCourseBtn = UIButton(type: UIButtonType.System)
-            addCourseBtn.backgroundColor = UIColor.greenColor()
+//            addCourseBtn.backgroundColor = UIColor.grayColor()
             addCourseBtn.setTitle("Add Course", forState: UIControlState.Normal)
             addCourseBtn.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
             addCourseBtn.addTarget(self, action: "addCourse:", forControlEvents: UIControlEvents.TouchUpInside)

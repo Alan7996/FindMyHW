@@ -20,6 +20,17 @@ class DisplayCourseViewController: UIViewController {
         super.viewDidLoad()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        if let course = course {
+            courseNameTextField.text = course.name
+            courseTeacherLabel.text = course.teacher
+        } else {
+            courseNameTextField.text = ""
+            courseTeacherLabel.text = username
+        }
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let listCoursesTableViewController = segue.destinationViewController as! ListCoursesTableViewController
         if segue.identifier == "Save" {
@@ -49,15 +60,23 @@ class DisplayCourseViewController: UIViewController {
             print("Data reloaded")
         }
     }
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        if let course = course {
-            courseNameTextField.text = course.name
-            courseTeacherLabel.text = course.teacher
-        } else {
-            courseNameTextField.text = ""
-            courseTeacherLabel.text = username
-        }
-    }
     
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        if identifier == "Save" {
+            if courseNameTextField.text == "" {
+                let alert = UIAlertView()
+                alert.title = "No Course Name"
+                alert.message = "Please Set The Name of the Course"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                
+                return false
+            }
+            else {
+                return true
+            }
+        }
+        // by default, transition
+        return true
+    }
 }

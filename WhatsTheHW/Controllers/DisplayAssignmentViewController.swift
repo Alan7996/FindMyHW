@@ -20,6 +20,7 @@ class DisplayAssignmentViewController: UIViewController {
     var dueDate: NSDate?
     var objectID: String?
     var parseAssignment: Assignment?
+    var overlay : UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,8 +61,29 @@ class DisplayAssignmentViewController: UIViewController {
                 parseAssignment.instruction = assignmentInstructionTextView.text ?? ""
                 parseAssignment.dueDate = dueDate
                 
-                parseAssignment.saveInBackground()
-                let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
+                let alert: UIAlertView = UIAlertView(title: "Loading", message: "Please wait...", delegate: nil, cancelButtonTitle: nil);
+                
+                let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
+                loadingIndicator.center = self.view.center;
+                loadingIndicator.hidesWhenStopped = true
+                loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
+                loadingIndicator.startAnimating();
+                
+                alert.setValue(loadingIndicator, forKey: "accessoryView")
+                loadingIndicator.startAnimating()
+                
+                alert.show()
+                
+                ParseHelper.saveObjectInBackgroundWithBlock(parseAssignment)
+                
+                // Delay the dismissal by 0.3 seconds
+                let delay = 0.3 * Double(NSEC_PER_SEC)
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                dispatch_after(time, dispatch_get_main_queue(), {
+                    alert.dismissWithClickedButtonIndex(-1, animated: true)
+                    let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
+                    listAssignmentsTableViewController.viewWillAppear(false)
+                })
             } else {
                 // if assignment does not exist, create new assignment
                 let newAssignment = Assignment()
@@ -73,8 +95,6 @@ class DisplayAssignmentViewController: UIViewController {
                 newAssignment.setObject(course!, forKey: "course")
                 
                 newAssignment.addAssignment(newAssignment)
-                
-                let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
             }
         } else if segue.identifier == "setDueDate" {
             let setDueDateViewController = segue.destinationViewController as! SetDueDateViewController
@@ -82,7 +102,7 @@ class DisplayAssignmentViewController: UIViewController {
         }
     }
     
-    override func shouldPerformSegueWithIdentifier(identifier: String!, sender: AnyObject!) -> Bool {
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         if identifier == "Save" {
             if assignmentTitleTextField.text == "" {
                 let alert = UIAlertView()
@@ -118,18 +138,5 @@ class DisplayAssignmentViewController: UIViewController {
     }
     
     @IBAction func prepareForUnwind(segue: UIStoryboardSegue){
-        
     }
-    
-    
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        
-    }
-    override func viewDidAppear(animated: Bool) {
-        super.viewDidAppear(animated)
-      
-    }
-    
 }

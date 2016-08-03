@@ -18,6 +18,8 @@ class SetDueDateViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print(NSDate())
+        myDatePicker.minimumDate = NSDate()
     }
     
     @IBAction func datePickerAction(sender: AnyObject) {
@@ -44,5 +46,24 @@ class SetDueDateViewController: UIViewController {
                 displayAssignmentViewController.assignmentDueDate.text = DateHelper.stringFromDate(dueDate!)
             }
         }
+    }
+    
+    override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
+        if identifier == "unwindDone" {
+            if dueDate == nil {
+                let alert = UIAlertView()
+                alert.title = "No Due Date"
+                alert.message = "Please Set The Due Date"
+                alert.addButtonWithTitle("Ok")
+                alert.show()
+                
+                return false
+            }
+            else {
+                return true
+            }
+        }
+        // by default, transition
+        return true
     }
 }
