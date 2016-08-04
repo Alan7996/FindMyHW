@@ -140,6 +140,75 @@
             </objects>
             <point key="canvasLocation" x="1055" y="209"/>
         </scene>
+        <!--List School Table View Controller-->
+        <scene sceneID="8WO-IF-gTh">
+            <objects>
+                <tableViewController id="O3V-T7-LtQ" userLabel="List School Table View Controller" customClass="ListSchoolTableViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="1I3-6h-Rkq">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listSchoolTableViewCell" rowHeight="80" id="A1M-dk-zPh" customClass="ListSchoolTableViewCell" customModule="WhatsTheHW" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A1M-dk-zPh" id="pxl-27-fKT">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5l-eR-axD" userLabel="School Name Label">
+                                            <rect key="frame" x="8" y="0.0" width="400" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="400" id="sHW-Fs-Bdi"/>
+                                                <constraint firstAttribute="height" constant="21" id="yel-hU-I8o"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.59607843140000005" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okl-Vh-dzw" userLabel="School Address Label">
+                                            <rect key="frame" x="8" y="29" width="400" height="26"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="26" id="8s4-V1-UJK"/>
+                                                <constraint firstAttribute="width" constant="384" id="MaB-cs-MN6"/>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="384" id="aS8-wG-qON"/>
+                                                <constraint firstAttribute="width" constant="400" id="noQ-SD-0XY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="MaB-cs-MN6"/>
+                                                    <exclude reference="aS8-wG-qON"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="leadingMargin" secondItem="Okl-Vh-dzw" secondAttribute="leading" id="FSc-we-Cld"/>
+                                        <constraint firstAttribute="leadingMargin" secondItem="z5l-eR-axD" secondAttribute="leading" id="OFd-oZ-QPF"/>
+                                        <constraint firstItem="Okl-Vh-dzw" firstAttribute="top" secondItem="z5l-eR-axD" secondAttribute="bottom" constant="8" id="aRc-pJ-Vhp"/>
+                                        <constraint firstItem="z5l-eR-axD" firstAttribute="top" secondItem="pxl-27-fKT" secondAttribute="topMargin" constant="-8" id="iUe-FQ-ZL5"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="schoolAddressLabel" destination="Okl-Vh-dzw" id="ogB-Gx-hXl"/>
+                                    <outlet property="schoolNameLabel" destination="z5l-eR-axD" id="FWV-ad-jaK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="O3V-T7-LtQ" id="fa3-KV-yXe"/>
+                            <outlet property="delegate" destination="O3V-T7-LtQ" id="JFT-79-eZo"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Schools" id="kIQ-Lb-IX8"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rdx-co-e1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="974"/>
+        </scene>
         <!--Search Courses Table View Controller-->
         <scene sceneID="iiN-fi-CqK">
             <objects>
@@ -215,7 +284,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ypB-OC-yHS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1781" y="968"/>
+            <point key="canvasLocation" x="1781" y="974"/>
         </scene>
         <!--Display Course View Controller-->
         <scene sceneID="Z2X-z8-NbI">
@@ -712,6 +781,24 @@
                 <exit id="NCp-0N-luL" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2567" y="204"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="SMQ-PD-wvd">
+            <objects>
+                <navigationController storyboardIdentifier="ListSchoolTableViewController" automaticallyAdjustsScrollViewInsets="NO" id="8ie-rc-Bzy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZVv-iD-qUt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="O3V-T7-LtQ" kind="relationship" relationship="rootViewController" id="GPc-1l-Kj3"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9mr-Cw-f44" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="243" y="974"/>
         </scene>
     </scenes>
     <resources>

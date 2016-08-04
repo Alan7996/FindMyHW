@@ -19,12 +19,15 @@
 		FB818C891D49D9C1001042C1 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB818C881D49D9C1001042C1 /* ParseHelper.swift */; };
 		FB818C8B1D49DC63001042C1 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB818C8A1D49DC63001042C1 /* ErrorHandling.swift */; };
 		FB818C8D1D49ED35001042C1 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB818C8C1D49ED35001042C1 /* ParseLoginHelper.swift */; };
+		FB84E8231D52D4DD00D36BA1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB84E8221D52D4DD00D36BA1 /* LaunchScreen.storyboard */; };
+		FB84E8251D52D9A100D36BA1 /* ListSchoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84E8241D52D9A100D36BA1 /* ListSchoolTableViewController.swift */; };
+		FB84E8271D52E35600D36BA1 /* ListSchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84E8261D52E35600D36BA1 /* ListSchoolTableViewCell.swift */; };
+		FB84E8291D52E44300D36BA1 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84E8281D52E44300D36BA1 /* School.swift */; };
 		FB92AC391D4895A5007779AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB92AC381D4895A5007779AB /* User.swift */; };
 		FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */; };
 		FBF2D3631D40B265005799A7 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF2D3621D40B265005799A7 /* Calendar.png */; };
 		FBF99CAA1D36123200263E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CA91D36123200263E76 /* AppDelegate.swift */; };
 		FBF99CB11D36123200263E76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBF99CB01D36123200263E76 /* Assets.xcassets */; };
-		FBF99CB41D36123200263E76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FBF99CB21D36123200263E76 /* LaunchScreen.storyboard */; };
 		FBF99CC51D3612FC00263E76 /* NSDate+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CC41D3612FC00263E76 /* NSDate+convertToString.swift */; };
 		FBF99CCB1D36134200263E76 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CCA1D36134200263E76 /* Course.swift */; };
 		FBF99CCD1D3614BC00263E76 /* ListCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CCC1D3614BC00263E76 /* ListCoursesTableViewController.swift */; };
@@ -47,13 +50,16 @@
 		FB818C881D49D9C1001042C1 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
 		FB818C8A1D49DC63001042C1 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
 		FB818C8C1D49ED35001042C1 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
+		FB84E8221D52D4DD00D36BA1 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB84E8241D52D9A100D36BA1 /* ListSchoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSchoolTableViewController.swift; sourceTree = "<group>"; };
+		FB84E8261D52E35600D36BA1 /* ListSchoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSchoolTableViewCell.swift; sourceTree = "<group>"; };
+		FB84E8281D52E44300D36BA1 /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		FB92AC381D4895A5007779AB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentViewController.swift; sourceTree = "<group>"; };
 		FBF2D3621D40B265005799A7 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
 		FBF99CA61D36123200263E76 /* WhatsTheHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTheHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF99CA91D36123200263E76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBF99CB01D36123200263E76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		FBF99CB31D36123200263E76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FBF99CB51D36123200263E76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FBF99CC41D3612FC00263E76 /* NSDate+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+convertToString.swift"; sourceTree = "<group>"; };
 		FBF99CCA1D36134200263E76 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
@@ -119,8 +125,8 @@
 				FBF99CBD1D3612AE00263E76 /* Views */,
 				FBF99CA91D36123200263E76 /* AppDelegate.swift */,
 				FB07FF5B1D41B8A200914BD0 /* Main.storyboard */,
+				FB84E8221D52D4DD00D36BA1 /* LaunchScreen.storyboard */,
 				FBF99CB01D36123200263E76 /* Assets.xcassets */,
-				FBF99CB21D36123200263E76 /* LaunchScreen.storyboard */,
 				FBF99CB51D36123200263E76 /* Info.plist */,
 			);
 			path = WhatsTheHW;
@@ -130,6 +136,7 @@
 			isa = PBXGroup;
 			children = (
 				FBF99CBE1D3612AE00263E76 /* Models */,
+				FB84E8261D52E35600D36BA1 /* ListSchoolTableViewCell.swift */,
 				FBF99CD21D3617BF00263E76 /* ListCoursesTableViewCell.swift */,
 				FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */,
 				FB28E65E1D508EB000EE755D /* SearchCoursesTableViewCell.swift */,
@@ -140,6 +147,7 @@
 		FBF99CBE1D3612AE00263E76 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FB84E8281D52E44300D36BA1 /* School.swift */,
 				FBF99CCA1D36134200263E76 /* Course.swift */,
 				FB7D4F251D3768A60000EA1B /* Assignment.swift */,
 				FB92AC381D4895A5007779AB /* User.swift */,
@@ -150,6 +158,7 @@
 		FBF99CBF1D3612B500263E76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FB84E8241D52D9A100D36BA1 /* ListSchoolTableViewController.swift */,
 				FBF99CCC1D3614BC00263E76 /* ListCoursesTableViewController.swift */,
 				FBF99CCE1D3614DE00263E76 /* DisplayCourseViewController.swift */,
 				FB28E65C1D5085A800EE755D /* SearchCoursesTableViewController.swift */,
@@ -241,8 +250,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FBF99CB41D36123200263E76 /* LaunchScreen.storyboard in Resources */,
 				FBF2D3631D40B265005799A7 /* Calendar.png in Resources */,
+				FB84E8231D52D4DD00D36BA1 /* LaunchScreen.storyboard in Resources */,
 				FBF99CB11D36123200263E76 /* Assets.xcassets in Resources */,
 				FB07FF5C1D41B8A200914BD0 /* Main.storyboard in Resources */,
 			);
@@ -306,13 +315,16 @@
 				FB92AC391D4895A5007779AB /* User.swift in Sources */,
 				FB7D4F261D3768A60000EA1B /* Assignment.swift in Sources */,
 				FBF99CC51D3612FC00263E76 /* NSDate+convertToString.swift in Sources */,
+				FB84E8271D52E35600D36BA1 /* ListSchoolTableViewCell.swift in Sources */,
 				FBF99CCF1D3614DE00263E76 /* DisplayCourseViewController.swift in Sources */,
 				FB28E65F1D508EB000EE755D /* SearchCoursesTableViewCell.swift in Sources */,
 				FB7D4F221D3767130000EA1B /* ListAssignmentsTableViewController.swift in Sources */,
+				FB84E8291D52E44300D36BA1 /* School.swift in Sources */,
 				FB818C8D1D49ED35001042C1 /* ParseLoginHelper.swift in Sources */,
 				FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */,
 				FBF99CCB1D36134200263E76 /* Course.swift in Sources */,
 				FBF99CCD1D3614BC00263E76 /* ListCoursesTableViewController.swift in Sources */,
+				FB84E8251D52D9A100D36BA1 /* ListSchoolTableViewController.swift in Sources */,
 				FB28E65B1D5032BA00EE755D /* DateHelper.swift in Sources */,
 				FB07FF641D41C07C00914BD0 /* SetDueDateViewController.swift in Sources */,
 				FB818C891D49D9C1001042C1 /* ParseHelper.swift in Sources */,
@@ -325,17 +337,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		FBF99CB21D36123200263E76 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				FBF99CB31D36123200263E76 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		FBF99CB61D36123200263E76 /* Debug */ = {

@@ -38,9 +38,11 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
             if error == nil {
                 // Do something with the found objects
                 for course in courses! {
-                    if course["studentRelation"].containsObject((PFUser.currentUser()?.username)!) {
-                    } else {
-                        self.coursesArray.append(course as! Course)
+                    if course["school"].objectId == PFUser.currentUser()?["school"].objectId {
+                        if course["studentRelation"].containsObject((PFUser.currentUser()?.username)!) {
+                        } else {
+                            self.coursesArray.append(course as! Course)
+                        }
                     }
                 }
             }

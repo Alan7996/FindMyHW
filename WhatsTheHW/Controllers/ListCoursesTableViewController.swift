@@ -6,19 +6,16 @@
 //  Copyright © 2016 MakeSchool. All rights reserved.
 //
 
-//My test
-
-
 import UIKit
 import Parse
 
 var coursesGlobal = [Course]()
 
 class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
-    var refreshControl1: UIRefreshControl!
-    
     let searchController = UISearchController(searchResultsController: nil)
     var filteredCourses = [Course]()
+    
+    var refreshControl1: UIRefreshControl!
     
     var courses: [Course] = []
     
@@ -51,7 +48,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         
         currentUserCoursesQuery.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
             for object in result! {
-                if object["studentRelation"].containsObject((PFUser.currentUser()?.username)!) {
+                if object["school"].objectId == PFUser.currentUser()?["school"].objectId && object["studentRelation"].containsObject((PFUser.currentUser()?.username)!) {
                     self.courses.append(object as! Course)
                 }
             }
@@ -127,6 +124,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
             }
         }
     }
+    
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         if editingStyle == .Delete {
@@ -157,9 +155,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     func addCourse(sender: UIButton!) {
         print("Add Course tapped")
         self.performSegueWithIdentifier("searchToAddCourse", sender: sender)
-        //add functionality to append the user's name to studentRelation array
         //also need a functionality to delete the user's name from the array
-        //possibly create a new viewcontroller to handle all of these
     }
     
     func refresh(sender:AnyObject) {
@@ -178,6 +174,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredCourses = courses.filter { course in
             return course.name!.lowercaseString.containsString(searchText.lowercaseString)
+            // need to also search teachers' names
         }
         
         tableView.reloadData()

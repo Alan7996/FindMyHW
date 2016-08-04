@@ -35,10 +35,10 @@ class ParseHelper {
         object.saveInBackgroundWithBlock{(success, error) in
             if success == true {
                 print("save completed")
+                print("\(object) saved to parse")
             } else {
                 print("save failed")
             }
-        print("\(object) saved to parse")
         }
     }
 

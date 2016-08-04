@@ -19,7 +19,7 @@ typealias ParseLoginHelperCallback = (PFUser?, NSError?) -> Void
 class ParseLoginHelper : NSObject {
     static let errorDomain = "com.makeschool.parseloginhelpererrordomain"
     static let usernameNotFoundErrorCode = 1
-    static let usernameNotFoundLocalizedDescription = "Could not retrieve Facebook username"
+    static let usernameNotFoundLocalizedDescription = "Could not retrieve username"
     
     let callback: ParseLoginHelperCallback
     
@@ -37,6 +37,12 @@ extension ParseLoginHelper : PFSignUpViewControllerDelegate {
     
     func signUpViewController(signUpController: PFSignUpViewController, didSignUpUser user: PFUser) {
         self.callback(user, nil)
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let startViewController = storyboard.instantiateViewControllerWithIdentifier("ListSchoolTableViewController") as! UINavigationController
+        let mainWindow = UIApplication.sharedApplication().delegate!.window!
+        mainWindow?.rootViewController = startViewController
+        
     }
     
 }

@@ -35,6 +35,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
 //         print(Realm.Configuration.defaultConfiguration.fileURL)
         
+        School.registerSubclass()
         Course.registerSubclass()
         Assignment.registerSubclass()
         
@@ -51,11 +52,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            print("Unable to log in")
 //        }
 //        
-//        if let currentUser = PFUser.currentUser() {
-//            print("\(currentUser.username!) logged in successfully")
-//        } else {
-//            print("No logged in user :(")
-//        }
+        if let currentUser = PFUser.currentUser() {
+            print("\(currentUser.username!) logged in successfully")
+        } else {
+            print("No logged in user :(")
+        }
         
         let acl = PFACL()
         acl.publicReadAccess = true
