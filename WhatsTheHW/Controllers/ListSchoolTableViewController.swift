@@ -13,8 +13,6 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
     let searchController = UISearchController(searchResultsController: nil)
     var filteredSchools = [School]()
     
-    var refreshControl1: UIRefreshControl!
-    
     var schools: [School] = []
     
     override func viewDidLoad() {
@@ -27,12 +25,6 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
         tableView.tableHeaderView = searchController.searchBar
         
         navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
-        //currently showing a different RGBA value, need to check on actual device
-        
-        refreshControl1 = UIRefreshControl()
-        refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl1.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-        tableView.addSubview(refreshControl1)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -142,12 +134,6 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
 //        //also need a functionality to delete the all courses related to school
 //        //possibly create a new viewcontroller to handle all of these
 //    }
-    
-    func refresh(sender:AnyObject) {
-        // Code to refresh table view
-        viewWillAppear(true)
-        refreshControl1.endRefreshing()
-    }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredSchools = schools.filter { school in

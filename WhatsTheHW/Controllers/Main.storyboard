@@ -195,6 +195,7 @@
                                 <connections>
                                     <outlet property="schoolAddressLabel" destination="Okl-Vh-dzw" id="ogB-Gx-hXl"/>
                                     <outlet property="schoolNameLabel" destination="z5l-eR-axD" id="FWV-ad-jaK"/>
+                                    <segue destination="cbp-3T-OpD" kind="show" id="cEK-1C-b6D"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -785,6 +786,7 @@
         <!--Navigation Controller-->
         <scene sceneID="SMQ-PD-wvd">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="9mr-Cw-f44" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="ListSchoolTableViewController" automaticallyAdjustsScrollViewInsets="NO" id="8ie-rc-Bzy" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ZVv-iD-qUt">
@@ -796,7 +798,6 @@
                         <segue destination="O3V-T7-LtQ" kind="relationship" relationship="rootViewController" id="GPc-1l-Kj3"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="9mr-Cw-f44" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="243" y="974"/>
         </scene>

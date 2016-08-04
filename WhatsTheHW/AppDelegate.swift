@@ -46,12 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         Parse.initializeWithConfiguration(configuration)
         
-//        do {
-//            try PFUser.logInWithUsername("test", password: "test")
-//        } catch {
-//            print("Unable to log in")
-//        }
-//        
         if let currentUser = PFUser.currentUser() {
             print("\(currentUser.username!) logged in successfully")
         } else {
@@ -69,9 +63,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let startViewController: UIViewController
 
         if (user != nil) {
-            // if we have a user, set the ListCoursesTableViewController to be the initial view controller
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            startViewController = storyboard.instantiateViewControllerWithIdentifier("ListCoursesTableViewController") as! UINavigationController
+            if PFUser.currentUser()?["school"] == nil {
+                // if we have a user without school selected, set the ListCoursesTableViewController to be the initial view controller
+                startViewController = storyboard.instantiateViewControllerWithIdentifier("ListSchoolTableViewController") as! UINavigationController
+            } else {
+                // if we have a user with school selected, set the ListCoursesTableViewController to be the initial view controller
+                startViewController = storyboard.instantiateViewControllerWithIdentifier("ListCoursesTableViewController") as! UINavigationController
+            }
         } else {
             // Otherwise set the LoginViewController to be the first
             let loginViewController = PFLogInViewController()

@@ -29,7 +29,6 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         tableView.tableHeaderView = searchController.searchBar
         
         navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
-        //currently showing a different RGBA value, need to check on actual device
         
         refreshControl1 = UIRefreshControl()
         refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
