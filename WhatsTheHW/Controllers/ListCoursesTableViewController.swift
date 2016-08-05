@@ -43,11 +43,11 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         
         let currentUserCoursesQuery = PFQuery(className: "Course")
         
-        currentUserCoursesQuery.whereKeyExists("studentRelation")
+//        currentUserCoursesQuery.whereKeyExists("studentRelation")
         
         currentUserCoursesQuery.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
             for object in result! {
-                if object["school"].objectId == PFUser.currentUser()?["school"].objectId && object["studentRelation"].containsObject((PFUser.currentUser()?.username)!) {
+                if object["school"].objectId == PFUser.currentUser()?["school"].objectId && (object["studentRelation"].containsObject((PFUser.currentUser()?.username)!) || object["teacher"] as! String == PFUser.currentUser()?.username) {
                     self.courses.append(object as! Course)
                 }
             }
@@ -127,8 +127,9 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         if editingStyle == .Delete {
-//            RealmHelper.deleteCourse(courses[indexPath.row])
-//            courses = RealmHelper.retrieveCourses()
+            let course = courses[indexPath.row]
+            course.deleteInBackground()
+            self.viewWillAppear(true)
         }
     }
     

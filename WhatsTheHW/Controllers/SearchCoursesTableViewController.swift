@@ -39,7 +39,7 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
                 // Do something with the found objects
                 for course in courses! {
                     if course["school"].objectId == PFUser.currentUser()?["school"].objectId {
-                        if course["studentRelation"].containsObject((PFUser.currentUser()?.username)!) {
+                        if course["studentRelation"].containsObject((PFUser.currentUser()?.username)!){
                         } else {
                             self.coursesArray.append(course as! Course)
                         }
@@ -106,7 +106,7 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredCourses = coursesArray.filter { course in
-            return course.name!.lowercaseString.containsString(searchText.lowercaseString)
+            return course.name!.lowercaseString.containsString(searchText.lowercaseString) || course.teacher!.lowercaseString.containsString(searchText.lowercaseString)
         }
         
         tableView.reloadData()

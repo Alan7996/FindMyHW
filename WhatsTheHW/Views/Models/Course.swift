@@ -12,6 +12,8 @@ import Parse
 class Course: PFObject, PFSubclassing {
     @NSManaged var name: String?
     @NSManaged var teacher: String?
+    @NSManaged var school: AnyObject?
+    @NSManaged var studentRelation: [User]?
     var course: Course?
     var courseUploadTask: UIBackgroundTaskIdentifier?
     

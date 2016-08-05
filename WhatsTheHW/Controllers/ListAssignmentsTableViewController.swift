@@ -12,7 +12,7 @@ import UIKit
 import Parse
 
 class ListAssignmentsTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
-//    var refreshControl1: UIRefreshControl!
+    var refreshControl1: UIRefreshControl!
     
     let searchController = UISearchController(searchResultsController: nil)
     var filteredAssignments = [Assignment]()
@@ -29,10 +29,10 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         tableView.tableHeaderView = searchController.searchBar
         tableView.dataSource = self
         
-//        refreshControl1 = UIRefreshControl()
-//        refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
-//        refreshControl1.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
-//        tableView.addSubview(refreshControl1)
+        refreshControl1 = UIRefreshControl()
+        refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl1.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl1)
     }
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -127,8 +127,9 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         if editingStyle == .Delete {
-//            RealmHelper.deleteAssignment(assignments[indexPath.row])
-//            assignments = RealmHelper.retrieveAssignments()
+            let assignment = assignments[indexPath.row]
+            assignment.deleteInBackground()
+            self.viewWillAppear(true)
         }
     }
     
@@ -140,12 +141,12 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         tableView.reloadData()
     }
     
-//    func refresh(sender:AnyObject) {
-//        // Code to refresh table view
-//        viewWillAppear(true)
-//        tableView.numberOfRowsInSection(0)
-//        refreshControl1.endRefreshing()
-//    }
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        viewWillAppear(true)
+        tableView.numberOfRowsInSection(0)
+        refreshControl1.endRefreshing()
+    }
     
     @IBAction func unwindToListCoursesViewController(segue: UIStoryboardSegue) {
         

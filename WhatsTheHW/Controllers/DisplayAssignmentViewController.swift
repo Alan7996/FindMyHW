@@ -20,7 +20,6 @@ class DisplayAssignmentViewController: UIViewController {
     var dueDate: NSDate?
     var objectID: String?
     var parseAssignment: Assignment?
-    var overlay : UIView?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,16 +62,7 @@ class DisplayAssignmentViewController: UIViewController {
                 
                 let alert: UIAlertView = UIAlertView(title: "Loading", message: "Please wait...", delegate: nil, cancelButtonTitle: nil);
                 
-                let loadingIndicator: UIActivityIndicatorView = UIActivityIndicatorView(frame: CGRectMake(50, 10, 37, 37)) as UIActivityIndicatorView
-                loadingIndicator.center = self.view.center;
-                loadingIndicator.hidesWhenStopped = true
-                loadingIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.Gray
-                loadingIndicator.startAnimating();
-                
-                alert.setValue(loadingIndicator, forKey: "accessoryView")
-                loadingIndicator.startAnimating()
-                
-                alert.show()
+                AlertHelper.showAlert(alert, view: self.view)
                 
                 ParseHelper.saveObjectInBackgroundWithBlock(parseAssignment)
                 
@@ -94,7 +84,20 @@ class DisplayAssignmentViewController: UIViewController {
                 newAssignment.setObject(PFUser.currentUser()!, forKey: "user")
                 newAssignment.setObject(course!, forKey: "course")
                 
+                let alert: UIAlertView = UIAlertView(title: "Loading", message: "Please wait...", delegate: nil, cancelButtonTitle: nil);
+                
+                AlertHelper.showAlert(alert, view: self.view)
+                
                 newAssignment.addAssignment(newAssignment)
+                
+                // Delay the dismissal by 0.3 seconds
+                let delay = 0.3 * Double(NSEC_PER_SEC)
+                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                dispatch_after(time, dispatch_get_main_queue(), {
+                    alert.dismissWithClickedButtonIndex(-1, animated: true)
+                    let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
+                    listAssignmentsTableViewController.viewWillAppear(false)
+                })
             }
         } else if segue.identifier == "setDueDate" {
             let setDueDateViewController = segue.destinationViewController as! SetDueDateViewController

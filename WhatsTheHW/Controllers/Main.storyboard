@@ -144,20 +144,20 @@
         <scene sceneID="8WO-IF-gTh">
             <objects>
                 <tableViewController id="O3V-T7-LtQ" userLabel="List School Table View Controller" customClass="ListSchoolTableViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="1I3-6h-Rkq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="1I3-6h-Rkq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listSchoolTableViewCell" rowHeight="80" id="A1M-dk-zPh" customClass="ListSchoolTableViewCell" customModule="WhatsTheHW" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="80"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listSchoolTableViewCell" rowHeight="70" id="A1M-dk-zPh" customClass="ListSchoolTableViewCell" customModule="WhatsTheHW" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A1M-dk-zPh" id="pxl-27-fKT">
-                                    <rect key="frame" x="0.0" y="0.0" width="600" height="79"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="69"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z5l-eR-axD" userLabel="School Name Label">
-                                            <rect key="frame" x="8" y="0.0" width="400" height="21"/>
+                                            <rect key="frame" x="8" y="8" width="400" height="21"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="400" id="sHW-Fs-Bdi"/>
                                                 <constraint firstAttribute="height" constant="21" id="yel-hU-I8o"/>
@@ -167,7 +167,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Okl-Vh-dzw" userLabel="School Address Label">
-                                            <rect key="frame" x="8" y="29" width="400" height="26"/>
+                                            <rect key="frame" x="8" y="37" width="400" height="26"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="26" id="8s4-V1-UJK"/>
                                                 <constraint firstAttribute="width" constant="384" id="MaB-cs-MN6"/>
@@ -189,7 +189,7 @@
                                         <constraint firstAttribute="leadingMargin" secondItem="Okl-Vh-dzw" secondAttribute="leading" id="FSc-we-Cld"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="z5l-eR-axD" secondAttribute="leading" id="OFd-oZ-QPF"/>
                                         <constraint firstItem="Okl-Vh-dzw" firstAttribute="top" secondItem="z5l-eR-axD" secondAttribute="bottom" constant="8" id="aRc-pJ-Vhp"/>
-                                        <constraint firstItem="z5l-eR-axD" firstAttribute="top" secondItem="pxl-27-fKT" secondAttribute="topMargin" constant="-8" id="iUe-FQ-ZL5"/>
+                                        <constraint firstItem="z5l-eR-axD" firstAttribute="top" secondItem="pxl-27-fKT" secondAttribute="topMargin" id="iUe-FQ-ZL5"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -204,11 +204,19 @@
                             <outlet property="delegate" destination="O3V-T7-LtQ" id="JFT-79-eZo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Schools" id="kIQ-Lb-IX8"/>
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" title="Schools" id="kIQ-Lb-IX8">
+                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Zqo-PF-0jN">
+                            <connections>
+                                <segue destination="OJU-vn-CmQ" kind="show" id="YhZ-sJ-phR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rdx-co-e1f" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1055" y="974"/>
+            <point key="canvasLocation" x="359" y="209"/>
         </scene>
         <!--Search Courses Table View Controller-->
         <scene sceneID="iiN-fi-CqK">
@@ -299,16 +307,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Gl-1N-GBr" userLabel="Course Name Text Field">
-                                <rect key="frame" x="20" y="114" width="560" height="60"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Nfe-AN-XWA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KiK-bP-WM7">
-                                <rect key="frame" x="20" y="194" width="301" height="51"/>
+                                <rect key="frame" x="20" y="230" width="301" height="51"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="301" id="Dee-jz-xcD"/>
                                     <constraint firstAttribute="height" constant="51" id="GmS-Q1-5qi"/>
@@ -317,17 +317,37 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Course Name : " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rq-I0-21e">
+                                <rect key="frame" x="20" y="89" width="122" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="5sz-4L-aMo"/>
+                                    <constraint firstAttribute="width" constant="122" id="bpn-Ey-R5S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Gl-1N-GBr" userLabel="Course Name Text Field">
+                                <rect key="frame" x="20" y="138" width="560" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="Nfe-AN-XWA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="8Rq-I0-21e" firstAttribute="top" secondItem="50I-Ds-yXd" secondAttribute="bottom" constant="25" id="4Ic-ps-SDQ"/>
                             <constraint firstItem="2Gl-1N-GBr" firstAttribute="leading" secondItem="IHq-mB-GJO" secondAttribute="leadingMargin" id="CZe-UO-pAj"/>
-                            <constraint firstItem="KiK-bP-WM7" firstAttribute="top" secondItem="2Gl-1N-GBr" secondAttribute="bottom" constant="20" id="TZY-zk-xmH"/>
-                            <constraint firstItem="2Gl-1N-GBr" firstAttribute="top" secondItem="50I-Ds-yXd" secondAttribute="bottom" constant="50" id="YMF-bV-41c"/>
+                            <constraint firstItem="KiK-bP-WM7" firstAttribute="top" secondItem="2Gl-1N-GBr" secondAttribute="bottom" constant="32" id="Odk-kA-NHJ"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="8Rq-I0-21e" secondAttribute="leading" id="bCT-Le-SGd"/>
+                            <constraint firstItem="2Gl-1N-GBr" firstAttribute="top" secondItem="8Rq-I0-21e" secondAttribute="bottom" constant="15" id="cCY-dY-iRK"/>
                             <constraint firstItem="2Gl-1N-GBr" firstAttribute="trailing" secondItem="IHq-mB-GJO" secondAttribute="trailingMargin" id="sSy-Iq-JCX"/>
                             <constraint firstAttribute="leadingMargin" secondItem="KiK-bP-WM7" secondAttribute="leading" id="tWE-ne-OHj"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Content" id="quQ-zH-0Uo" userLabel="Detail">
+                    <navigationItem key="navigationItem" title="Add Course" id="quQ-zH-0Uo" userLabel="Detail">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gne-5D-R3i">
                             <connections>
                                 <segue destination="wha-OM-RPI" kind="unwind" identifier="Cancel" unwindAction="unwindToListCoursesViewController:" id="GV9-6y-kRu"/>
@@ -650,7 +670,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m7H-AB-XCO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="243" y="209"/>
+            <point key="canvasLocation" x="1055" y="-525"/>
         </scene>
         <!--Display Assignment View Controller-->
         <scene sceneID="Mgs-Ny-kVE">
@@ -799,7 +819,125 @@
                     </connections>
                 </navigationController>
             </objects>
-            <point key="canvasLocation" x="243" y="974"/>
+            <point key="canvasLocation" x="-413" y="204"/>
+        </scene>
+        <!--Display School View Controller-->
+        <scene sceneID="ULA-2e-yXY">
+            <objects>
+                <viewController id="OJU-vn-CmQ" userLabel="Display School View Controller" customClass="DisplaySchoolViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="QmA-N5-hoZ"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xa6-aq-yPe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Dbf-TK-yth">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1zL-yw-UR7" userLabel="School Name Text Field">
+                                <rect key="frame" x="20" y="126" width="560" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="rwU-Z9-xtd"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rys-e9-x1z" userLabel="School Country Text Field">
+                                <rect key="frame" x="152" y="257" width="155" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="I6Z-Gg-dtJ"/>
+                                    <constraint firstAttribute="width" constant="155" id="owy-A7-H66"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="School Name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Obf-ON-AgX">
+                                <rect key="frame" x="20" y="84" width="156" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="JdU-Ve-bbi"/>
+                                    <constraint firstAttribute="width" constant="156" id="OV1-1S-cRT"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="City Name        :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdO-6k-2vL">
+                                <rect key="frame" x="20" y="208" width="124" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="dsH-3d-guj"/>
+                                    <constraint firstAttribute="width" constant="124" id="ulQ-eM-A3f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Country Name :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dcs-vc-xCq">
+                                <rect key="frame" x="20" y="257" width="124" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="1kK-sE-OXf"/>
+                                    <constraint firstAttribute="width" constant="124" id="A73-St-IQk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="idL-IG-dss" userLabel="School City Text Field">
+                                <rect key="frame" x="152" y="208" width="155" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="J27-Gw-oyO"/>
+                                    <constraint firstAttribute="width" constant="155" id="wI3-LC-tbn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dcs-vc-xCq" firstAttribute="top" secondItem="XdO-6k-2vL" secondAttribute="bottom" constant="19" id="1co-jk-zbn"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="idL-IG-dss" secondAttribute="leading" id="3cm-CX-7NS"/>
+                            <constraint firstItem="Obf-ON-AgX" firstAttribute="top" secondItem="QmA-N5-hoZ" secondAttribute="bottom" constant="20" id="4iG-3X-Kdq"/>
+                            <constraint firstItem="1zL-yw-UR7" firstAttribute="leading" secondItem="Dbf-TK-yth" secondAttribute="leadingMargin" id="5qb-4V-Wuh"/>
+                            <constraint firstItem="1zL-yw-UR7" firstAttribute="trailing" secondItem="Dbf-TK-yth" secondAttribute="trailingMargin" id="5y3-CA-OFf"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Rys-e9-x1z" secondAttribute="leading" id="DvT-AQ-HuD"/>
+                            <constraint firstItem="XdO-6k-2vL" firstAttribute="top" secondItem="1zL-yw-UR7" secondAttribute="bottom" constant="22" id="FOm-EA-1Op"/>
+                            <constraint firstItem="1zL-yw-UR7" firstAttribute="top" secondItem="Obf-ON-AgX" secondAttribute="bottom" constant="2" id="KaT-uK-5P2"/>
+                            <constraint firstItem="idL-IG-dss" firstAttribute="top" secondItem="1zL-yw-UR7" secondAttribute="bottom" constant="22" id="RVA-o7-kxz"/>
+                            <constraint firstItem="idL-IG-dss" firstAttribute="leading" secondItem="XdO-6k-2vL" secondAttribute="trailing" constant="8" id="TFQ-eG-CdU"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="Obf-ON-AgX" secondAttribute="leading" id="UEq-lA-D6Z"/>
+                            <constraint firstItem="Rys-e9-x1z" firstAttribute="top" secondItem="idL-IG-dss" secondAttribute="bottom" constant="19" id="Uf6-YM-VEE"/>
+                            <constraint firstItem="Rys-e9-x1z" firstAttribute="top" secondItem="idL-IG-dss" secondAttribute="bottom" constant="20" id="bMh-nU-Gc2"/>
+                            <constraint firstItem="Rys-e9-x1z" firstAttribute="leading" secondItem="dcs-vc-xCq" secondAttribute="trailing" constant="8" id="rvf-X6-ycM"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="dcs-vc-xCq" secondAttribute="leading" id="sXd-pL-h6m"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="XdO-6k-2vL" secondAttribute="leading" id="zBW-im-vuL"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="3cm-CX-7NS"/>
+                                <exclude reference="DvT-AQ-HuD"/>
+                                <exclude reference="bMh-nU-Gc2"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Content" id="wu4-gn-1Mp" userLabel="Detail">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="gix-aD-bfa">
+                            <connections>
+                                <segue destination="QfY-W7-1Dz" kind="unwind" identifier="Cancel" unwindAction="unwindToListSchoolViewController:" id="2RC-7f-rfs"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="F6J-vQ-d3l">
+                            <connections>
+                                <segue destination="QfY-W7-1Dz" kind="unwind" identifier="Save" unwindAction="unwindToListSchoolViewController:" id="myG-Gp-JQL"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="schoolCityTextField" destination="idL-IG-dss" id="Ziv-XI-PWp"/>
+                        <outlet property="schoolCountryTextField" destination="Rys-e9-x1z" id="mIP-vH-ken"/>
+                        <outlet property="schoolNameTextField" destination="1zL-yw-UR7" id="whh-ai-K8A"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ahe-ZL-kTi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="QfY-W7-1Dz" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="359" y="974"/>
         </scene>
     </scenes>
     <resources>

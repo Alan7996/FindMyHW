@@ -74,10 +74,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else {
             // Otherwise set the LoginViewController to be the first
             let loginViewController = PFLogInViewController()
+            
+            var logInLogoTitle = UILabel()
+            logInLogoTitle.text = "What's The HW?"
+            logInLogoTitle.textColor = UIColor.whiteColor()
+            logInLogoTitle.font = UIFont(name: "Arial", size: 40)
+            logInLogoTitle.shadowColor = UIColor.lightGrayColor()
+            logInLogoTitle.shadowOffset = CGSizeMake(2, 2)
+            loginViewController.logInView?.logo = logInLogoTitle
+            
             loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten]
             loginViewController.delegate = parseLoginHelper
             loginViewController.signUpController?.delegate = parseLoginHelper
-
+            loginViewController.view.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
+            
+            loginViewController.logInView!.logInButton?.setBackgroundImage(nil, forState: .Normal)
+            loginViewController.logInView!.logInButton?.backgroundColor = UIColor(red: CGFloat(91.0/255.0), green: CGFloat(124.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
+//            loginViewController.logInView!.logInButton?.layer.frame.size.width = UIScreen.mainScreen().bounds.width * 0.9
+            loginViewController.logInView!.logInButton?.layer.cornerRadius = 5
+            loginViewController.logInView!.logInButton?.layer.borderWidth = 1
+            loginViewController.logInView!.logInButton?.layer.borderColor = UIColor.whiteColor().CGColor
+            
+//            loginViewController.logInView!.passwordForgottenButton?.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
+            
+//            loginViewController.signUpController!.signUpView?.signUpButton!.layer.borderWidth = 1
+//            loginViewController.signUpController!.signUpView?.signUpButton!.layer.borderColor = UIColor.whiteColor().CGColor
+            
             startViewController = loginViewController
         }
 

@@ -50,6 +50,8 @@ class DisplayCourseViewController: UIViewController {
                 let newCourse = Course()
                 newCourse.name = courseNameTextField.text ?? ""
                 newCourse.teacher = username
+                newCourse.school = PFUser.currentUser()!["school"]
+                newCourse.studentRelation = []
                 
                 print("courseNameText: " +  courseNameTextField.text!)
                 print("courseName: " + newCourse.name!)

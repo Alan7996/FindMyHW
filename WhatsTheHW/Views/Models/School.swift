@@ -31,4 +31,19 @@ class School: PFObject, PFSubclassing {
             self.registerSubclass()
         }
     }
+    
+    func addSchool(school1: School) {
+        school = school1
+        
+        schoolUploadTask = UIApplication.sharedApplication().beginBackgroundTaskWithExpirationHandler { () -> Void in
+            UIApplication.sharedApplication().endBackgroundTask(self.schoolUploadTask!)
+        }
+        
+        saveInBackgroundWithBlock() { (success: Bool, error: NSError?) in
+            if let error = error {
+                ErrorHandling.defaultErrorHandler(error)
+            }
+            UIApplication.sharedApplication().endBackgroundTask(self.schoolUploadTask!)
+        }
+    }
 }

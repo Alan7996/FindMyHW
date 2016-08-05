@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 
+var schoolGlobal = [School]()
+
 class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     let searchController = UISearchController(searchResultsController: nil)
     var filteredSchools = [School]()
@@ -41,6 +43,8 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
             
             self.schools.sortInPlace({ $0.schoolName!.compare($1.schoolName!) == NSComparisonResult.OrderedAscending})
             
+            schoolGlobal = self.schools
+            
             self.tableView.reloadData()
         }
 
@@ -61,8 +65,11 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
         
         if searchController.active && searchController.searchBar.text != "" {
             school = filteredSchools[indexPath.row]
-        } else {
+        } else if (schools != []) {
             school = schools[indexPath.row]
+        } else {
+            school = schoolGlobal[indexPath.row]
+            // only a temporary solution
         }
         
         cell.schoolNameLabel.text = school.schoolName
@@ -95,8 +102,9 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
     {
         if editingStyle == .Delete {
-            //            RealmHelper.deleteCourse(courses[indexPath.row])
-            //            courses = RealmHelper.retrieveCourses()
+            let school = schools[indexPath.row]
+            school.deleteInBackground()
+            self.viewWillAppear(true)
         }
     }
     
@@ -127,19 +135,16 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
         }
     }
     
-//    func addSchool(sender: UIButton!) {
-//        print("Add School tapped")
-//        self.performSegueWithIdentifier("searchToAddSchool", sender: sender)
-//        //add functionality to append the course's name to school array
-//        //also need a functionality to delete the all courses related to school
-//        //possibly create a new viewcontroller to handle all of these
-//    }
+    @IBAction func unwindToListSchoolViewController(segue: UIStoryboardSegue) {
+        
+        // for now, simply defining the method is sufficient.
+        // we'll add code later
+        
+    }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredSchools = schools.filter { school in
-            return school.schoolName!.lowercaseString.containsString(searchText.lowercaseString)
-//                || school.cityName!.lowercaseString.containsString(searchText.lowercaseString) || school.country!.lowercaseString.containsString(searchText.lowercaseString)
-            // also need to search cityName and country
+            return school.schoolName!.lowercaseString.containsString(searchText.lowercaseString) || school.cityName!.lowercaseString.containsString(searchText.lowercaseString) || school.country!.lowercaseString.containsString(searchText.lowercaseString)
         }
         
         tableView.reloadData()
