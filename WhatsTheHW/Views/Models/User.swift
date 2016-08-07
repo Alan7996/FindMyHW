@@ -14,6 +14,9 @@ class User: PFObject, PFSubclassing {
     @NSManaged var lastName: String?
     @NSManaged var yearGroup: String?
     @NSManaged var enrolledClasses: String?
+    @NSManaged var isTeacher: NSNumber?
+    @NSManaged var title: String?
+    
     var user: User?
     
     static func parseClassName() -> String {

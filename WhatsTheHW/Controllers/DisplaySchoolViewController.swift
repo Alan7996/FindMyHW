@@ -53,27 +53,21 @@ class DisplaySchoolViewController: UIViewController {
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         if identifier == "Save" {
             if schoolNameTextField.text == "" {
-                let alert = UIAlertView()
-                alert.title = "No School Name"
-                alert.message = "Please Set The Name of the School"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
+                let alertController = UIAlertController(title: "No School Name", message: "Please Set The Name of the School", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+                presentViewController(alertController, animated: true, completion: nil)
                 
                 return false
             } else if schoolCityTextField.text == "" {
-                let alert = UIAlertView()
-                alert.title = "No City Name"
-                alert.message = "Please Set The Name of the City"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
+                let alertController = UIAlertController(title: "No City Name", message: "Please Set The Name of the City", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+                presentViewController(alertController, animated: true, completion: nil)
                 
                 return false
             } else if schoolCountryTextField.text == "" {
-                let alert = UIAlertView()
-                alert.title = "No Country Name"
-                alert.message = "Please Set The Name of the Country"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
+                let alertController = UIAlertController(title: "No Country Name", message: "Please Set The Name of the Country", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+                presentViewController(alertController, animated: true, completion: nil)
                 
                 return false
             }

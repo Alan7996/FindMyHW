@@ -14,6 +14,7 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
     var filteredCourses = [Course]()
     var coursesArray: [Course] = []
     var selectedCourse: Course?
+    var refreshControl1: UIRefreshControl!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +24,25 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
         searchController.hidesNavigationBarDuringPresentation = false
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
+        
+        refreshControl1 = UIRefreshControl()
+        refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl1.addTarget(self, action: #selector(SearchCoursesTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl1)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        refresh()
+    }
+    
+    func refresh() {
         coursesArray = []
         
         let notEnrolledCoursesQuery = PFQuery(className: "Course")
+        
+        notEnrolledCoursesQuery.includeKey("teacher")
         
         notEnrolledCoursesQuery.findObjectsInBackgroundWithBlock {
             (courses: [PFObject]?, error: NSError?) -> Void in
@@ -39,7 +51,7 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
                 // Do something with the found objects
                 for course in courses! {
                     if course["school"].objectId == PFUser.currentUser()?["school"].objectId {
-                        if course["studentRelation"].containsObject((PFUser.currentUser()?.username)!){
+                        if course["studentRelation"].containsObject((PFUser.currentUser()?.username)!) || course["teacher"].objectId == PFUser.currentUser()?.objectId {
                         } else {
                             self.coursesArray.append(course as! Course)
                         }
@@ -50,8 +62,14 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
             self.coursesArray.sortInPlace({ $0.name!.compare($1.name!) == NSComparisonResult.OrderedAscending})
             
             self.tableView.reloadData()
+            print("Refreshed")
         }
-        print("View appeared")
+    }
+    
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        refresh()
+        refreshControl1.endRefreshing()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -75,25 +93,28 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
         
         cell.courseNameLabel.text = course.name
         
-        cell.courseTeacherLabel.text = course.teacher
+        cell.courseTeacherLabel.text = course.teacher!["username"] as? String
         
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        //adds currentuser.username to selected course's studentRelation array & refresh the table
-        let courseToBeAdded = PFQuery(className: "Course")
         
-        courseToBeAdded.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
-            for object in result! {
-                if object.objectId == self.coursesArray[indexPath.row].objectId {
-                    var array = object["studentRelation"] as! [String]
-                    array.append((PFUser.currentUser()?.username)!)
-                    object["studentRelation"] = array
-                    ParseHelper.saveObjectInBackgroundWithBlock(object)
-                }
-            }
-            self.viewWillAppear(true)
+        let course = coursesArray[indexPath.row]
+        course.studentRelation!.append("xx")
+        // DOESN'T WORK ARGHHH
+        ParseHelper.saveObjectInBackgroundWithBlock(course)
+        refresh()
+    }
+    
+    override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
+                            forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if (indexPath.row % 2 == 0)
+        {
+            cell.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(0.1))
+        } else {
+            cell.backgroundColor = UIColor.whiteColor()
         }
     }
     
@@ -106,7 +127,8 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {
         filteredCourses = coursesArray.filter { course in
-            return course.name!.lowercaseString.containsString(searchText.lowercaseString) || course.teacher!.lowercaseString.containsString(searchText.lowercaseString)
+            let teacherName = course.teacher!["username"] as! String
+            return course.name!.lowercaseString.containsString(searchText.lowercaseString) || teacherName.lowercaseString.containsString(searchText.lowercaseString)
         }
         
         tableView.reloadData()

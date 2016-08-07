@@ -37,6 +37,17 @@ class ParseHelper {
                 print("save completed")
                 print("\(object) saved to parse")
             } else {
+                print("save failed: \(error)")
+            }
+        }
+    }
+    
+    static func deleteObjectInBackgroundWithBlock(object:PFObject) {
+        object.deleteInBackgroundWithBlock{(success, error) in
+            if success == true {
+                print("delete completed")
+                print("\(object) deleted from parse")
+            } else {
                 print("save failed")
             }
         }

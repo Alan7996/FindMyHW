@@ -12,15 +12,36 @@ import Parse
 var coursesGlobal = [Course]()
 
 class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+    
+    @IBOutlet weak var addCourseBtn: UIBarButtonItem!
+    
     let searchController = UISearchController(searchResultsController: nil)
     var filteredCourses = [Course]()
     
     var refreshControl1: UIRefreshControl!
     
     var courses: [Course] = []
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var isTeacher: AnyObject?
+        let userQuery = PFUser.query()
+        userQuery?.whereKey("username", equalTo: (PFUser.currentUser()?.username)!)
+        do {
+            let user = try userQuery?.findObjects().first as! PFUser
+            
+            isTeacher = user["isTeacher"]
+        } catch {
+            print(error)
+        }
+        print(PFUser.currentUser()!)
+        print(isTeacher)
+        if isTeacher as! NSObject == 1 {
+            addCourseBtn.enabled = true
+        } else {
+            addCourseBtn.enabled = false
+        }
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = true
@@ -32,22 +53,26 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         
         refreshControl1 = UIRefreshControl()
         refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl1.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl1.addTarget(self, action: #selector(ListCoursesTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl1)
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        refresh()
+    }
+    
+    func refresh() {
         courses = []
         
         let currentUserCoursesQuery = PFQuery(className: "Course")
         
-//        currentUserCoursesQuery.whereKeyExists("studentRelation")
+        currentUserCoursesQuery.includeKey("teacher")
         
         currentUserCoursesQuery.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
             for object in result! {
-                if object["school"].objectId == PFUser.currentUser()?["school"].objectId && (object["studentRelation"].containsObject((PFUser.currentUser()?.username)!) || object["teacher"] as! String == PFUser.currentUser()?.username) {
+                if object["school"].objectId == PFUser.currentUser()?["school"].objectId && (object["studentRelation"].containsObject((PFUser.currentUser()?.username)!) || object["teacher"].objectId == PFUser.currentUser()!.objectId) {
                     self.courses.append(object as! Course)
                 }
             }
@@ -57,7 +82,15 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
             coursesGlobal = self.courses
             
             self.tableView.reloadData()
+            
+            print("Refreshed")
         }
+    }
+    
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        refresh()
+        refreshControl1.endRefreshing()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -87,11 +120,12 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         
         cell.courseModificationTimeLabel.text = DateHelper.stringFromDate(course.updatedAt!)
         
-        cell.courseTeacherLabel.text = course.teacher
+        let courseTeacherTitle = course.teacher!["title"] as! String
+        let courseTeacherLastName = course.teacher!["lastName"] as! String
+        cell.courseTeacherLabel.text = courseTeacherTitle + courseTeacherLastName
 
         return cell
     }
-    
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
                    forRowAtIndexPath indexPath: NSIndexPath)
@@ -101,6 +135,67 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
             cell.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(0.1))
         } else {
             cell.backgroundColor = UIColor.whiteColor()
+        }
+    }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete {
+            let course = courses[indexPath.row]
+            if course.teacher == PFUser.currentUser()?.username {
+                let alert = UIAlertController(title: "Delete", message: "This course will be permanently deleted.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
+                    print("\(course.name) deleted")
+                    ParseHelper.deleteObjectInBackgroundWithBlock(course)
+                    self.refresh()
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action: UIAlertAction!) in
+                    print("\(course.name) delete canceled")
+                }))
+                presentViewController(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Unenroll", message: "All of your posts in this course will be deleted.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
+                    let newArray = course.studentRelation!.filter() { $0 != PFUser.currentUser()?.username! }
+                    course.studentRelation = newArray
+                    ParseHelper.saveObjectInBackgroundWithBlock(course)
+                    let delay = 0.1 * Double(NSEC_PER_SEC)
+                    let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
+                    dispatch_after(time, dispatch_get_main_queue(), {
+                        print("PLZ")
+                        self.refresh()
+                    })
+
+                    
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action: UIAlertAction!) in
+                    print("\(course.name) unenroll canceled")
+                }))
+                presentViewController(alert, animated: true, completion: nil)
+            }
+        }
+    }
+    
+    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        var footerView : UIView?
+        footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
+        
+        if searchController.searchBar.text == "" {
+            let addCourseBtn = UIButton(type: UIButtonType.System)
+//            addCourseBtn.backgroundColor = UIColor.grayColor()
+            addCourseBtn.setTitle("Add Course", forState: UIControlState.Normal)
+            addCourseBtn.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
+            addCourseBtn.addTarget(self, action: #selector(ListCoursesTableViewController.addCourse(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+            
+            footerView?.addSubview(addCourseBtn)
+            
+            return footerView
+        } else {
+            return footerView
         }
     }
     
@@ -123,34 +218,6 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
             }
         }
     }
-    
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-    {
-        if editingStyle == .Delete {
-            let course = courses[indexPath.row]
-            course.deleteInBackground()
-            self.viewWillAppear(true)
-        }
-    }
-    
-    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var footerView : UIView?
-        footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
-        
-        if searchController.searchBar.text == "" {
-            let addCourseBtn = UIButton(type: UIButtonType.System)
-//            addCourseBtn.backgroundColor = UIColor.grayColor()
-            addCourseBtn.setTitle("Add Course", forState: UIControlState.Normal)
-            addCourseBtn.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
-            addCourseBtn.addTarget(self, action: "addCourse:", forControlEvents: UIControlEvents.TouchUpInside)
-            
-            footerView?.addSubview(addCourseBtn)
-            
-            return footerView
-        } else {
-            return footerView
-        }
-    }
 
     func addCourse(sender: UIButton!) {
         print("Add Course tapped")
@@ -158,10 +225,14 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         //also need a functionality to delete the user's name from the array
     }
     
-    func refresh(sender:AnyObject) {
-        // Code to refresh table view
-        viewWillAppear(true)
-        refreshControl1.endRefreshing()
+    func goBackToSchoolViewController() {
+        if let currentUser = PFUser.currentUser() {
+            currentUser.removeObjectForKey("school")
+            
+            ParseHelper.saveObjectInBackgroundWithBlock(currentUser)
+        }
+        let schoolViewController = storyboard?.instantiateViewControllerWithIdentifier("ListSchoolTableViewController") as! UINavigationController
+        UIApplication.sharedApplication().delegate?.window??.rootViewController = schoolViewController
     }
     
     @IBAction func unwindToListCoursesViewController(segue: UIStoryboardSegue) {
@@ -169,6 +240,17 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         // for now, simply defining the method is sufficient.
         // we'll add code later
         
+    }
+    
+    @IBAction func unenrollClicked(sender: AnyObject) {
+        let alertController = UIAlertController(title: "Are You Sure?", message: "You are about to unenroll from your school. This action cannot be undone.", preferredStyle: UIAlertControllerStyle.Alert)
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Default, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { action -> Void in
+            self.goBackToSchoolViewController()
+        })
+        
+        self.presentViewController(alertController, animated: true, completion: nil)
     }
     
     func filterContentForSearchText(searchText: String, scope: String = "All") {

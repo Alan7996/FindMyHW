@@ -11,6 +11,8 @@
 import UIKit
 import Parse
 
+var assignmentsGlobal = [Assignment]()
+
 class ListAssignmentsTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     var refreshControl1: UIRefreshControl!
     
@@ -37,6 +39,10 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        refresh()
+    }
+    
+    func refresh() {
         assignments = []
         
         let currentCourseAssignmentsQuery = PFQuery(className: "Assignment")
@@ -50,8 +56,18 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
             
             self.assignments.sortInPlace({ $0.dueDate!.compare($1.dueDate!) == NSComparisonResult.OrderedAscending})
             
+            assignmentsGlobal = self.assignments
+            
             self.tableView.reloadData()
+            
+            print("Refreshed")
         }
+    }
+    
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        refresh()
+        refreshControl1.endRefreshing()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -69,8 +85,10 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         
         if searchController.active && searchController.searchBar.text != "" {
             assignment = filteredAssignments[indexPath.row]
-        } else {
+        } else if assignments != [] {
             assignment = assignments[indexPath.row]
+        } else {
+            assignment = assignmentsGlobal[indexPath.row]
         }
         
         cell.assignmentNameLabel.text = assignment.title
@@ -104,7 +122,58 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
             cell.backgroundColor = UIColor.whiteColor()
         }
     }
+    
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    {
+        if editingStyle == .Delete {
+            let assignment = assignments[indexPath.row]
+            if course!.teacher == PFUser.currentUser() {
+                let alert = UIAlertController(title: "Delete", message: "This assignment will be permanently deleted.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
+                    print("\(assignment.title) deleted")
+                    ParseHelper.deleteObjectInBackgroundWithBlock(assignment)
+                    self.refresh()
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action: UIAlertAction!) in
+                    print("\(assignment.title) delete canceled")
+                }))
+                presentViewController(alert, animated: true, completion: nil)
+            } else if assignment["user"].objectId == PFUser.currentUser()?.objectId {
+                let alert = UIAlertController(title: "Delete", message: "This assignment will be permanently deleted.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
+                    print("\(assignment.title) deleted")
+                    ParseHelper.deleteObjectInBackgroundWithBlock(assignment)
+                    self.refresh()
+                }))
+                
+                alert.addAction(UIAlertAction(title: "Cancel", style: .Cancel, handler: { (action: UIAlertAction!) in
+                    print("\(assignment.title) delete canceled")
+                }))
+                presentViewController(alert, animated: true, completion: nil)
+            } else {
+                let alert = UIAlertController(title: "Error", message: "You have no authority to delete this post.", preferredStyle: UIAlertControllerStyle.Alert)
+                
+                alert.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action: UIAlertAction!) in
+                    print("Could not delete assignment.")
+                }))
+                
+                presentViewController(alert, animated: true, completion: nil)
+            }
 
+        }
+    }
+    
+    func filterContentForSearchText(searchText: String, scope: String = "All") {
+        filteredAssignments = assignments.filter { assignment in
+            return assignment.title!.lowercaseString.containsString(searchText.lowercaseString)
+        }
+        
+        tableView.reloadData()
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
             if identifier == "addAssignment" {
@@ -122,30 +191,6 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
                 displayAssignmentViewController.objectID = assignment.objectId
             }
         }
-    }
-    
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
-    {
-        if editingStyle == .Delete {
-            let assignment = assignments[indexPath.row]
-            assignment.deleteInBackground()
-            self.viewWillAppear(true)
-        }
-    }
-    
-    func filterContentForSearchText(searchText: String, scope: String = "All") {
-        filteredAssignments = assignments.filter { assignment in
-            return assignment.title!.lowercaseString.containsString(searchText.lowercaseString)
-        }
-        
-        tableView.reloadData()
-    }
-    
-    func refresh(sender:AnyObject) {
-        // Code to refresh table view
-        viewWillAppear(true)
-        tableView.numberOfRowsInSection(0)
-        refreshControl1.endRefreshing()
     }
     
     @IBAction func unwindToListCoursesViewController(segue: UIStoryboardSegue) {

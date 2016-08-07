@@ -13,6 +13,7 @@
 		FB28E65B1D5032BA00EE755D /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB28E65A1D5032BA00EE755D /* DateHelper.swift */; };
 		FB28E65D1D5085A800EE755D /* SearchCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB28E65C1D5085A800EE755D /* SearchCoursesTableViewController.swift */; };
 		FB28E65F1D508EB000EE755D /* SearchCoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB28E65E1D508EB000EE755D /* SearchCoursesTableViewCell.swift */; };
+		FB62BEE91D570E5E00FBD1AF /* SetUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB62BEE81D570E5E00FBD1AF /* SetUserInfoViewController.swift */; };
 		FB7D4F221D3767130000EA1B /* ListAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */; };
 		FB7D4F261D3768A60000EA1B /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F251D3768A60000EA1B /* Assignment.swift */; };
 		FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */; };
@@ -26,7 +27,12 @@
 		FB84E82B1D53249D00D36BA1 /* DisplaySchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB84E82A1D53249D00D36BA1 /* DisplaySchoolViewController.swift */; };
 		FB92AC391D4895A5007779AB /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB92AC381D4895A5007779AB /* User.swift */; };
 		FBC9B3101D542F0700C2F250 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9B30F1D542F0700C2F250 /* AlertHelper.swift */; };
+		FBC9B3141D5479D000C2F250 /* LogoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC9B3131D5479D000C2F250 /* LogoHelper.swift */; };
 		FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */; };
+		FBF04D2E1D572D86004E292E /* Person.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF04D2D1D572D86004E292E /* Person.png */; };
+		FBF04D301D572E29004E292E /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF04D2F1D572E29004E292E /* UserProfileViewController.swift */; };
+		FBF04D321D5736FF004E292E /* Teacher.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF04D311D5736FF004E292E /* Teacher.png */; };
+		FBF04D341D573703004E292E /* Student.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF04D331D573703004E292E /* Student.png */; };
 		FBF2D3631D40B265005799A7 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FBF2D3621D40B265005799A7 /* Calendar.png */; };
 		FBF99CAA1D36123200263E76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBF99CA91D36123200263E76 /* AppDelegate.swift */; };
 		FBF99CB11D36123200263E76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBF99CB01D36123200263E76 /* Assets.xcassets */; };
@@ -46,6 +52,7 @@
 		FB28E65A1D5032BA00EE755D /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		FB28E65C1D5085A800EE755D /* SearchCoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoursesTableViewController.swift; sourceTree = "<group>"; };
 		FB28E65E1D508EB000EE755D /* SearchCoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoursesTableViewCell.swift; sourceTree = "<group>"; };
+		FB62BEE81D570E5E00FBD1AF /* SetUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUserInfoViewController.swift; sourceTree = "<group>"; };
 		FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewController.swift; sourceTree = "<group>"; };
 		FB7D4F251D3768A60000EA1B /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -59,7 +66,12 @@
 		FB84E82A1D53249D00D36BA1 /* DisplaySchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplaySchoolViewController.swift; sourceTree = "<group>"; };
 		FB92AC381D4895A5007779AB /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FBC9B30F1D542F0700C2F250 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		FBC9B3131D5479D000C2F250 /* LogoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoHelper.swift; sourceTree = "<group>"; };
 		FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentViewController.swift; sourceTree = "<group>"; };
+		FBF04D2D1D572D86004E292E /* Person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Person.png; sourceTree = "<group>"; };
+		FBF04D2F1D572E29004E292E /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		FBF04D311D5736FF004E292E /* Teacher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher.png; sourceTree = "<group>"; };
+		FBF04D331D573703004E292E /* Student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Student.png; sourceTree = "<group>"; };
 		FBF2D3621D40B265005799A7 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
 		FBF99CA61D36123200263E76 /* WhatsTheHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTheHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF99CA91D36123200263E76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -122,7 +134,10 @@
 		FBF99CA81D36123200263E76 /* WhatsTheHW */ = {
 			isa = PBXGroup;
 			children = (
+				FBF04D2D1D572D86004E292E /* Person.png */,
 				FBF2D3621D40B265005799A7 /* Calendar.png */,
+				FBF04D331D573703004E292E /* Student.png */,
+				FBF04D311D5736FF004E292E /* Teacher.png */,
 				FBF99CC11D3612CA00263E76 /* Helpers */,
 				FBF99CC01D3612C000263E76 /* Extensions */,
 				FBF99CBF1D3612B500263E76 /* Controllers */,
@@ -162,11 +177,13 @@
 		FBF99CBF1D3612B500263E76 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				FB62BEE81D570E5E00FBD1AF /* SetUserInfoViewController.swift */,
 				FB84E8241D52D9A100D36BA1 /* ListSchoolTableViewController.swift */,
 				FB84E82A1D53249D00D36BA1 /* DisplaySchoolViewController.swift */,
 				FBF99CCC1D3614BC00263E76 /* ListCoursesTableViewController.swift */,
 				FBF99CCE1D3614DE00263E76 /* DisplayCourseViewController.swift */,
 				FB28E65C1D5085A800EE755D /* SearchCoursesTableViewController.swift */,
+				FBF04D2F1D572E29004E292E /* UserProfileViewController.swift */,
 				FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */,
 				FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */,
 				FB07FF631D41C07C00914BD0 /* SetDueDateViewController.swift */,
@@ -190,6 +207,7 @@
 				FB818C8A1D49DC63001042C1 /* ErrorHandling.swift */,
 				FB28E65A1D5032BA00EE755D /* DateHelper.swift */,
 				FBC9B30F1D542F0700C2F250 /* AlertHelper.swift */,
+				FBC9B3131D5479D000C2F250 /* LogoHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -257,8 +275,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBF2D3631D40B265005799A7 /* Calendar.png in Resources */,
+				FBF04D341D573703004E292E /* Student.png in Resources */,
 				FB84E8231D52D4DD00D36BA1 /* LaunchScreen.storyboard in Resources */,
+				FBF04D321D5736FF004E292E /* Teacher.png in Resources */,
 				FBF99CB11D36123200263E76 /* Assets.xcassets in Resources */,
+				FBF04D2E1D572D86004E292E /* Person.png in Resources */,
 				FB07FF5C1D41B8A200914BD0 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -330,13 +351,16 @@
 				FB84E8291D52E44300D36BA1 /* School.swift in Sources */,
 				FB818C8D1D49ED35001042C1 /* ParseLoginHelper.swift in Sources */,
 				FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */,
+				FBC9B3141D5479D000C2F250 /* LogoHelper.swift in Sources */,
 				FBF99CCB1D36134200263E76 /* Course.swift in Sources */,
 				FBF99CCD1D3614BC00263E76 /* ListCoursesTableViewController.swift in Sources */,
+				FB62BEE91D570E5E00FBD1AF /* SetUserInfoViewController.swift in Sources */,
 				FB84E8251D52D9A100D36BA1 /* ListSchoolTableViewController.swift in Sources */,
 				FB28E65B1D5032BA00EE755D /* DateHelper.swift in Sources */,
 				FB07FF641D41C07C00914BD0 /* SetDueDateViewController.swift in Sources */,
 				FB818C891D49D9C1001042C1 /* ParseHelper.swift in Sources */,
 				FBD616421D38B2040045B466 /* DisplayAssignmentViewController.swift in Sources */,
+				FBF04D301D572E29004E292E /* UserProfileViewController.swift in Sources */,
 				FBF99CD31D3617BF00263E76 /* ListCoursesTableViewCell.swift in Sources */,
 				FB818C8B1D49DC63001042C1 /* ErrorHandling.swift in Sources */,
 				FB28E65D1D5085A800EE755D /* SearchCoursesTableViewController.swift in Sources */,

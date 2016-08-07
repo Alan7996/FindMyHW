@@ -24,6 +24,8 @@ class DisplayAssignmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        dueDate = assignment?.dueDate
+        
         self.assignmentInstructionTextView.layer.borderWidth = 0.5
         self.assignmentInstructionTextView.layer.borderColor = (UIColor( red: 0.5, green: 0.5, blue:0.5, alpha: 0.5 )).CGColor
         self.assignmentInstructionTextView.layer.cornerRadius = 10
@@ -71,8 +73,6 @@ class DisplayAssignmentViewController: UIViewController {
                 let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
                 dispatch_after(time, dispatch_get_main_queue(), {
                     alert.dismissWithClickedButtonIndex(-1, animated: true)
-                    let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
-                    listAssignmentsTableViewController.viewWillAppear(false)
                 })
             } else {
                 // if assignment does not exist, create new assignment
@@ -95,8 +95,6 @@ class DisplayAssignmentViewController: UIViewController {
                 let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
                 dispatch_after(time, dispatch_get_main_queue(), {
                     alert.dismissWithClickedButtonIndex(-1, animated: true)
-                    let listAssignmentsTableViewController = segue.destinationViewController as! ListAssignmentsTableViewController
-                    listAssignmentsTableViewController.viewWillAppear(false)
                 })
             }
         } else if segue.identifier == "setDueDate" {

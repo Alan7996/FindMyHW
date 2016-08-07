@@ -24,7 +24,7 @@ class DisplayCourseViewController: UIViewController {
         super.viewWillAppear(animated)
         if let course = course {
             courseNameTextField.text = course.name
-            courseTeacherLabel.text = course.teacher
+            courseTeacherLabel.text = course.teacher!["username"] as! String
         } else {
             courseNameTextField.text = ""
             courseTeacherLabel.text = username
@@ -34,11 +34,10 @@ class DisplayCourseViewController: UIViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let listCoursesTableViewController = segue.destinationViewController as! ListCoursesTableViewController
         if segue.identifier == "Save" {
-            // if course exists, update name and teacher
+            // if course exists, update name
             print("save clicked")
             if let course = course {
                 course.name = courseNameTextField.text ?? ""
-                course.teacher = username
                 
                 course.saveInBackground()
                 //hasn't been check if works yet, original:
@@ -49,7 +48,7 @@ class DisplayCourseViewController: UIViewController {
                 // if course does not exist, create new course
                 let newCourse = Course()
                 newCourse.name = courseNameTextField.text ?? ""
-                newCourse.teacher = username
+                newCourse.teacher = PFUser.currentUser()
                 newCourse.school = PFUser.currentUser()!["school"]
                 newCourse.studentRelation = []
                 
@@ -66,11 +65,9 @@ class DisplayCourseViewController: UIViewController {
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         if identifier == "Save" {
             if courseNameTextField.text == "" {
-                let alert = UIAlertView()
-                alert.title = "No Course Name"
-                alert.message = "Please Set The Name of the Course"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
+                let alertController = UIAlertController(title: "No Course Name", message: "Please Set The Name of the Course", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+                presentViewController(alertController, animated: true, completion: nil)
                 
                 return false
             }

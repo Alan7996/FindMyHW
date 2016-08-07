@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 // if login was successful, display the TabBarController
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let tabBarController = storyboard.instantiateViewControllerWithIdentifier("ListCoursesTableViewController")
-                self.window?.rootViewController!.presentViewController(tabBarController, animated: true, completion: nil)
+                self.window?.rootViewController! = tabBarController // .presentViewController(tabBarController, animated: true, completion: nil)
             }
         }
     }
@@ -54,6 +54,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let acl = PFACL()
         acl.publicReadAccess = true
+        acl.publicWriteAccess = true
         PFACL.setDefaultACL(acl, withAccessForCurrentUser: true)
         
         // check if we have logged in user
@@ -64,7 +65,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if (user != nil) {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)
-            if PFUser.currentUser()?["school"] == nil {
+            if PFUser.currentUser()?["lastName"] == nil {
+                startViewController = storyboard.instantiateViewControllerWithIdentifier("SetUserInfoViewController") as! UINavigationController
+            } else if PFUser.currentUser()?["school"] == nil {
                 // if we have a user without school selected, set the ListCoursesTableViewController to be the initial view controller
                 startViewController = storyboard.instantiateViewControllerWithIdentifier("ListSchoolTableViewController") as! UINavigationController
             } else {
@@ -76,11 +79,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let loginViewController = PFLogInViewController()
             
             var logInLogoTitle = UILabel()
-            logInLogoTitle.text = "What's The HW?"
-            logInLogoTitle.textColor = UIColor.whiteColor()
-            logInLogoTitle.font = UIFont(name: "Arial", size: 40)
-            logInLogoTitle.shadowColor = UIColor.lightGrayColor()
-            logInLogoTitle.shadowOffset = CGSizeMake(2, 2)
+            LogoHelper.createLogo("What's The HW", label: logInLogoTitle)
             loginViewController.logInView?.logo = logInLogoTitle
             
             loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten]
@@ -97,6 +96,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
 //            loginViewController.logInView!.passwordForgottenButton?.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
             
+            var signUpLogoTitle = UILabel()
+            LogoHelper.createLogo("What's The HW", label: signUpLogoTitle)
+            loginViewController.signUpController!.signUpView?.logo = signUpLogoTitle
+            loginViewController.signUpController!.signUpView?.backgroundColor = UIColor(red: CGFloat(91.0/255.0), green: CGFloat(124.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
 //            loginViewController.signUpController!.signUpView?.signUpButton!.layer.borderWidth = 1
 //            loginViewController.signUpController!.signUpView?.signUpButton!.layer.borderColor = UIColor.whiteColor().CGColor
             

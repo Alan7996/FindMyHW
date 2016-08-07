@@ -12,6 +12,8 @@ import Parse
 var schoolGlobal = [School]()
 
 class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
+    @IBOutlet weak var addSchoolBtn: UIBarButtonItem!
+    
     let searchController = UISearchController(searchResultsController: nil)
     var filteredSchools = [School]()
     
@@ -19,6 +21,24 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        var isTeacher: AnyObject?
+        var userQuery = PFUser.query()
+        userQuery?.whereKey("username", equalTo: (PFUser.currentUser()?.username)!)
+        do {
+            let user = try userQuery?.findObjects().first as! PFUser
+            
+            isTeacher = user["isTeacher"]
+        } catch {
+            print(error)
+        }
+        print(PFUser.currentUser()!)
+        print(isTeacher)
+        if isTeacher as! NSObject == 1 {
+            addSchoolBtn.enabled = true
+        } else {
+            addSchoolBtn.enabled = false
+        }
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = true
@@ -31,7 +51,11 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+        refresh()
+    }
+    
+    func refresh() {
         schools = []
         
         let allSchoolsQuery = PFQuery(className: "School")
@@ -46,8 +70,9 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
             schoolGlobal = self.schools
             
             self.tableView.reloadData()
+            
+            print("Refreshed")
         }
-
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -104,28 +129,9 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
         if editingStyle == .Delete {
             let school = schools[indexPath.row]
             school.deleteInBackground()
-            self.viewWillAppear(true)
+            self.refresh()
         }
     }
-    
-//    override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-//        var footerView : UIView?
-//        footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
-//        
-//        if searchController.searchBar.text == "" {
-//            let addCourseBtn = UIButton(type: UIButtonType.System)
-//            //            addCourseBtn.backgroundColor = UIColor.grayColor()
-//            addCourseBtn.setTitle("Add School", forState: UIControlState.Normal)
-//            addCourseBtn.frame = CGRectMake(0, 0, tableView.frame.size.width, 50)
-//            addCourseBtn.addTarget(self, action: "addSchool:", forControlEvents: UIControlEvents.TouchUpInside)
-//            
-//            footerView?.addSubview(addCourseBtn)
-//            
-//            return footerView
-//        } else {
-//            return footerView
-//        }
-//    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if let identifier = segue.identifier {
