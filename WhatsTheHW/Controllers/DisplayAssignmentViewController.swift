@@ -14,6 +14,8 @@ class DisplayAssignmentViewController: UIViewController {
     @IBOutlet weak var assignmentInstructionTextView: UITextView!
     @IBOutlet weak var assignmentModificationTimeLabel: UILabel!
     @IBOutlet weak var assignmentDueDate: UILabel!
+    @IBOutlet weak var calendarButton: UIButton!
+    @IBOutlet weak var saveButton: UIBarButtonItem!
     
     var assignment: Assignment?
     var course: Course?
@@ -23,6 +25,18 @@ class DisplayAssignmentViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if course!.teacher == PFUser.currentUser() || assignment!["user"].objectId == PFUser.currentUser()?.objectId{
+            assignmentTitleTextField.userInteractionEnabled = true
+            assignmentInstructionTextView.userInteractionEnabled = true
+            calendarButton.userInteractionEnabled = true
+            saveButton.enabled = true
+        } else {
+            assignmentTitleTextField.userInteractionEnabled = false
+            assignmentInstructionTextView.userInteractionEnabled = false
+            calendarButton.userInteractionEnabled = false
+            saveButton.enabled = false
+        }
         
         dueDate = assignment?.dueDate
         

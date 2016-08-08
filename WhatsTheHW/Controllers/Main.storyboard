@@ -1165,6 +1165,8 @@
                         <outlet property="assignmentInstructionTextView" destination="uat-tT-xI4" id="mYi-8m-y9R"/>
                         <outlet property="assignmentModificationTimeLabel" destination="Ggy-ch-0a9" id="PFA-fi-l6q"/>
                         <outlet property="assignmentTitleTextField" destination="BXx-hH-EIa" id="yg9-2W-18e"/>
+                        <outlet property="calendarButton" destination="aIm-YP-je9" id="JTi-Jn-s6O"/>
+                        <outlet property="saveButton" destination="91i-9n-T0P" id="gRy-mB-NMb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dw5-PJ-pme" userLabel="First Responder" sceneMemberID="firstResponder"/>
