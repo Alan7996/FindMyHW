@@ -86,15 +86,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // Otherwise set the LoginViewController to be the first
             let loginViewController = PFLogInViewController()
             
-            var logInLogoTitle = UILabel()
+            let logInLogoTitle = UILabel()
             LogoHelper.createLogo("What's The HW", label: logInLogoTitle)
             loginViewController.logInView?.logo = logInLogoTitle
             
             let imageName = "Icon.png"
             let image = UIImage(named: imageName)
             let imageView = UIImageView(image: image!)
-            // need to change y position + in iphone 4s logo looks retarded
-            imageView.frame = CGRectMake(UIScreen.mainScreen().applicationFrame.width/2 - 75, 0, 150, 150)
+            
+            // checks screen size of user's device and changes size of the image accordingly
+            var imageSideValue = 150
+            if UIScreen.mainScreen().bounds.height == 480 {
+                imageSideValue = 100
+            } else if UIScreen.mainScreen().bounds.height == 568 {
+                imageSideValue = 150
+            } else if UIScreen.mainScreen().bounds.height == 667 {
+                imageSideValue = 200
+            } else if UIScreen.mainScreen().bounds.height == 736 {
+                imageSideValue = 250
+            }
+            imageView.frame = CGRectMake(UIScreen.mainScreen().bounds.width/2 - CGFloat(imageSideValue/2), 10, CGFloat(imageSideValue), CGFloat(imageSideValue))
             
             loginViewController.view.addSubview(imageView)
             
@@ -103,21 +114,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             loginViewController.signUpController?.delegate = parseLoginHelper
             loginViewController.view.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
             
+            
+            
             loginViewController.logInView!.logInButton?.setBackgroundImage(nil, forState: .Normal)
             loginViewController.logInView!.logInButton?.backgroundColor = UIColor(red: CGFloat(91.0/255.0), green: CGFloat(124.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
-//            loginViewController.logInView!.logInButton?.layer.frame.size.width = UIScreen.mainScreen().bounds.width * 0.9
             loginViewController.logInView!.logInButton?.layer.cornerRadius = 5
             loginViewController.logInView!.logInButton?.layer.borderWidth = 1
             loginViewController.logInView!.logInButton?.layer.borderColor = UIColor.whiteColor().CGColor
             
 //            loginViewController.logInView!.passwordForgottenButton?.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
             
-            var signUpLogoTitle = UILabel()
+            let signUpLogoTitle = UILabel()
             LogoHelper.createLogo("What's The HW", label: signUpLogoTitle)
             loginViewController.signUpController!.signUpView?.logo = signUpLogoTitle
             loginViewController.signUpController!.signUpView?.backgroundColor = UIColor(red: CGFloat(91.0/255.0), green: CGFloat(124.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
-//            loginViewController.signUpController!.signUpView?.signUpButton!.layer.borderWidth = 1
-//            loginViewController.signUpController!.signUpView?.signUpButton!.layer.borderColor = UIColor.whiteColor().CGColor
             
             startViewController = loginViewController
         }

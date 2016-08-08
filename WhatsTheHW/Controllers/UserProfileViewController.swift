@@ -19,22 +19,8 @@ class UserProfileViewController: UIViewController {
     @IBOutlet weak var positionLabel: UILabel!
     @IBOutlet weak var userImage: UIImageView!
     
-    var parseLoginHelper: ParseLoginHelper!
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        parseLoginHelper = ParseLoginHelper {[unowned self] user, error in
-            // Initialize the ParseLoginHelper with a callback
-            if let error = error {
-                ErrorHandling.defaultErrorHandler(error)
-            } else if let _ = user {
-                // if login was successful, display the TabBarController
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let tabBarController = storyboard.instantiateViewControllerWithIdentifier("ListCoursesTableViewController")
-                UIApplication.sharedApplication().delegate?.window??.rootViewController = tabBarController
-            }
-        }
         
         titleLabel.text = PFUser.currentUser()!["title"] as? String
         let userFirstName = PFUser.currentUser()!["firstName"] as! String
@@ -68,6 +54,7 @@ class UserProfileViewController: UIViewController {
         alertController.addAction(UIAlertAction(title: "Ok", style: UIAlertActionStyle.Default) { action -> Void in
             PFUser.logOut()
             let loginViewController = self.createLoginViewController()
+            print(#function, "logout --> show login view controller: \(loginViewController.delegate)")
             UIApplication.sharedApplication().delegate?.window??.rootViewController = loginViewController
         })
         
@@ -78,30 +65,47 @@ class UserProfileViewController: UIViewController {
         // Otherwise set the LoginViewController to be the first
         let loginViewController = PFLogInViewController()
         
-        var logInLogoTitle = UILabel()
+        let logInLogoTitle = UILabel()
         LogoHelper.createLogo("What's The HW", label: logInLogoTitle)
         loginViewController.logInView?.logo = logInLogoTitle
         
+        let imageName = "Icon.png"
+        let image = UIImage(named: imageName)
+        let imageView = UIImageView(image: image!)
+        
+        // checks screen size of user's device and changes size of the image accordingly
+        var imageSideValue = 150
+        if UIScreen.mainScreen().bounds.height == 480 {
+            imageSideValue = 100
+        } else if UIScreen.mainScreen().bounds.height == 568 {
+            imageSideValue = 150
+        } else if UIScreen.mainScreen().bounds.height == 667 {
+            imageSideValue = 200
+        } else if UIScreen.mainScreen().bounds.height == 736 {
+            imageSideValue = 250
+        }
+        imageView.frame = CGRectMake(UIScreen.mainScreen().bounds.width/2 - CGFloat(imageSideValue/2), 10, CGFloat(imageSideValue), CGFloat(imageSideValue))
+        
+        loginViewController.view.addSubview(imageView)
+        
         loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten]
-        loginViewController.delegate = parseLoginHelper
-        loginViewController.signUpController?.delegate = parseLoginHelper
+        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+        loginViewController.delegate =  appDelegate.parseLoginHelper
+        loginViewController.signUpController?.delegate = appDelegate.parseLoginHelper
         loginViewController.view.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
         
         loginViewController.logInView!.logInButton?.setBackgroundImage(nil, forState: .Normal)
         loginViewController.logInView!.logInButton?.backgroundColor = UIColor(red: CGFloat(91.0/255.0), green: CGFloat(124.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
-        //            loginViewController.logInView!.logInButton?.layer.frame.size.width = UIScreen.mainScreen().bounds.width * 0.9
         loginViewController.logInView!.logInButton?.layer.cornerRadius = 5
         loginViewController.logInView!.logInButton?.layer.borderWidth = 1
         loginViewController.logInView!.logInButton?.layer.borderColor = UIColor.whiteColor().CGColor
         
         //            loginViewController.logInView!.passwordForgottenButton?.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
         
-        var signUpLogoTitle = UILabel()
+        let signUpLogoTitle = UILabel()
         LogoHelper.createLogo("What's The HW", label: signUpLogoTitle)
         loginViewController.signUpController!.signUpView?.logo = signUpLogoTitle
         loginViewController.signUpController!.signUpView?.backgroundColor = UIColor(red: CGFloat(91.0/255.0), green: CGFloat(124.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
-        //            loginViewController.signUpController!.signUpView?.signUpButton!.layer.borderWidth = 1
-        //            loginViewController.signUpController!.signUpView?.signUpButton!.layer.borderColor = UIColor.whiteColor().CGColor
         
         return loginViewController
         
