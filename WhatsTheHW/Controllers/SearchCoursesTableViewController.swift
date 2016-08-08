@@ -50,7 +50,7 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
             if error == nil {
                 // Do something with the found objects
                 for course in courses! {
-                    if course["school"].objectId == PFUser.currentUser()?["school"].objectId {
+                    if course["school"].objectId == PFUser.currentUser()?["school"].objectId && course["isLocked"] as! Int == 0 {
                         if course["studentRelation"].containsObject((PFUser.currentUser()?.username)!) || course["teacher"].objectId == PFUser.currentUser()?.objectId {
                         } else {
                             self.coursesArray.append(course as! Course)

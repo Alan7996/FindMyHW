@@ -52,6 +52,8 @@ class DisplayCourseViewController: UIViewController {
                 newCourse.school = PFUser.currentUser()!["school"]
                 newCourse.studentRelation = []
                 
+                newCourse.setObject(0, forKey: "isLocked")
+                
                 print("courseNameText: " +  courseNameTextField.text!)
                 print("courseName: " + newCourse.name!)
                 
