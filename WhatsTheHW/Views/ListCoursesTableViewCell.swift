@@ -12,4 +12,6 @@ class ListCoursesTableViewCell: UITableViewCell {
     @IBOutlet weak var courseNameLabel: UILabel!
     @IBOutlet weak var courseModificationTimeLabel: UILabel!
     @IBOutlet weak var courseTeacherLabel: UILabel!
+    
+    @IBOutlet weak var isLockedBtn: UIButton!
 }

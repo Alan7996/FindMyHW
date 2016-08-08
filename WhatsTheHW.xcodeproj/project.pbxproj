@@ -13,7 +13,12 @@
 		FB28E65B1D5032BA00EE755D /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB28E65A1D5032BA00EE755D /* DateHelper.swift */; };
 		FB28E65D1D5085A800EE755D /* SearchCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB28E65C1D5085A800EE755D /* SearchCoursesTableViewController.swift */; };
 		FB28E65F1D508EB000EE755D /* SearchCoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB28E65E1D508EB000EE755D /* SearchCoursesTableViewCell.swift */; };
+		FB6162901D58C157006EDE37 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FB61628F1D58C157006EDE37 /* Icon.png */; };
+		FB6162921D58C3F7006EDE37 /* Font.TTF in Resources */ = {isa = PBXBuildFile; fileRef = FB6162911D58C28C006EDE37 /* Font.TTF */; };
+		FB6162951D58C914006EDE37 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FB6162941D58C914006EDE37 /* Logo.png */; };
 		FB62BEE91D570E5E00FBD1AF /* SetUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB62BEE81D570E5E00FBD1AF /* SetUserInfoViewController.swift */; };
+		FB72AA321D58456100BA6306 /* Unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = FB72AA311D58456100BA6306 /* Unlocked.png */; };
+		FB72AA341D5845F600BA6306 /* Locked.png in Resources */ = {isa = PBXBuildFile; fileRef = FB72AA331D5845F600BA6306 /* Locked.png */; };
 		FB7D4F221D3767130000EA1B /* ListAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */; };
 		FB7D4F261D3768A60000EA1B /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F251D3768A60000EA1B /* Assignment.swift */; };
 		FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */; };
@@ -52,7 +57,12 @@
 		FB28E65A1D5032BA00EE755D /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		FB28E65C1D5085A800EE755D /* SearchCoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoursesTableViewController.swift; sourceTree = "<group>"; };
 		FB28E65E1D508EB000EE755D /* SearchCoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoursesTableViewCell.swift; sourceTree = "<group>"; };
+		FB61628F1D58C157006EDE37 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
+		FB6162911D58C28C006EDE37 /* Font.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = Font.TTF; sourceTree = "<group>"; };
+		FB6162941D58C914006EDE37 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
 		FB62BEE81D570E5E00FBD1AF /* SetUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUserInfoViewController.swift; sourceTree = "<group>"; };
+		FB72AA311D58456100BA6306 /* Unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unlocked.png; sourceTree = "<group>"; };
+		FB72AA331D5845F600BA6306 /* Locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Locked.png; sourceTree = "<group>"; };
 		FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewController.swift; sourceTree = "<group>"; };
 		FB7D4F251D3768A60000EA1B /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -134,10 +144,15 @@
 		FBF99CA81D36123200263E76 /* WhatsTheHW */ = {
 			isa = PBXGroup;
 			children = (
+				FB61628F1D58C157006EDE37 /* Icon.png */,
+				FB6162941D58C914006EDE37 /* Logo.png */,
 				FBF04D2D1D572D86004E292E /* Person.png */,
 				FBF2D3621D40B265005799A7 /* Calendar.png */,
 				FBF04D331D573703004E292E /* Student.png */,
 				FBF04D311D5736FF004E292E /* Teacher.png */,
+				FB6162911D58C28C006EDE37 /* Font.TTF */,
+				FB72AA331D5845F600BA6306 /* Locked.png */,
+				FB72AA311D58456100BA6306 /* Unlocked.png */,
 				FBF99CC11D3612CA00263E76 /* Helpers */,
 				FBF99CC01D3612C000263E76 /* Extensions */,
 				FBF99CBF1D3612B500263E76 /* Controllers */,
@@ -276,8 +291,13 @@
 			files = (
 				FBF2D3631D40B265005799A7 /* Calendar.png in Resources */,
 				FBF04D341D573703004E292E /* Student.png in Resources */,
+				FB6162951D58C914006EDE37 /* Logo.png in Resources */,
+				FB72AA341D5845F600BA6306 /* Locked.png in Resources */,
 				FB84E8231D52D4DD00D36BA1 /* LaunchScreen.storyboard in Resources */,
+				FB72AA321D58456100BA6306 /* Unlocked.png in Resources */,
 				FBF04D321D5736FF004E292E /* Teacher.png in Resources */,
+				FB6162901D58C157006EDE37 /* Icon.png in Resources */,
+				FB6162921D58C3F7006EDE37 /* Font.TTF in Resources */,
 				FBF99CB11D36123200263E76 /* Assets.xcassets in Resources */,
 				FBF04D2E1D572D86004E292E /* Person.png in Resources */,
 				FB07FF5C1D41B8A200914BD0 /* Main.storyboard in Resources */,

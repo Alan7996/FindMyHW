@@ -13,7 +13,7 @@ class LogoHelper {
     static func createLogo (text: String, label: UILabel) {
         label.text = text
         label.textColor = UIColor.whiteColor()
-        label.font = UIFont(name: "Arial", size: 40)
+        label.font = UIFont(name: "DimitriSwank", size: 40)
         label.shadowColor = UIColor.lightGrayColor()
         label.shadowOffset = CGSizeMake(2, 2)
     }

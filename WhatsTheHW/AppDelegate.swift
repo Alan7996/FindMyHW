@@ -30,6 +30,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
     }
+    func printFonts() {
+        for familyName in UIFont.familyNames() {
+            print("\n-- \(familyName) \n")
+            for fontName in UIFont.fontNamesForFamilyName(familyName) {
+                print(fontName)
+            }
+        }
+    }
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -81,6 +89,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             var logInLogoTitle = UILabel()
             LogoHelper.createLogo("What's The HW", label: logInLogoTitle)
             loginViewController.logInView?.logo = logInLogoTitle
+            
+            let imageName = "Icon.png"
+            let image = UIImage(named: imageName)
+            let imageView = UIImageView(image: image!)
+            // need to change y position + in iphone 4s logo looks retarded
+            imageView.frame = CGRectMake(UIScreen.mainScreen().applicationFrame.width/2 - 75, 0, 150, 150)
+            
+            loginViewController.view.addSubview(imageView)
             
             loginViewController.fields = [.UsernameAndPassword, .LogInButton, .SignUpButton, .PasswordForgotten]
             loginViewController.delegate = parseLoginHelper
