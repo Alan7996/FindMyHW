@@ -24,7 +24,7 @@ class DisplayCourseViewController: UIViewController {
         super.viewWillAppear(animated)
         if let course = course {
             courseNameTextField.text = course.name
-            courseTeacherLabel.text = course.teacher!["username"] as! String
+            courseTeacherLabel.text = course.teacher!["username"] as? String
         } else {
             courseNameTextField.text = ""
             courseTeacherLabel.text = username
@@ -50,7 +50,7 @@ class DisplayCourseViewController: UIViewController {
                 newCourse.name = courseNameTextField.text ?? ""
                 newCourse.teacher = PFUser.currentUser()
                 newCourse.school = PFUser.currentUser()!["school"]
-                newCourse.studentRelation = []
+                newCourse["studentRelation"] = []
                 
                 newCourse.setObject(0, forKey: "isLocked")
                 

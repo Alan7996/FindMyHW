@@ -172,8 +172,9 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
                 let alert = UIAlertController(title: "Unenroll", message: "All of your posts in this course will be deleted.", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 alert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
-                    let newArray = course.studentRelation!.filter() { $0 != PFUser.currentUser()?.username! }
-                    course.studentRelation = newArray
+                    let newArray = course["studentRelation"] as! [String]
+                    let filteredArray = newArray.filter() { $0 != PFUser.currentUser()?.username! }
+                    course["studentRelation"] = filteredArray
                     ParseHelper.saveObjectInBackgroundWithBlock(course)
                     let delay = 0.1 * Double(NSEC_PER_SEC)
                     let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))

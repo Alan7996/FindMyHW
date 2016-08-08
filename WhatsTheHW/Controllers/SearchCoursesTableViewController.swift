@@ -19,6 +19,8 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Search Courses"
+        
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = true
         searchController.hidesNavigationBarDuringPresentation = false
@@ -101,10 +103,18 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let course = coursesArray[indexPath.row]
-        course.studentRelation!.append("xx")
-        // DOESN'T WORK ARGHHH
-        ParseHelper.saveObjectInBackgroundWithBlock(course)
-        refresh()
+        var newArray = course["studentRelation"] as! [String]
+        newArray.append((PFUser.currentUser()?.username)!)
+        course["studentRelation"] = newArray
+        course.saveInBackgroundWithBlock{(success, error) in
+            if success == true {
+                print("save completed")
+                print("\(course) saved to parse")
+                self.refresh()
+            } else {
+                print("save failed: \(error)")
+            }
+        }
     }
     
     override func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,

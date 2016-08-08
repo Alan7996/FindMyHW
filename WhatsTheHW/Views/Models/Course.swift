@@ -13,7 +13,7 @@ class Course: PFObject, PFSubclassing {
     @NSManaged var name: String?
     @NSManaged var teacher: PFUser?
     @NSManaged var school: AnyObject?
-    @NSManaged var studentRelation: [String]?
+
     var course: Course?
     var courseUploadTask: UIBackgroundTaskIdentifier?
     

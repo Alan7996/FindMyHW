@@ -126,7 +126,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Courses" id="wMh-kn-18b" userLabel="Courses">
-                        <barButtonItem key="leftBarButtonItem" title="Item" style="plain" id="b0m-8p-Zdm">
+                        <barButtonItem key="leftBarButtonItem" title="Item" id="b0m-8p-Zdm">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="8aL-Sq-IiN">
                                 <rect key="frame" x="20" y="7" width="70" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -137,7 +137,7 @@
                             </button>
                         </barButtonItem>
                         <rightBarButtonItems>
-                            <barButtonItem style="plain" id="a7w-dc-aTM">
+                            <barButtonItem id="a7w-dc-aTM">
                                 <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="PBp-pB-8JH" userLabel="Profile Btn">
                                     <rect key="frame" x="550" y="7" width="30" height="30"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -296,7 +296,7 @@
                             <constraint firstItem="kZB-ez-BrS" firstAttribute="top" secondItem="mlH-t7-hlO" secondAttribute="bottom" constant="19" id="zGJ-DM-yRN"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="5vW-eV-ecV"/>
+                    <navigationItem key="navigationItem" title="Set Up Your Info" id="5vW-eV-ecV"/>
                     <connections>
                         <outlet property="firstNameTextField" destination="U4h-Zb-yAc" id="bLV-47-0aq"/>
                         <outlet property="lastNameTextField" destination="mlH-t7-hlO" id="VWV-S1-1C5"/>
@@ -374,7 +374,7 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Schools" id="kIQ-Lb-IX8">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="Zqo-PF-0jN">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Zqo-PF-0jN">
                             <connections>
                                 <segue destination="OJU-vn-CmQ" kind="show" id="YhZ-sJ-phR"/>
                             </connections>
@@ -739,7 +739,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Assignments" id="VHG-hT-5cl" userLabel="AssignmentName">
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="nvx-kg-i1D">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nvx-kg-i1D">
                             <connections>
                                 <segue destination="uQc-d0-n02" kind="show" identifier="addAssignment" id="Yza-sV-a85"/>
                             </connections>
@@ -773,8 +773,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5v-Xx-Mb2">
-                                <rect key="frame" x="84" y="349" width="73" height="32"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="K5v-Xx-Mb2">
+                                <rect key="frame" x="264" y="349" width="73" height="32"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="73" id="Q4l-mT-UVK"/>
                                     <constraint firstAttribute="height" constant="32" id="duw-ce-ZD1"/>
@@ -1144,9 +1144,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <toolbarItems>
-                        <barButtonItem title="Item" id="ARb-14-S6h"/>
-                    </toolbarItems>
+                    <toolbarItems/>
                     <navigationItem key="navigationItem" title="Content" id="ABi-kL-mSn" userLabel="Detail">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="vc1-iv-EzP">
                             <connections>

@@ -22,6 +22,8 @@ class UserProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "Profile"
+        
         titleLabel.text = PFUser.currentUser()!["title"] as? String
         let userFirstName = PFUser.currentUser()!["firstName"] as! String
         let userLastName = PFUser.currentUser()!["lastName"] as! String
