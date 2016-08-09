@@ -11,4 +11,12 @@ import UIKit
 class SearchCoursesTableViewCell: UITableViewCell {
     @IBOutlet weak var courseNameLabel: UILabel!
     @IBOutlet weak var courseTeacherLabel: UILabel!
+    
+    var course: Course! {
+        didSet {
+            courseNameLabel.text = course.name
+            
+            courseTeacherLabel.text = course.teacher!["username"] as? String
+        }
+    }
 }

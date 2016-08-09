@@ -51,11 +51,9 @@ class SetDueDateViewController: UIViewController {
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject!) -> Bool {
         if identifier == "unwindDone" {
             if dueDate == nil {
-                let alert = UIAlertView()
-                alert.title = "No Due Date"
-                alert.message = "Please Set The Due Date"
-                alert.addButtonWithTitle("Ok")
-                alert.show()
+                let alertController = UIAlertController(title: "No Due Date", message: "Please Set The Due Date", preferredStyle: UIAlertControllerStyle.Alert)
+                alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+                presentViewController(alertController, animated: true, completion: nil)
                 
                 return false
             }

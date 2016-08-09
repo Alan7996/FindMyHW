@@ -9,8 +9,6 @@
 import UIKit
 import Parse
 
-var coursesGlobal = [Course]()
-
 class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
     @IBOutlet weak var addCourseBtn: UIBarButtonItem!
@@ -79,8 +77,6 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
             
             self.courses.sortInPlace({ $0.name!.compare($1.name!) == NSComparisonResult.OrderedAscending})
             
-            coursesGlobal = self.courses
-            
             self.tableView.reloadData()
             
             print("Refreshed")
@@ -108,33 +104,15 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         
         if searchController.active && searchController.searchBar.text != "" {
             course = filteredCourses[indexPath.row]
-        } else if (courses != []) {
-            course = courses[indexPath.row]
         } else {
-            course = coursesGlobal[indexPath.row]
+            course = courses[indexPath.row]
             // app crashes when swiped twice with "fatal eror: Index out of range"
             // issue is still not fixed and needs to be fixed in future
         }
         
-        cell.courseNameLabel.text = course.name
+        cell.course = course
+        cell.delegate = self
         
-        cell.courseModificationTimeLabel.text = DateHelper.stringFromDate(course.updatedAt!)
-        
-        let courseTeacherTitle = course.teacher!["title"] as! String
-        let courseTeacherLastName = course.teacher!["lastName"] as! String
-        cell.courseTeacherLabel.text = courseTeacherTitle + courseTeacherLastName
-        
-        if PFUser.currentUser()?.objectId == course.teacher!.objectId {
-            if course["isLocked"] as! Int == 1 {
-                let lockedImage = UIImage(named: "Locked.png")
-                cell.isLockedBtn.setImage(lockedImage, forState: .Normal)
-            } else {
-                let unlockedIkmage = UIImage(named: "Unlocked.png")
-                cell.isLockedBtn.setImage(unlockedIkmage, forState: .Normal)
-            }
-        } else {
-            cell.isLockedBtn.hidden = true
-        }
         cell.isLockedBtn.tag = indexPath.row
         
         return cell
@@ -256,44 +234,6 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         
     }
     
-    @IBAction func isLockedBtnClicked(sender: UIButton) {
-        var courseBtnBelongsTo = Course()
-        if courses != [] {
-            courseBtnBelongsTo = courses[sender.tag]
-        } else {
-            courseBtnBelongsTo = coursesGlobal[sender.tag]
-        }
-        if courseBtnBelongsTo["isLocked"] as! Int == 1 {
-            courseBtnBelongsTo["isLocked"] = 0
-            courseBtnBelongsTo.saveInBackgroundWithBlock{(success, error) in
-                if success == true {
-                    print("save completed")
-                    print("\(courseBtnBelongsTo) saved to parse")
-                    self.refresh()
-                } else {
-                    print("save failed: \(error)")
-                    let alertController = UIAlertController(title: "Save Failed", message: "Please try again later", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                }
-            }
-        } else {
-            courseBtnBelongsTo["isLocked"] = 1
-            courseBtnBelongsTo.saveInBackgroundWithBlock{(success, error) in
-                if success == true {
-                    print("save completed")
-                    print("\(courseBtnBelongsTo) saved to parse")
-                    self.refresh()
-                } else {
-                    print("save failed: \(error)")
-                    let alertController = UIAlertController(title: "Save Failed", message: "Please try again later", preferredStyle: UIAlertControllerStyle.Alert)
-                    alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
-                    self.presentViewController(alertController, animated: true, completion: nil)
-                }
-            }
-        }
-    }
-    
     @IBAction func unenrollClicked(sender: AnyObject) {
         let alertController = UIAlertController(title: "Are You Sure?", message: "You are about to unenroll from your school. This action cannot be undone.", preferredStyle: UIAlertControllerStyle.Alert)
         
@@ -317,5 +257,41 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
 extension ListCoursesTableViewController: UISearchResultsUpdating {
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         filterContentForSearchText(searchController.searchBar.text!)
+    }
+}
+
+extension ListCoursesTableViewController: ListCoursesTableViewCellDelegate {
+    func listCoursesTableViewCellButtonPressed(listCoursesTableViewCell: ListCoursesTableViewCell) {
+        let courseBtnBelongsTo = listCoursesTableViewCell.course!
+        
+        if courseBtnBelongsTo["isLocked"] as! Int == 1 {
+            courseBtnBelongsTo["isLocked"] = 0
+            courseBtnBelongsTo.saveInBackgroundWithBlock{(success, error) in
+                if success == true {
+                    print("save completed")
+                    print("\(courseBtnBelongsTo) saved to parse")
+                    self.tableView.reloadData()
+                } else {
+                    print("save failed: \(error)")
+                    let alertController = UIAlertController(title: "Save Failed", message: "Please try again later", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+            }
+        } else {
+            courseBtnBelongsTo["isLocked"] = 1
+            courseBtnBelongsTo.saveInBackgroundWithBlock{(success, error) in
+                if success == true {
+                    print("save completed")
+                    print("\(courseBtnBelongsTo) saved to parse")
+                    self.tableView.reloadData()
+                } else {
+                    print("save failed: \(error)")
+                    let alertController = UIAlertController(title: "Save Failed", message: "Please try again later", preferredStyle: UIAlertControllerStyle.Alert)
+                    alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+                    self.presentViewController(alertController, animated: true, completion: nil)
+                }
+            }
+        }
     }
 }

@@ -33,7 +33,7 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         
         refreshControl1 = UIRefreshControl()
         refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
-        refreshControl1.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+        refreshControl1.addTarget(self, action: #selector(ListAssignmentsTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
         tableView.addSubview(refreshControl1)
     }
     override func viewWillAppear(animated: Bool) {
@@ -91,19 +91,7 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
             assignment = assignmentsGlobal[indexPath.row]
         }
         
-        cell.assignmentNameLabel.text = assignment.title
-
-        cell.assignmentInstructionLabel.text = assignment.instruction
-        
-        cell.assignmentInstructionLabel.numberOfLines = 0
-        
-        cell.assignmentInstructionLabel.frame = CGRectMake(20, 20, 200, 800)
-        
-        cell.assignmentInstructionLabel.sizeToFit()
-        
-        cell.assignmentModificationTimeLabel.text = DateHelper.stringFromDate(assignment.updatedAt!)
-        
-        cell.assignmentDueDateLabel.text = DateHelper.stringFromDate(assignment.dueDate!)
+        cell.assignment = assignment
         
         return cell
     }

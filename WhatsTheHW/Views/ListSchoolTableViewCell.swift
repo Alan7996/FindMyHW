@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import Parse
 
 class ListSchoolTableViewCell: UITableViewCell {
     @IBOutlet weak var schoolNameLabel: UILabel!
     @IBOutlet weak var schoolAddressLabel: UILabel!
+    
+    var school: School! {
+        didSet {
+            schoolNameLabel.text = school.schoolName
+            
+            let schoolAddress = school.cityName! + ", " + school.country!
+            
+            schoolAddressLabel.text = schoolAddress
+        }
+    }
 }

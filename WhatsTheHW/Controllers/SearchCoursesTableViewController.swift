@@ -93,9 +93,7 @@ class SearchCoursesTableViewController: UITableViewController, UISearchBarDelega
             course = coursesArray[indexPath.row]
         }
         
-        cell.courseNameLabel.text = course.name
-        
-        cell.courseTeacherLabel.text = course.teacher!["username"] as? String
+        cell.course = course
         
         return cell
     }

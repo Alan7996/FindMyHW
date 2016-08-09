@@ -19,6 +19,7 @@
 		FB62BEE91D570E5E00FBD1AF /* SetUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB62BEE81D570E5E00FBD1AF /* SetUserInfoViewController.swift */; };
 		FB72AA321D58456100BA6306 /* Unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = FB72AA311D58456100BA6306 /* Unlocked.png */; };
 		FB72AA341D5845F600BA6306 /* Locked.png in Resources */ = {isa = PBXBuildFile; fileRef = FB72AA331D5845F600BA6306 /* Locked.png */; };
+		FB778EBC1D59861800D10704 /* PageContentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FB778EBB1D59861800D10704 /* PageContentViewController.m */; };
 		FB7D4F221D3767130000EA1B /* ListAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */; };
 		FB7D4F261D3768A60000EA1B /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F251D3768A60000EA1B /* Assignment.swift */; };
 		FB7D4F281D376AC30000EA1B /* ListAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */; };
@@ -57,12 +58,15 @@
 		FB28E65A1D5032BA00EE755D /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		FB28E65C1D5085A800EE755D /* SearchCoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoursesTableViewController.swift; sourceTree = "<group>"; };
 		FB28E65E1D508EB000EE755D /* SearchCoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoursesTableViewCell.swift; sourceTree = "<group>"; };
-		FB61628F1D58C157006EDE37 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Icon.png; sourceTree = "<group>"; };
-		FB6162911D58C28C006EDE37 /* Font.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = Font.TTF; sourceTree = "<group>"; };
-		FB6162941D58C914006EDE37 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Logo.png; sourceTree = "<group>"; };
+		FB61628F1D58C157006EDE37 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		FB6162911D58C28C006EDE37 /* Font.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = Font.TTF; path = ../Font.TTF; sourceTree = "<group>"; };
+		FB6162941D58C914006EDE37 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = ../Logo.png; sourceTree = "<group>"; };
 		FB62BEE81D570E5E00FBD1AF /* SetUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUserInfoViewController.swift; sourceTree = "<group>"; };
-		FB72AA311D58456100BA6306 /* Unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Unlocked.png; sourceTree = "<group>"; };
-		FB72AA331D5845F600BA6306 /* Locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Locked.png; sourceTree = "<group>"; };
+		FB72AA311D58456100BA6306 /* Unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Unlocked.png; path = ../Unlocked.png; sourceTree = "<group>"; };
+		FB72AA331D5845F600BA6306 /* Locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Locked.png; path = ../Locked.png; sourceTree = "<group>"; };
+		FB778EB91D59861800D10704 /* WhatsTheHW-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WhatsTheHW-Bridging-Header.h"; sourceTree = "<group>"; };
+		FB778EBA1D59861800D10704 /* PageContentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PageContentViewController.h; sourceTree = "<group>"; };
+		FB778EBB1D59861800D10704 /* PageContentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PageContentViewController.m; sourceTree = "<group>"; };
 		FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewController.swift; sourceTree = "<group>"; };
 		FB7D4F251D3768A60000EA1B /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
 		FB7D4F271D376AC30000EA1B /* ListAssignmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewCell.swift; sourceTree = "<group>"; };
@@ -78,11 +82,11 @@
 		FBC9B30F1D542F0700C2F250 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
 		FBC9B3131D5479D000C2F250 /* LogoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoHelper.swift; sourceTree = "<group>"; };
 		FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentViewController.swift; sourceTree = "<group>"; };
-		FBF04D2D1D572D86004E292E /* Person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Person.png; sourceTree = "<group>"; };
+		FBF04D2D1D572D86004E292E /* Person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Person.png; path = ../Person.png; sourceTree = "<group>"; };
 		FBF04D2F1D572E29004E292E /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
-		FBF04D311D5736FF004E292E /* Teacher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Teacher.png; sourceTree = "<group>"; };
-		FBF04D331D573703004E292E /* Student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Student.png; sourceTree = "<group>"; };
-		FBF2D3621D40B265005799A7 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Calendar.png; sourceTree = "<group>"; };
+		FBF04D311D5736FF004E292E /* Teacher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Teacher.png; path = ../Teacher.png; sourceTree = "<group>"; };
+		FBF04D331D573703004E292E /* Student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Student.png; path = ../Student.png; sourceTree = "<group>"; };
+		FBF2D3621D40B265005799A7 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Calendar.png; path = ../Calendar.png; sourceTree = "<group>"; };
 		FBF99CA61D36123200263E76 /* WhatsTheHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsTheHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FBF99CA91D36123200263E76 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FBF99CB01D36123200263E76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -123,6 +127,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		FB778EB81D59846200D10704 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FB61628F1D58C157006EDE37 /* Icon.png */,
+				FB6162941D58C914006EDE37 /* Logo.png */,
+				FBF04D2D1D572D86004E292E /* Person.png */,
+				FBF2D3621D40B265005799A7 /* Calendar.png */,
+				FBF04D331D573703004E292E /* Student.png */,
+				FBF04D311D5736FF004E292E /* Teacher.png */,
+				FB6162911D58C28C006EDE37 /* Font.TTF */,
+				FB72AA331D5845F600BA6306 /* Locked.png */,
+				FB72AA311D58456100BA6306 /* Unlocked.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
 		FBF99C9D1D36123200263E76 = {
 			isa = PBXGroup;
 			children = (
@@ -144,15 +164,7 @@
 		FBF99CA81D36123200263E76 /* WhatsTheHW */ = {
 			isa = PBXGroup;
 			children = (
-				FB61628F1D58C157006EDE37 /* Icon.png */,
-				FB6162941D58C914006EDE37 /* Logo.png */,
-				FBF04D2D1D572D86004E292E /* Person.png */,
-				FBF2D3621D40B265005799A7 /* Calendar.png */,
-				FBF04D331D573703004E292E /* Student.png */,
-				FBF04D311D5736FF004E292E /* Teacher.png */,
-				FB6162911D58C28C006EDE37 /* Font.TTF */,
-				FB72AA331D5845F600BA6306 /* Locked.png */,
-				FB72AA311D58456100BA6306 /* Unlocked.png */,
+				FB778EB81D59846200D10704 /* Images */,
 				FBF99CC11D3612CA00263E76 /* Helpers */,
 				FBF99CC01D3612C000263E76 /* Extensions */,
 				FBF99CBF1D3612B500263E76 /* Controllers */,
@@ -202,6 +214,9 @@
 				FB7D4F211D3767130000EA1B /* ListAssignmentsTableViewController.swift */,
 				FBD616411D38B2040045B466 /* DisplayAssignmentViewController.swift */,
 				FB07FF631D41C07C00914BD0 /* SetDueDateViewController.swift */,
+				FB778EBA1D59861800D10704 /* PageContentViewController.h */,
+				FB778EBB1D59861800D10704 /* PageContentViewController.m */,
+				FB778EB91D59861800D10704 /* WhatsTheHW-Bridging-Header.h */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -361,6 +376,7 @@
 			files = (
 				FB92AC391D4895A5007779AB /* User.swift in Sources */,
 				FB7D4F261D3768A60000EA1B /* Assignment.swift in Sources */,
+				FB778EBC1D59861800D10704 /* PageContentViewController.m in Sources */,
 				FBF99CC51D3612FC00263E76 /* NSDate+convertToString.swift in Sources */,
 				FB84E8271D52E35600D36BA1 /* ListSchoolTableViewCell.swift in Sources */,
 				FBC9B3101D542F0700C2F250 /* AlertHelper.swift in Sources */,
@@ -479,6 +495,7 @@
 			baseConfigurationReference = 1AB7554A7D177B0262B9BB6E /* Pods-WhatsTheHW.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -490,6 +507,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.Alan.WhatsTheHW;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "WhatsTheHW/Controllers/WhatsTheHW-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -498,6 +517,7 @@
 			baseConfigurationReference = 8FBF1BCF6FDA2D4303805476 /* Pods-WhatsTheHW.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -509,6 +529,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.Alan.WhatsTheHW;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "WhatsTheHW/Controllers/WhatsTheHW-Bridging-Header.h";
 			};
 			name = Release;
 		};

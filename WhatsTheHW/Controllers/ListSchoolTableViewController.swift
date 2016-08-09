@@ -9,8 +9,6 @@
 import UIKit
 import Parse
 
-var schoolGlobal = [School]()
-
 class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     @IBOutlet weak var addSchoolBtn: UIBarButtonItem!
     
@@ -23,7 +21,7 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
         super.viewDidLoad()
         
         var isTeacher: AnyObject?
-        var userQuery = PFUser.query()
+        let userQuery = PFUser.query()
         userQuery?.whereKey("username", equalTo: (PFUser.currentUser()?.username)!)
         do {
             let user = try userQuery?.findObjects().first as! PFUser
@@ -67,8 +65,6 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
             
             self.schools.sortInPlace({ $0.schoolName!.compare($1.schoolName!) == NSComparisonResult.OrderedAscending})
             
-            schoolGlobal = self.schools
-            
             self.tableView.reloadData()
             
             print("Refreshed")
@@ -90,18 +86,11 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
         
         if searchController.active && searchController.searchBar.text != "" {
             school = filteredSchools[indexPath.row]
-        } else if (schools != []) {
-            school = schools[indexPath.row]
         } else {
-            school = schoolGlobal[indexPath.row]
-            // only a temporary solution
+            school = schools[indexPath.row]
         }
         
-        cell.schoolNameLabel.text = school.schoolName
-        
-        let schoolAddress = school.cityName! + ", " + school.country!
-        
-        cell.schoolAddressLabel.text = schoolAddress
+        cell.school = school
         
         return cell
     }
