@@ -1257,6 +1257,13 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w31-nF-ioE">
+                                <rect key="frame" x="175" y="295" width="250" height="143"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="143" id="C88-pk-wgM"/>
+                                    <constraint firstAttribute="width" constant="250" id="xyP-wT-S9g"/>
+                                </constraints>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -1272,9 +1279,11 @@
                             <constraint firstItem="idL-IG-dss" firstAttribute="leading" secondItem="XdO-6k-2vL" secondAttribute="trailing" constant="8" id="TFQ-eG-CdU"/>
                             <constraint firstAttribute="leadingMargin" secondItem="Obf-ON-AgX" secondAttribute="leading" id="UEq-lA-D6Z"/>
                             <constraint firstItem="Rys-e9-x1z" firstAttribute="top" secondItem="idL-IG-dss" secondAttribute="bottom" constant="19" id="Uf6-YM-VEE"/>
+                            <constraint firstItem="w31-nF-ioE" firstAttribute="top" secondItem="Rys-e9-x1z" secondAttribute="bottom" constant="8" id="WDx-AB-UYi"/>
                             <constraint firstItem="Rys-e9-x1z" firstAttribute="top" secondItem="idL-IG-dss" secondAttribute="bottom" constant="20" id="bMh-nU-Gc2"/>
                             <constraint firstItem="Rys-e9-x1z" firstAttribute="leading" secondItem="dcs-vc-xCq" secondAttribute="trailing" constant="8" id="rvf-X6-ycM"/>
                             <constraint firstAttribute="leadingMargin" secondItem="dcs-vc-xCq" secondAttribute="leading" id="sXd-pL-h6m"/>
+                            <constraint firstItem="w31-nF-ioE" firstAttribute="centerX" secondItem="Dbf-TK-yth" secondAttribute="centerX" id="wew-1g-T6o"/>
                             <constraint firstAttribute="leadingMargin" secondItem="XdO-6k-2vL" secondAttribute="leading" id="zBW-im-vuL"/>
                         </constraints>
                         <variation key="default">
@@ -1298,6 +1307,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="countryPickerView" destination="w31-nF-ioE" id="if6-zi-tsR"/>
                         <outlet property="schoolCityTextField" destination="idL-IG-dss" id="Ziv-XI-PWp"/>
                         <outlet property="schoolCountryTextField" destination="Rys-e9-x1z" id="mIP-vH-ken"/>
                         <outlet property="schoolNameTextField" destination="1zL-yw-UR7" id="whh-ai-K8A"/>
