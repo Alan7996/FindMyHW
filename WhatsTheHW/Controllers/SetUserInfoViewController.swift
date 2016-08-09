@@ -69,6 +69,7 @@ class SetUserInfoViewController: UIViewController, UITextFieldDelegate, UIPicker
                     currentUser["firstName"] = firstNameTextField.text
                     currentUser["lastName"] = lastNameTextField.text
                     currentUser["title"] = titleTextField.text
+                    currentUser["isTeacher"] = 1
                     
                     ParseHelper.saveObjectInBackgroundWithBlock(currentUser)
                 }
