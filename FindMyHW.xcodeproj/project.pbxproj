@@ -1,0 +1,554 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		12A41AC6057777BF99E0ECB0 /* Pods_WhatsTheHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */; };
+		FB961A801D5ABF500067DF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A501D5ABF500067DF00 /* AppDelegate.swift */; };
+		FB961A811D5ABF500067DF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB961A511D5ABF500067DF00 /* Assets.xcassets */; };
+		FB961A821D5ABF500067DF00 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A521D5ABF500067DF00 /* Calendar.png */; };
+		FB961A831D5ABF500067DF00 /* DisplayAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A541D5ABF500067DF00 /* DisplayAssignmentViewController.swift */; };
+		FB961A841D5ABF500067DF00 /* DisplayCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A551D5ABF500067DF00 /* DisplayCourseViewController.swift */; };
+		FB961A851D5ABF500067DF00 /* DisplaySchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A561D5ABF500067DF00 /* DisplaySchoolViewController.swift */; };
+		FB961A861D5ABF500067DF00 /* ListAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A571D5ABF500067DF00 /* ListAssignmentsTableViewController.swift */; };
+		FB961A871D5ABF500067DF00 /* ListCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A581D5ABF500067DF00 /* ListCoursesTableViewController.swift */; };
+		FB961A881D5ABF500067DF00 /* ListSchoolTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A591D5ABF500067DF00 /* ListSchoolTableViewController.swift */; };
+		FB961A891D5ABF500067DF00 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB961A5A1D5ABF500067DF00 /* Main.storyboard */; };
+		FB961A8B1D5ABF500067DF00 /* SearchCoursesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A5D1D5ABF500067DF00 /* SearchCoursesTableViewController.swift */; };
+		FB961A8C1D5ABF500067DF00 /* SetDueDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A5E1D5ABF500067DF00 /* SetDueDateViewController.swift */; };
+		FB961A8D1D5ABF500067DF00 /* SetUserInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A5F1D5ABF500067DF00 /* SetUserInfoViewController.swift */; };
+		FB961A8E1D5ABF500067DF00 /* UserProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A601D5ABF500067DF00 /* UserProfileViewController.swift */; };
+		FB961A8F1D5ABF500067DF00 /* NSDate+convertToString.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A631D5ABF500067DF00 /* NSDate+convertToString.swift */; };
+		FB961A901D5ABF500067DF00 /* Font.TTF in Resources */ = {isa = PBXBuildFile; fileRef = FB961A641D5ABF500067DF00 /* Font.TTF */; };
+		FB961A911D5ABF500067DF00 /* AlertHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A661D5ABF500067DF00 /* AlertHelper.swift */; };
+		FB961A921D5ABF500067DF00 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A671D5ABF500067DF00 /* DateHelper.swift */; };
+		FB961A931D5ABF500067DF00 /* ErrorHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A681D5ABF500067DF00 /* ErrorHandling.swift */; };
+		FB961A941D5ABF500067DF00 /* LogoHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A691D5ABF500067DF00 /* LogoHelper.swift */; };
+		FB961A951D5ABF500067DF00 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A6A1D5ABF500067DF00 /* ParseHelper.swift */; };
+		FB961A961D5ABF500067DF00 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A6B1D5ABF500067DF00 /* ParseLoginHelper.swift */; };
+		FB961A971D5ABF500067DF00 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A6C1D5ABF500067DF00 /* Icon.png */; };
+		FB961A981D5ABF500067DF00 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB961A6E1D5ABF500067DF00 /* Info.plist */; };
+		FB961A991D5ABF500067DF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB961A6F1D5ABF500067DF00 /* LaunchScreen.storyboard */; };
+		FB961A9A1D5ABF500067DF00 /* Locked.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A701D5ABF500067DF00 /* Locked.png */; };
+		FB961A9B1D5ABF500067DF00 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A711D5ABF500067DF00 /* Logo.png */; };
+		FB961A9C1D5ABF500067DF00 /* Person.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A721D5ABF500067DF00 /* Person.png */; };
+		FB961A9D1D5ABF500067DF00 /* Student.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A731D5ABF500067DF00 /* Student.png */; };
+		FB961A9E1D5ABF500067DF00 /* Teacher.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A741D5ABF500067DF00 /* Teacher.png */; };
+		FB961A9F1D5ABF500067DF00 /* Unlocked.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A751D5ABF500067DF00 /* Unlocked.png */; };
+		FB961AA01D5ABF500067DF00 /* ListAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A771D5ABF500067DF00 /* ListAssignmentsTableViewCell.swift */; };
+		FB961AA11D5ABF500067DF00 /* ListCoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A781D5ABF500067DF00 /* ListCoursesTableViewCell.swift */; };
+		FB961AA21D5ABF500067DF00 /* ListSchoolTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A791D5ABF500067DF00 /* ListSchoolTableViewCell.swift */; };
+		FB961AA31D5ABF500067DF00 /* Assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A7B1D5ABF500067DF00 /* Assignment.swift */; };
+		FB961AA41D5ABF500067DF00 /* Course.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A7C1D5ABF500067DF00 /* Course.swift */; };
+		FB961AA51D5ABF500067DF00 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A7D1D5ABF500067DF00 /* School.swift */; };
+		FB961AA61D5ABF500067DF00 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A7E1D5ABF500067DF00 /* User.swift */; };
+		FB961AA71D5ABF500067DF00 /* SearchCoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A7F1D5ABF500067DF00 /* SearchCoursesTableViewCell.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		1AB7554A7D177B0262B9BB6E /* Pods-WhatsTheHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW.debug.xcconfig"; sourceTree = "<group>"; };
+		70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsTheHW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8FBF1BCF6FDA2D4303805476 /* Pods-WhatsTheHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW.release.xcconfig"; sourceTree = "<group>"; };
+		FB961A501D5ABF500067DF00 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB961A511D5ABF500067DF00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB961A521D5ABF500067DF00 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Calendar.png; path = ../Calendar.png; sourceTree = "<group>"; };
+		FB961A541D5ABF500067DF00 /* DisplayAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentViewController.swift; sourceTree = "<group>"; };
+		FB961A551D5ABF500067DF00 /* DisplayCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCourseViewController.swift; sourceTree = "<group>"; };
+		FB961A561D5ABF500067DF00 /* DisplaySchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplaySchoolViewController.swift; sourceTree = "<group>"; };
+		FB961A571D5ABF500067DF00 /* ListAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewController.swift; sourceTree = "<group>"; };
+		FB961A581D5ABF500067DF00 /* ListCoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCoursesTableViewController.swift; sourceTree = "<group>"; };
+		FB961A591D5ABF500067DF00 /* ListSchoolTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSchoolTableViewController.swift; sourceTree = "<group>"; };
+		FB961A5A1D5ABF500067DF00 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = Controllers/Main.storyboard; sourceTree = "<group>"; };
+		FB961A5D1D5ABF500067DF00 /* SearchCoursesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoursesTableViewController.swift; sourceTree = "<group>"; };
+		FB961A5E1D5ABF500067DF00 /* SetDueDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetDueDateViewController.swift; sourceTree = "<group>"; };
+		FB961A5F1D5ABF500067DF00 /* SetUserInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetUserInfoViewController.swift; sourceTree = "<group>"; };
+		FB961A601D5ABF500067DF00 /* UserProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfileViewController.swift; sourceTree = "<group>"; };
+		FB961A631D5ABF500067DF00 /* NSDate+convertToString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDate+convertToString.swift"; sourceTree = "<group>"; };
+		FB961A641D5ABF500067DF00 /* Font.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; name = Font.TTF; path = ../Font.TTF; sourceTree = "<group>"; };
+		FB961A661D5ABF500067DF00 /* AlertHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AlertHelper.swift; sourceTree = "<group>"; };
+		FB961A671D5ABF500067DF00 /* DateHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		FB961A681D5ABF500067DF00 /* ErrorHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorHandling.swift; sourceTree = "<group>"; };
+		FB961A691D5ABF500067DF00 /* LogoHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogoHelper.swift; sourceTree = "<group>"; };
+		FB961A6A1D5ABF500067DF00 /* ParseHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseHelper.swift; sourceTree = "<group>"; };
+		FB961A6B1D5ABF500067DF00 /* ParseLoginHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ParseLoginHelper.swift; sourceTree = "<group>"; };
+		FB961A6C1D5ABF500067DF00 /* Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Icon.png; path = ../Icon.png; sourceTree = "<group>"; };
+		FB961A6E1D5ABF500067DF00 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB961A6F1D5ABF500067DF00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB961A701D5ABF500067DF00 /* Locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Locked.png; path = ../Locked.png; sourceTree = "<group>"; };
+		FB961A711D5ABF500067DF00 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = ../Logo.png; sourceTree = "<group>"; };
+		FB961A721D5ABF500067DF00 /* Person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Person.png; path = ../Person.png; sourceTree = "<group>"; };
+		FB961A731D5ABF500067DF00 /* Student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Student.png; path = ../Student.png; sourceTree = "<group>"; };
+		FB961A741D5ABF500067DF00 /* Teacher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Teacher.png; path = ../Teacher.png; sourceTree = "<group>"; };
+		FB961A751D5ABF500067DF00 /* Unlocked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Unlocked.png; path = ../Unlocked.png; sourceTree = "<group>"; };
+		FB961A771D5ABF500067DF00 /* ListAssignmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewCell.swift; sourceTree = "<group>"; };
+		FB961A781D5ABF500067DF00 /* ListCoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListCoursesTableViewCell.swift; sourceTree = "<group>"; };
+		FB961A791D5ABF500067DF00 /* ListSchoolTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListSchoolTableViewCell.swift; sourceTree = "<group>"; };
+		FB961A7B1D5ABF500067DF00 /* Assignment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Assignment.swift; sourceTree = "<group>"; };
+		FB961A7C1D5ABF500067DF00 /* Course.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Course.swift; sourceTree = "<group>"; };
+		FB961A7D1D5ABF500067DF00 /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
+		FB961A7E1D5ABF500067DF00 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FB961A7F1D5ABF500067DF00 /* SearchCoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoursesTableViewCell.swift; sourceTree = "<group>"; };
+		FBF99CA61D36123200263E76 /* FindMyHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FBF99CA31D36123200263E76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12A41AC6057777BF99E0ECB0 /* Pods_WhatsTheHW.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		B88C7DC7EE6FCDB8B2303076 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DE73F529801578D52D75C673 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1AB7554A7D177B0262B9BB6E /* Pods-WhatsTheHW.debug.xcconfig */,
+				8FBF1BCF6FDA2D4303805476 /* Pods-WhatsTheHW.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB961A4F1D5ABF500067DF00 /* FindMyHW */ = {
+			isa = PBXGroup;
+			children = (
+				FB961A6D1D5ABF500067DF00 /* Images */,
+				FB961A651D5ABF500067DF00 /* Helpers */,
+				FB961A621D5ABF500067DF00 /* Extensions */,
+				FB961A531D5ABF500067DF00 /* Controllers */,
+				FB961A761D5ABF500067DF00 /* Views */,
+				FB961A501D5ABF500067DF00 /* AppDelegate.swift */,
+				FB961A5A1D5ABF500067DF00 /* Main.storyboard */,
+				FB961A6F1D5ABF500067DF00 /* LaunchScreen.storyboard */,
+				FB961A511D5ABF500067DF00 /* Assets.xcassets */,
+				FB961A6E1D5ABF500067DF00 /* Info.plist */,
+			);
+			path = FindMyHW;
+			sourceTree = "<group>";
+		};
+		FB961A531D5ABF500067DF00 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FB961A541D5ABF500067DF00 /* DisplayAssignmentViewController.swift */,
+				FB961A551D5ABF500067DF00 /* DisplayCourseViewController.swift */,
+				FB961A561D5ABF500067DF00 /* DisplaySchoolViewController.swift */,
+				FB961A571D5ABF500067DF00 /* ListAssignmentsTableViewController.swift */,
+				FB961A581D5ABF500067DF00 /* ListCoursesTableViewController.swift */,
+				FB961A591D5ABF500067DF00 /* ListSchoolTableViewController.swift */,
+				FB961A5D1D5ABF500067DF00 /* SearchCoursesTableViewController.swift */,
+				FB961A5E1D5ABF500067DF00 /* SetDueDateViewController.swift */,
+				FB961A5F1D5ABF500067DF00 /* SetUserInfoViewController.swift */,
+				FB961A601D5ABF500067DF00 /* UserProfileViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FB961A621D5ABF500067DF00 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FB961A631D5ABF500067DF00 /* NSDate+convertToString.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		FB961A651D5ABF500067DF00 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FB961A661D5ABF500067DF00 /* AlertHelper.swift */,
+				FB961A671D5ABF500067DF00 /* DateHelper.swift */,
+				FB961A681D5ABF500067DF00 /* ErrorHandling.swift */,
+				FB961A691D5ABF500067DF00 /* LogoHelper.swift */,
+				FB961A6A1D5ABF500067DF00 /* ParseHelper.swift */,
+				FB961A6B1D5ABF500067DF00 /* ParseLoginHelper.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		FB961A6D1D5ABF500067DF00 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				FB961A641D5ABF500067DF00 /* Font.TTF */,
+				FB961A521D5ABF500067DF00 /* Calendar.png */,
+				FB961A6C1D5ABF500067DF00 /* Icon.png */,
+				FB961A701D5ABF500067DF00 /* Locked.png */,
+				FB961A711D5ABF500067DF00 /* Logo.png */,
+				FB961A721D5ABF500067DF00 /* Person.png */,
+				FB961A731D5ABF500067DF00 /* Student.png */,
+				FB961A741D5ABF500067DF00 /* Teacher.png */,
+				FB961A751D5ABF500067DF00 /* Unlocked.png */,
+			);
+			path = Images;
+			sourceTree = "<group>";
+		};
+		FB961A761D5ABF500067DF00 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FB961A7A1D5ABF500067DF00 /* Models */,
+				FB961A791D5ABF500067DF00 /* ListSchoolTableViewCell.swift */,
+				FB961A781D5ABF500067DF00 /* ListCoursesTableViewCell.swift */,
+				FB961A7F1D5ABF500067DF00 /* SearchCoursesTableViewCell.swift */,
+				FB961A771D5ABF500067DF00 /* ListAssignmentsTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FB961A7A1D5ABF500067DF00 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FB961A7B1D5ABF500067DF00 /* Assignment.swift */,
+				FB961A7C1D5ABF500067DF00 /* Course.swift */,
+				FB961A7D1D5ABF500067DF00 /* School.swift */,
+				FB961A7E1D5ABF500067DF00 /* User.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FBF99C9D1D36123200263E76 = {
+			isa = PBXGroup;
+			children = (
+				FB961A4F1D5ABF500067DF00 /* FindMyHW */,
+				FBF99CA71D36123200263E76 /* Products */,
+				DE73F529801578D52D75C673 /* Pods */,
+				B88C7DC7EE6FCDB8B2303076 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FBF99CA71D36123200263E76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FBF99CA61D36123200263E76 /* FindMyHW.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FBF99CA51D36123200263E76 /* FindMyHW */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FBF99CB81D36123200263E76 /* Build configuration list for PBXNativeTarget "FindMyHW" */;
+			buildPhases = (
+				6E613623BE4D132875A5D9F6 /* [CP] Check Pods Manifest.lock */,
+				FBF99CA21D36123200263E76 /* Sources */,
+				FBF99CA31D36123200263E76 /* Frameworks */,
+				FBF99CA41D36123200263E76 /* Resources */,
+				C7CA2F214D30D03286984C7B /* [CP] Embed Pods Frameworks */,
+				0633AD35A8A2EE51AEB52E4A /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FindMyHW;
+			productName = WhatsTheHW;
+			productReference = FBF99CA61D36123200263E76 /* FindMyHW.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FBF99C9E1D36123200263E76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0730;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = MakeSchool;
+				TargetAttributes = {
+					FBF99CA51D36123200263E76 = {
+						CreatedOnToolsVersion = 7.3.1;
+						DevelopmentTeam = ZP73EQ3786;
+					};
+				};
+			};
+			buildConfigurationList = FBF99CA11D36123200263E76 /* Build configuration list for PBXProject "FindMyHW" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FBF99C9D1D36123200263E76;
+			productRefGroup = FBF99CA71D36123200263E76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FBF99CA51D36123200263E76 /* FindMyHW */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FBF99CA41D36123200263E76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB961A9B1D5ABF500067DF00 /* Logo.png in Resources */,
+				FB961A891D5ABF500067DF00 /* Main.storyboard in Resources */,
+				FB961A9E1D5ABF500067DF00 /* Teacher.png in Resources */,
+				FB961A9D1D5ABF500067DF00 /* Student.png in Resources */,
+				FB961A811D5ABF500067DF00 /* Assets.xcassets in Resources */,
+				FB961A981D5ABF500067DF00 /* Info.plist in Resources */,
+				FB961A971D5ABF500067DF00 /* Icon.png in Resources */,
+				FB961A991D5ABF500067DF00 /* LaunchScreen.storyboard in Resources */,
+				FB961A821D5ABF500067DF00 /* Calendar.png in Resources */,
+				FB961A9F1D5ABF500067DF00 /* Unlocked.png in Resources */,
+				FB961A901D5ABF500067DF00 /* Font.TTF in Resources */,
+				FB961A9C1D5ABF500067DF00 /* Person.png in Resources */,
+				FB961A9A1D5ABF500067DF00 /* Locked.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		0633AD35A8A2EE51AEB52E4A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6E613623BE4D132875A5D9F6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		C7CA2F214D30D03286984C7B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FBF99CA21D36123200263E76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB961AA61D5ABF500067DF00 /* User.swift in Sources */,
+				FB961AA41D5ABF500067DF00 /* Course.swift in Sources */,
+				FB961A921D5ABF500067DF00 /* DateHelper.swift in Sources */,
+				FB961A8C1D5ABF500067DF00 /* SetDueDateViewController.swift in Sources */,
+				FB961A961D5ABF500067DF00 /* ParseLoginHelper.swift in Sources */,
+				FB961A8F1D5ABF500067DF00 /* NSDate+convertToString.swift in Sources */,
+				FB961AA01D5ABF500067DF00 /* ListAssignmentsTableViewCell.swift in Sources */,
+				FB961A8E1D5ABF500067DF00 /* UserProfileViewController.swift in Sources */,
+				FB961A831D5ABF500067DF00 /* DisplayAssignmentViewController.swift in Sources */,
+				FB961A951D5ABF500067DF00 /* ParseHelper.swift in Sources */,
+				FB961A911D5ABF500067DF00 /* AlertHelper.swift in Sources */,
+				FB961AA21D5ABF500067DF00 /* ListSchoolTableViewCell.swift in Sources */,
+				FB961A841D5ABF500067DF00 /* DisplayCourseViewController.swift in Sources */,
+				FB961A871D5ABF500067DF00 /* ListCoursesTableViewController.swift in Sources */,
+				FB961A801D5ABF500067DF00 /* AppDelegate.swift in Sources */,
+				FB961A851D5ABF500067DF00 /* DisplaySchoolViewController.swift in Sources */,
+				FB961A8B1D5ABF500067DF00 /* SearchCoursesTableViewController.swift in Sources */,
+				FB961A941D5ABF500067DF00 /* LogoHelper.swift in Sources */,
+				FB961A8D1D5ABF500067DF00 /* SetUserInfoViewController.swift in Sources */,
+				FB961A931D5ABF500067DF00 /* ErrorHandling.swift in Sources */,
+				FB961AA11D5ABF500067DF00 /* ListCoursesTableViewCell.swift in Sources */,
+				FB961AA71D5ABF500067DF00 /* SearchCoursesTableViewCell.swift in Sources */,
+				FB961AA31D5ABF500067DF00 /* Assignment.swift in Sources */,
+				FB961A881D5ABF500067DF00 /* ListSchoolTableViewController.swift in Sources */,
+				FB961AA51D5ABF500067DF00 /* School.swift in Sources */,
+				FB961A861D5ABF500067DF00 /* ListAssignmentsTableViewController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		FBF99CB61D36123200263E76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FBF99CB71D36123200263E76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FBF99CB91D36123200263E76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1AB7554A7D177B0262B9BB6E /* Pods-WhatsTheHW.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = FindMyHW/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.Alan.FindMyHW;
+				PRODUCT_NAME = FindMyHW;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FBF99CBA1D36123200263E76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FBF1BCF6FDA2D4303805476 /* Pods-WhatsTheHW.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Frameworks",
+				);
+				INFOPLIST_FILE = FindMyHW/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.makeschool.Alan.FindMyHW;
+				PRODUCT_NAME = FindMyHW;
+				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FBF99CA11D36123200263E76 /* Build configuration list for PBXProject "FindMyHW" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBF99CB61D36123200263E76 /* Debug */,
+				FBF99CB71D36123200263E76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FBF99CB81D36123200263E76 /* Build configuration list for PBXNativeTarget "FindMyHW" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FBF99CB91D36123200263E76 /* Debug */,
+				FBF99CBA1D36123200263E76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FBF99C9E1D36123200263E76 /* Project object */;
+}
