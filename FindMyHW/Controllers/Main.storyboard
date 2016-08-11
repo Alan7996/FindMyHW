@@ -540,6 +540,138 @@
             </objects>
             <point key="canvasLocation" x="1781" y="-525"/>
         </scene>
+        <!--Past Assignments Table View Controller-->
+        <scene sceneID="g9Y-nK-gpY">
+            <objects>
+                <tableViewController id="xLh-as-WTI" customClass="PastAssignmentsTableViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="215" sectionHeaderHeight="28" sectionFooterHeight="28" id="JFu-UF-w4v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="pastAssignmentsTableViewCell" rowHeight="215" id="3sG-lA-K1E" customClass="PastAssignmentsTableViewCell" customModule="FindMyHW" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="215"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3sG-lA-K1E" id="1ku-Ze-gIV">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="214"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assignment Name Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kl2-7x-DeR" userLabel="Assignment Name Label">
+                                            <rect key="frame" x="19" y="-3" width="573" height="40"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="40" id="GBV-Gp-NTa"/>
+                                                <constraint firstAttribute="height" constant="22" id="kxm-Q7-vyL"/>
+                                                <constraint firstAttribute="height" constant="40" id="ljC-jw-LCf"/>
+                                                <constraint firstAttribute="width" constant="355" id="qeN-Xw-PK2"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="kxm-Q7-vyL"/>
+                                                    <exclude reference="ljC-jw-LCf"/>
+                                                    <exclude reference="qeN-Xw-PK2"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date        :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWh-fK-p6h">
+                                            <rect key="frame" x="19" y="45" width="115" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="Ama-Mg-1q1"/>
+                                                <constraint firstAttribute="height" constant="21" id="H6x-nv-CT0"/>
+                                                <constraint firstAttribute="width" constant="115" id="QL5-fn-Yq3"/>
+                                                <constraint firstAttribute="width" constant="115" id="S4F-3g-rdc"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Ama-Mg-1q1"/>
+                                                    <exclude reference="S4F-3g-rdc"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Due Date" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWg-pt-tv6">
+                                            <rect key="frame" x="137" y="45" width="241" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="21" id="QTh-1B-t8b"/>
+                                                <constraint firstAttribute="width" constant="241" id="gEO-hM-gFm"/>
+                                                <constraint firstAttribute="height" constant="21" id="hcJ-yA-U4f"/>
+                                                <constraint firstAttribute="height" constant="21" id="hp7-63-5kJ"/>
+                                                <constraint firstAttribute="width" constant="241" id="tmE-ma-zeb"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="hcJ-yA-U4f"/>
+                                                    <exclude reference="hp7-63-5kJ"/>
+                                                    <exclude reference="tmE-ma-zeb"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Assignment Instruction Label" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Xid-gG-3d9">
+                                            <rect key="frame" x="19" y="74" width="573" height="132"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="110" id="Ay6-ss-sss"/>
+                                                <constraint firstAttribute="height" constant="132" id="FNo-be-FTJ"/>
+                                                <constraint firstAttribute="height" constant="103" id="HRM-5i-hMt"/>
+                                                <constraint firstAttribute="width" constant="584" id="W6K-pb-NiY"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="default">
+                                                <mask key="constraints">
+                                                    <exclude reference="Ay6-ss-sss"/>
+                                                    <exclude reference="HRM-5i-hMt"/>
+                                                    <exclude reference="W6K-pb-NiY"/>
+                                                </mask>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="kl2-7x-DeR" firstAttribute="leading" secondItem="1ku-Ze-gIV" secondAttribute="leadingMargin" constant="11" id="7fz-si-O7G"/>
+                                        <constraint firstItem="Xid-gG-3d9" firstAttribute="leading" secondItem="1ku-Ze-gIV" secondAttribute="leadingMargin" constant="11" id="AFs-MH-Vam"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="kl2-7x-DeR" secondAttribute="trailing" id="AbS-3X-7Fk"/>
+                                        <constraint firstItem="oWg-pt-tv6" firstAttribute="leading" secondItem="aWh-fK-p6h" secondAttribute="trailing" constant="3" id="EkO-fg-QEy"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="Xid-gG-3d9" secondAttribute="trailing" id="GAz-7W-Uus"/>
+                                        <constraint firstItem="kl2-7x-DeR" firstAttribute="top" secondItem="1ku-Ze-gIV" secondAttribute="topMargin" constant="-11" id="LiM-O4-sap"/>
+                                        <constraint firstItem="aWh-fK-p6h" firstAttribute="top" secondItem="kl2-7x-DeR" secondAttribute="bottom" constant="8" id="QbZ-Dc-j4u"/>
+                                        <constraint firstItem="aWh-fK-p6h" firstAttribute="leading" secondItem="1ku-Ze-gIV" secondAttribute="leadingMargin" constant="11" id="WKP-qZ-UNL"/>
+                                        <constraint firstItem="oWg-pt-tv6" firstAttribute="top" secondItem="kl2-7x-DeR" secondAttribute="bottom" constant="8" id="eco-xU-x16"/>
+                                        <constraint firstItem="Xid-gG-3d9" firstAttribute="top" secondItem="oWg-pt-tv6" secondAttribute="bottom" constant="8" id="is7-bs-Cks"/>
+                                        <constraint firstItem="oWg-pt-tv6" firstAttribute="leading" secondItem="aWh-fK-p6h" secondAttribute="trailing" constant="3" id="tSy-5J-Vwg"/>
+                                        <constraint firstItem="Xid-gG-3d9" firstAttribute="top" secondItem="aWh-fK-p6h" secondAttribute="bottom" constant="8" id="ucp-ve-sbR"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="ucp-ve-sbR"/>
+                                            <exclude reference="tSy-5J-Vwg"/>
+                                        </mask>
+                                    </variation>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="assignmentInstructionLabel" destination="Xid-gG-3d9" id="l3U-uf-JU2"/>
+                                    <outlet property="assignmentNamLabel" destination="kl2-7x-DeR" id="2em-nN-M7X"/>
+                                    <outlet property="dueDateLabel" destination="oWg-pt-tv6" id="qmi-O5-qdf"/>
+                                    <segue destination="uQc-d0-n02" kind="show" identifier="displayPastAssignment" id="dO4-ka-XAs"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="xLh-as-WTI" id="keW-uq-GnS"/>
+                            <outlet property="delegate" destination="xLh-as-WTI" id="EzR-3E-Vqw"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kcg-bL-d9k" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2567" y="-525"/>
+        </scene>
         <!--List Assignments Table View Controller-->
         <scene sceneID="hrf-RO-wvy">
             <objects>
@@ -739,11 +871,23 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Assignments" id="VHG-hT-5cl" userLabel="AssignmentName">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="nvx-kg-i1D">
-                            <connections>
-                                <segue destination="uQc-d0-n02" kind="show" identifier="addAssignment" id="Yza-sV-a85"/>
-                            </connections>
-                        </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem systemItem="add" id="nvx-kg-i1D">
+                                <connections>
+                                    <segue destination="uQc-d0-n02" kind="show" identifier="addAssignment" id="Yza-sV-a85"/>
+                                </connections>
+                            </barButtonItem>
+                            <barButtonItem style="plain" id="yXM-pk-Pn3">
+                                <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="L3b-2k-tbO">
+                                    <rect key="frame" x="484" y="7" width="60" height="30"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <state key="normal" title="Previous"/>
+                                    <connections>
+                                        <segue destination="xLh-as-WTI" kind="show" identifier="pastAssignments" id="B09-aG-CBq"/>
+                                    </connections>
+                                </button>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="searchDisplayController" destination="vM2-He-Kir" id="2kj-Jj-73f"/>
@@ -1392,6 +1536,6 @@
         <image name="Unlocked.png" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="GNm-JX-umu"/>
+        <segue reference="dO4-ka-XAs"/>
     </inferredMetricsTieBreakers>
 </document>

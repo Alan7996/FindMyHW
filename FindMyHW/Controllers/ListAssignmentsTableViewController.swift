@@ -22,6 +22,8 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
     var course: Course?
     var assignments: [Assignment] = []
     
+    let date = NSDate()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -51,7 +53,8 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         
         currentCourseAssignmentsQuery.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
             for object in result! {
-                if object["course"].objectId == ((self.course?.objectId)!) {
+                let objectDueDate = object["dueDate"] as! NSDate
+                if object["course"].objectId == ((self.course?.objectId)!) && objectDueDate.laterDate(self.date).isEqualToDate(objectDueDate){
                     self.assignments.append(object as! Assignment)
                 }
             }
@@ -179,6 +182,11 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
                 displayAssignmentViewController.assignment = assignment
                 displayAssignmentViewController.course = course
                 displayAssignmentViewController.objectID = assignment.objectId
+                
+            } else if identifier == "pastAssignments" {
+                print ("Previous button tapped")
+                let pastAssignmentsTableViewController = segue.destinationViewController as! PastAssignmentsTableViewController
+                pastAssignmentsTableViewController.course = course
             }
         }
     }

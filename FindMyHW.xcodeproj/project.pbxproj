@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		12A41AC6057777BF99E0ECB0 /* Pods_WhatsTheHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */; };
+		BBFFC66E89BC6EDA07D5CCAE /* Pods_FindMyHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6629D7712446D49B1880F1E /* Pods_FindMyHW.framework */; };
+		FB1C706C1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C706B1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift */; };
+		FB1C706E1D5C6196006878AE /* PastAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C706D1D5C6196006878AE /* PastAssignmentsTableViewCell.swift */; };
 		FB961A801D5ABF500067DF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A501D5ABF500067DF00 /* AppDelegate.swift */; };
 		FB961A811D5ABF500067DF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB961A511D5ABF500067DF00 /* Assets.xcassets */; };
 		FB961A821D5ABF500067DF00 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A521D5ABF500067DF00 /* Calendar.png */; };
@@ -34,7 +37,6 @@
 		FB961A981D5ABF500067DF00 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB961A6E1D5ABF500067DF00 /* Info.plist */; };
 		FB961A991D5ABF500067DF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB961A6F1D5ABF500067DF00 /* LaunchScreen.storyboard */; };
 		FB961A9A1D5ABF500067DF00 /* Locked.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A701D5ABF500067DF00 /* Locked.png */; };
-		FB961A9B1D5ABF500067DF00 /* Logo.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A711D5ABF500067DF00 /* Logo.png */; };
 		FB961A9C1D5ABF500067DF00 /* Person.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A721D5ABF500067DF00 /* Person.png */; };
 		FB961A9D1D5ABF500067DF00 /* Student.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A731D5ABF500067DF00 /* Student.png */; };
 		FB961A9E1D5ABF500067DF00 /* Teacher.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A741D5ABF500067DF00 /* Teacher.png */; };
@@ -51,8 +53,13 @@
 
 /* Begin PBXFileReference section */
 		1AB7554A7D177B0262B9BB6E /* Pods-WhatsTheHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW.debug.xcconfig"; sourceTree = "<group>"; };
+		50FE71D2F10C982816A9AA64 /* Pods-FindMyHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindMyHW/Pods-FindMyHW.release.xcconfig"; sourceTree = "<group>"; };
+		6026D66284A036A7AD732B26 /* Pods-FindMyHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindMyHW/Pods-FindMyHW.debug.xcconfig"; sourceTree = "<group>"; };
 		70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsTheHW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBF1BCF6FDA2D4303805476 /* Pods-WhatsTheHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW.release.xcconfig"; sourceTree = "<group>"; };
+		D6629D7712446D49B1880F1E /* Pods_FindMyHW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyHW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB1C706B1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastAssignmentsTableViewController.swift; sourceTree = "<group>"; };
+		FB1C706D1D5C6196006878AE /* PastAssignmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastAssignmentsTableViewCell.swift; sourceTree = "<group>"; };
 		FB961A501D5ABF500067DF00 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB961A511D5ABF500067DF00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB961A521D5ABF500067DF00 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Calendar.png; path = ../Calendar.png; sourceTree = "<group>"; };
@@ -79,7 +86,6 @@
 		FB961A6E1D5ABF500067DF00 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB961A6F1D5ABF500067DF00 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FB961A701D5ABF500067DF00 /* Locked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Locked.png; path = ../Locked.png; sourceTree = "<group>"; };
-		FB961A711D5ABF500067DF00 /* Logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Logo.png; path = ../Logo.png; sourceTree = "<group>"; };
 		FB961A721D5ABF500067DF00 /* Person.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Person.png; path = ../Person.png; sourceTree = "<group>"; };
 		FB961A731D5ABF500067DF00 /* Student.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Student.png; path = ../Student.png; sourceTree = "<group>"; };
 		FB961A741D5ABF500067DF00 /* Teacher.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Teacher.png; path = ../Teacher.png; sourceTree = "<group>"; };
@@ -101,6 +107,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				12A41AC6057777BF99E0ECB0 /* Pods_WhatsTheHW.framework in Frameworks */,
+				BBFFC66E89BC6EDA07D5CCAE /* Pods_FindMyHW.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */,
+				D6629D7712446D49B1880F1E /* Pods_FindMyHW.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -120,6 +128,8 @@
 			children = (
 				1AB7554A7D177B0262B9BB6E /* Pods-WhatsTheHW.debug.xcconfig */,
 				8FBF1BCF6FDA2D4303805476 /* Pods-WhatsTheHW.release.xcconfig */,
+				6026D66284A036A7AD732B26 /* Pods-FindMyHW.debug.xcconfig */,
+				50FE71D2F10C982816A9AA64 /* Pods-FindMyHW.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -153,6 +163,7 @@
 				FB961A601D5ABF500067DF00 /* UserProfileViewController.swift */,
 				FB961A571D5ABF500067DF00 /* ListAssignmentsTableViewController.swift */,
 				FB961A541D5ABF500067DF00 /* DisplayAssignmentViewController.swift */,
+				FB1C706B1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift */,
 				FB961A5E1D5ABF500067DF00 /* SetDueDateViewController.swift */,
 			);
 			path = Controllers;
@@ -186,7 +197,6 @@
 				FB961A521D5ABF500067DF00 /* Calendar.png */,
 				FB961A6C1D5ABF500067DF00 /* Icon.png */,
 				FB961A701D5ABF500067DF00 /* Locked.png */,
-				FB961A711D5ABF500067DF00 /* Logo.png */,
 				FB961A721D5ABF500067DF00 /* Person.png */,
 				FB961A731D5ABF500067DF00 /* Student.png */,
 				FB961A741D5ABF500067DF00 /* Teacher.png */,
@@ -203,6 +213,7 @@
 				FB961A781D5ABF500067DF00 /* ListCoursesTableViewCell.swift */,
 				FB961A7F1D5ABF500067DF00 /* SearchCoursesTableViewCell.swift */,
 				FB961A771D5ABF500067DF00 /* ListAssignmentsTableViewCell.swift */,
+				FB1C706D1D5C6196006878AE /* PastAssignmentsTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -298,7 +309,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB961A9B1D5ABF500067DF00 /* Logo.png in Resources */,
 				FB961A891D5ABF500067DF00 /* Main.storyboard in Resources */,
 				FB961A9E1D5ABF500067DF00 /* Teacher.png in Resources */,
 				FB961A9D1D5ABF500067DF00 /* Student.png in Resources */,
@@ -329,7 +339,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FindMyHW/Pods-FindMyHW-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6E613623BE4D132875A5D9F6 /* [CP] Check Pods Manifest.lock */ = {
@@ -359,7 +369,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FindMyHW/Pods-FindMyHW-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -373,6 +383,7 @@
 				FB961AA41D5ABF500067DF00 /* Course.swift in Sources */,
 				FB961A921D5ABF500067DF00 /* DateHelper.swift in Sources */,
 				FB961A8C1D5ABF500067DF00 /* SetDueDateViewController.swift in Sources */,
+				FB1C706C1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift in Sources */,
 				FB961A961D5ABF500067DF00 /* ParseLoginHelper.swift in Sources */,
 				FB961A8F1D5ABF500067DF00 /* NSDate+convertToString.swift in Sources */,
 				FB961AA01D5ABF500067DF00 /* ListAssignmentsTableViewCell.swift in Sources */,
@@ -388,6 +399,7 @@
 				FB961A8B1D5ABF500067DF00 /* SearchCoursesTableViewController.swift in Sources */,
 				FB961A941D5ABF500067DF00 /* LogoHelper.swift in Sources */,
 				FB961A8D1D5ABF500067DF00 /* SetUserInfoViewController.swift in Sources */,
+				FB1C706E1D5C6196006878AE /* PastAssignmentsTableViewCell.swift in Sources */,
 				FB961A931D5ABF500067DF00 /* ErrorHandling.swift in Sources */,
 				FB961AA11D5ABF500067DF00 /* ListCoursesTableViewCell.swift in Sources */,
 				FB961AA71D5ABF500067DF00 /* SearchCoursesTableViewCell.swift in Sources */,
@@ -486,7 +498,7 @@
 		};
 		FBF99CB91D36123200263E76 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1AB7554A7D177B0262B9BB6E /* Pods-WhatsTheHW.debug.xcconfig */;
+			baseConfigurationReference = 6026D66284A036A7AD732B26 /* Pods-FindMyHW.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -508,12 +520,12 @@
 		};
 		FBF99CBA1D36123200263E76 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8FBF1BCF6FDA2D4303805476 /* Pods-WhatsTheHW.release.xcconfig */;
+			baseConfigurationReference = 50FE71D2F10C982816A9AA64 /* Pods-FindMyHW.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: SooHyun Lee (V49CRUX3Q9)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: SooHyun Lee (V49CRUX3Q9)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Frameworks",
@@ -522,7 +534,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ms.alanlee.FindMyHW;
 				PRODUCT_NAME = FindMyHW;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "4eae9318-d4f6-4614-8b48-c3a7ec3fbd88";
 				SWIFT_OBJC_BRIDGING_HEADER = "";
 			};
 			name = Release;

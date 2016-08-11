@@ -22,16 +22,20 @@ class DisplayAssignmentViewController: UIViewController {
     var dueDate: NSDate?
     var objectID: String?
     var parseAssignment: Assignment?
+    let date = NSDate()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let assignment = assignment {
-            if course!.teacher == PFUser.currentUser() || assignment["user"].objectId == PFUser.currentUser()?.objectId{
-                assignmentTitleTextField.userInteractionEnabled = true
-                assignmentInstructionTextView.userInteractionEnabled = true
-                calendarButton.userInteractionEnabled = true
-                saveButton.enabled = true
+            let assignmentDueDate = assignment["dueDate"] as! NSDate
+            if assignmentDueDate.laterDate(self.date).isEqualToDate(assignmentDueDate) {
+                if course!.teacher == PFUser.currentUser() || assignment["user"].objectId == PFUser.currentUser()?.objectId{
+                    assignmentTitleTextField.userInteractionEnabled = true
+                    assignmentInstructionTextView.userInteractionEnabled = true
+                    calendarButton.userInteractionEnabled = true
+                    saveButton.enabled = true
+                }
             } else {
                 assignmentTitleTextField.userInteractionEnabled = false
                 assignmentInstructionTextView.userInteractionEnabled = false

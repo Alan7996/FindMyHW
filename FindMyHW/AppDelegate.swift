@@ -87,7 +87,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let loginViewController = PFLogInViewController()
             
             let logInLogoTitle = UILabel()
-            LogoHelper.createLogo("What's The HW", label: logInLogoTitle)
+            LogoHelper.createLogo("Find My HW", label: logInLogoTitle)
             loginViewController.logInView?.logo = logInLogoTitle
             
             let imageName = "Icon.png"
@@ -125,7 +125,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //            loginViewController.logInView!.passwordForgottenButton?.backgroundColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
             
             let signUpLogoTitle = UILabel()
-            LogoHelper.createLogo("What's The HW", label: signUpLogoTitle)
+            LogoHelper.createLogo("Find My HW", label: signUpLogoTitle)
             loginViewController.signUpController!.signUpView?.logo = signUpLogoTitle
             loginViewController.signUpController!.signUpView?.backgroundColor = UIColor(red: CGFloat(91.0/255.0), green: CGFloat(124.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
             
