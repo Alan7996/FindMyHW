@@ -1,6 +1,6 @@
 //
 //  DisplayCourseViewController.swift
-//  WhatsTheHW
+//  FindMyHW
 //
 //  Created by 수현 on 7/13/16.
 //  Copyright © 2016 MakeSchool. All rights reserved.

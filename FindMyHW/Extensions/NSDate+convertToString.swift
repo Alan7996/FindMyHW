@@ -1,6 +1,6 @@
 //
 //  NSDate+convertToString.swift
-//  WhatsTheHW
+//  FindMyHW
 //
 //  Created by Chris Orcutt on 1/10/16.
 //  Copyright © 2016 MakeSchool. All rights reserved.

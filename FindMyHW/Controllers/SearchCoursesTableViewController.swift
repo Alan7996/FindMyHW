@@ -1,6 +1,6 @@
 //
 //  SearchCoursesTableViewController.swift
-//  WhatsTheHW
+//  FindMyHW
 //
 //  Created by 수현 on 8/2/16.
 //  Copyright © 2016 MakeSchool. All rights reserved.

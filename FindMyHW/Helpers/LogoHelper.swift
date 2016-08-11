@@ -1,6 +1,6 @@
 //
 //  LogoHelper.swift
-//  WhatsTheHW
+//  FindMyHW
 //
 //  Created by 수현 on 8/5/16.
 //  Copyright © 2016 MakeSchool. All rights reserved.

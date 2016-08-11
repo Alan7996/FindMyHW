@@ -1,6 +1,6 @@
 //
 //  ListAssignmentsTableViewCell.swift
-//  WhatsTheHW
+//  FindMyHW
 //
 //  Created by 수현 on 7/14/16.
 //  Copyright © 2016 MakeSchool. All rights reserved.
