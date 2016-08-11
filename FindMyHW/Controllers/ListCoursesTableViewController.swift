@@ -134,11 +134,20 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         if editingStyle == .Delete {
             let course = courses[indexPath.row]
             if course.teacher == PFUser.currentUser() {
-                let alert = UIAlertController(title: "Delete", message: "This course will be permanently deleted.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Delete", message: "This course will be permanently deleted along with its assignments.", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 alert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
                     print("\(course.name) deleted")
                     ParseHelper.deleteObjectInBackgroundWithBlock(course)
+                    let currentCourseAssignmentsQuery = PFQuery(className: "Assignment")
+                    
+                    currentCourseAssignmentsQuery.findObjectsInBackgroundWithBlock {(result: [PFObject]?, error: NSError?) -> Void in
+                        for object in result! {
+                            if object["course"].objectId == course.objectId {
+                                ParseHelper.deleteObjectInBackgroundWithBlock(object)
+                            }
+                        }
+                    }
                     self.refresh()
                 }))
                 
@@ -147,7 +156,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
                 }))
                 presentViewController(alert, animated: true, completion: nil)
             } else {
-                let alert = UIAlertController(title: "Unenroll", message: "All of your posts in this course will be deleted.", preferredStyle: UIAlertControllerStyle.Alert)
+                let alert = UIAlertController(title: "Unenroll", message: "You will now unenroll from this course.", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 alert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in
                     let newArray = course["studentRelation"] as! [String]
