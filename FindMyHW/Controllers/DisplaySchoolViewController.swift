@@ -3,7 +3,7 @@
 //  FindMyHW
 //
 //  Created by 수현 on 8/4/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Copyright © 2016 SooHyun Lee. All rights reserved.
 //
 
 import UIKit
@@ -84,7 +84,6 @@ class DisplaySchoolViewController: UIViewController, UITextFieldDelegate, UIPick
             
             newSchool.addSchool(newSchool)
             
-            listSchoolTableViewController.tableView.reloadData()
             print("Data reloaded")
         }
     }

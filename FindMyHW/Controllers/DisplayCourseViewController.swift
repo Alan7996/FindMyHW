@@ -3,7 +3,7 @@
 //  FindMyHW
 //
 //  Created by 수현 on 7/13/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Copyright © 2016 SooHyun Lee. All rights reserved.
 //
 
 import UIKit
@@ -24,10 +24,14 @@ class DisplayCourseViewController: UIViewController {
         super.viewWillAppear(animated)
         if let course = course {
             courseNameTextField.text = course.name
-            courseTeacherLabel.text = course.teacher!["username"] as? String
+            let courseTeacherTitle = course.teacher!["title"] as! String
+            let courseTeacherLastName = course.teacher!["lastName"] as! String
+            courseTeacherLabel.text = courseTeacherTitle + courseTeacherLastName
         } else {
             courseNameTextField.text = ""
-            courseTeacherLabel.text = username
+            let currentUserTitle = PFUser.currentUser()!["title"] as! String
+            let currentUserLastName = PFUser.currentUser()!["lastName"] as! String
+            courseTeacherLabel.text = currentUserTitle + currentUserLastName
         }
     }
     

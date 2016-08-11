@@ -13,13 +13,13 @@
         <!--List Courses Table View Controller-->
         <scene sceneID="J0g-LU-I56">
             <objects>
-                <tableViewController id="14V-o0-sl3" userLabel="List Courses Table View Controller" customClass="ListCoursesTableViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="14V-o0-sl3" userLabel="List Courses Table View Controller" customClass="ListCoursesTableViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="pWF-9b-On9">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCoursesTableViewCell" rowHeight="60" id="j8k-GL-vXZ" userLabel="listCoursesTableViewCell" customClass="ListCoursesTableViewCell" customModule="WhatsTheHW" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listCoursesTableViewCell" rowHeight="60" id="j8k-GL-vXZ" userLabel="listCoursesTableViewCell" customClass="ListCoursesTableViewCell" customModule="FindMyHW" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="j8k-GL-vXZ" id="CAM-Tg-XTk">
@@ -177,7 +177,7 @@
         <!--Set User Info View Controller-->
         <scene sceneID="k3I-EM-T3u">
             <objects>
-                <viewController id="bCi-e2-cdg" userLabel="Set User Info View Controller" customClass="SetUserInfoViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="bCi-e2-cdg" userLabel="Set User Info View Controller" customClass="SetUserInfoViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NYA-QB-ezt"/>
                         <viewControllerLayoutGuide type="bottom" id="f8G-Xl-qcl"/>
@@ -311,13 +311,13 @@
         <!--List School Table View Controller-->
         <scene sceneID="8WO-IF-gTh">
             <objects>
-                <tableViewController id="O3V-T7-LtQ" userLabel="List School Table View Controller" customClass="ListSchoolTableViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="O3V-T7-LtQ" userLabel="List School Table View Controller" customClass="ListSchoolTableViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="70" sectionHeaderHeight="28" sectionFooterHeight="28" id="1I3-6h-Rkq">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listSchoolTableViewCell" rowHeight="70" id="A1M-dk-zPh" customClass="ListSchoolTableViewCell" customModule="WhatsTheHW" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listSchoolTableViewCell" rowHeight="70" id="A1M-dk-zPh" customClass="ListSchoolTableViewCell" customModule="FindMyHW" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="70"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="A1M-dk-zPh" id="pxl-27-fKT">
@@ -392,13 +392,13 @@
         <!--Search Courses Table View Controller-->
         <scene sceneID="iiN-fi-CqK">
             <objects>
-                <tableViewController id="1LY-D1-hff" customClass="SearchCoursesTableViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="1LY-D1-hff" customClass="SearchCoursesTableViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="u51-lL-c0W">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCoursesTableViewCell" rowHeight="60" id="BOT-4j-pc9" customClass="SearchCoursesTableViewCell" customModule="WhatsTheHW" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="searchCoursesTableViewCell" rowHeight="60" id="BOT-4j-pc9" customClass="SearchCoursesTableViewCell" customModule="FindMyHW" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BOT-4j-pc9" id="ygs-xb-3xF">
@@ -469,7 +469,7 @@
         <!--Display Course View Controller-->
         <scene sceneID="Z2X-z8-NbI">
             <objects>
-                <viewController id="FL3-15-Rdh" userLabel="Display Course View Controller" customClass="DisplayCourseViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="FL3-15-Rdh" userLabel="Display Course View Controller" customClass="DisplayCourseViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="50I-Ds-yXd"/>
                         <viewControllerLayoutGuide type="bottom" id="zvK-en-pGq"/>
@@ -543,13 +543,13 @@
         <!--List Assignments Table View Controller-->
         <scene sceneID="hrf-RO-wvy">
             <objects>
-                <tableViewController id="aNV-La-eRd" userLabel="List Assignments Table View Controller" customClass="ListAssignmentsTableViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="aNV-La-eRd" userLabel="List Assignments Table View Controller" customClass="ListAssignmentsTableViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="215" sectionHeaderHeight="28" sectionFooterHeight="28" id="Rut-jU-ST3">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listAssignmentsTableViewCell" rowHeight="215" id="nNs-RM-X7a" userLabel="listAssignmentsTableViewCell" customClass="ListAssignmentsTableViewCell" customModule="WhatsTheHW" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="listAssignmentsTableViewCell" rowHeight="215" id="nNs-RM-X7a" userLabel="listAssignmentsTableViewCell" customClass="ListAssignmentsTableViewCell" customModule="FindMyHW" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="215"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" contentMode="center" tableViewCell="nNs-RM-X7a" id="8Hj-Vc-Z7E">
@@ -764,7 +764,7 @@
         <!--User Profile View Controller-->
         <scene sceneID="792-sb-kn9">
             <objects>
-                <viewController id="JeZ-zR-yg9" customClass="UserProfileViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="JeZ-zR-yg9" customClass="UserProfileViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="g9y-m1-WoZ"/>
                         <viewControllerLayoutGuide type="bottom" id="ebf-pQ-d3e"/>
@@ -962,7 +962,7 @@
         <!--Set Due Date View Controller-->
         <scene sceneID="ogU-Yp-5ia">
             <objects>
-                <viewController id="9mB-dP-82L" customClass="SetDueDateViewController" customModule="WhatsTheHW" sceneMemberID="viewController">
+                <viewController id="9mB-dP-82L" customClass="SetDueDateViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Ngs-Ze-R4E"/>
                         <viewControllerLayoutGuide type="bottom" id="Jpb-h5-74S"/>
@@ -1044,7 +1044,7 @@
         <!--Display Assignment View Controller-->
         <scene sceneID="Mgs-Ny-kVE">
             <objects>
-                <viewController id="uQc-d0-n02" userLabel="Display Assignment View Controller" customClass="DisplayAssignmentViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uQc-d0-n02" userLabel="Display Assignment View Controller" customClass="DisplayAssignmentViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="E8O-hM-4nD"/>
                         <viewControllerLayoutGuide type="bottom" id="lCL-SP-06A"/>
@@ -1193,7 +1193,7 @@
         <!--Display School View Controller-->
         <scene sceneID="ULA-2e-yXY">
             <objects>
-                <viewController id="OJU-vn-CmQ" userLabel="Display School View Controller" customClass="DisplaySchoolViewController" customModule="WhatsTheHW" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OJU-vn-CmQ" userLabel="Display School View Controller" customClass="DisplaySchoolViewController" customModule="FindMyHW" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="QmA-N5-hoZ"/>
                         <viewControllerLayoutGuide type="bottom" id="Xa6-aq-yPe"/>

@@ -3,7 +3,7 @@
 //  FindMyHW
 //
 //  Created by 수현 on 7/28/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Copyright © 2016 SooHyun Lee. All rights reserved.
 //
 
 import Foundation
@@ -41,7 +41,7 @@ extension ParseLoginHelper : PFSignUpViewControllerDelegate {
         self.callback(user, nil)
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let startViewController = storyboard.instantiateViewControllerWithIdentifier("ListSchoolTableViewController") as! UINavigationController
+        let startViewController = storyboard.instantiateViewControllerWithIdentifier("SetUserInfoViewController") as! UINavigationController
         let mainWindow = UIApplication.sharedApplication().delegate!.window!
         mainWindow?.rootViewController = startViewController
         

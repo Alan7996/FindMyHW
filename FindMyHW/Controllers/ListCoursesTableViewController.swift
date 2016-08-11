@@ -3,7 +3,7 @@
 //  FindMyHW
 //
 //  Created by 수현 on 7/13/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Copyright © 2016 SooHyun Lee. All rights reserved.
 //
 
 import UIKit
@@ -133,7 +133,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
     {
         if editingStyle == .Delete {
             let course = courses[indexPath.row]
-            if course.teacher == PFUser.currentUser()?.username {
+            if course.teacher == PFUser.currentUser() {
                 let alert = UIAlertController(title: "Delete", message: "This course will be permanently deleted.", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 alert.addAction(UIAlertAction(title: "Confirm", style: .Default, handler: { (action: UIAlertAction!) in

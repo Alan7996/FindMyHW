@@ -3,7 +3,7 @@
 //  FindMyHW
 //
 //  Created by 수현 on 2016. 6. 23..
-//  Copyright © 2016년 MakeSchool. All rights reserved.
+//  Copyright © 2016년 SooHyun Lee. All rights reserved.
 //
 
 import Foundation

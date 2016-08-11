@@ -3,7 +3,7 @@
 //  FindMyHW
 //
 //  Created by 수현 on 7/13/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Copyright © 2016 SooHyun Lee. All rights reserved.
 //
 
 // Pull to refresh needs to be implemented
@@ -24,6 +24,8 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = course?.name
         
         searchController.searchResultsUpdater = self
         searchController.dimsBackgroundDuringPresentation = false

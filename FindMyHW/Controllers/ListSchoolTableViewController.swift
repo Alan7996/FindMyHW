@@ -3,7 +3,7 @@
 //  FindMyHW
 //
 //  Created by 수현 on 8/4/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Copyright © 2016 SooHyun Lee. All rights reserved.
 //
 
 import UIKit
@@ -14,6 +14,8 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
     
     let searchController = UISearchController(searchResultsController: nil)
     var filteredSchools = [School]()
+    
+    var refreshControl1: UIRefreshControl!
     
     var schools: [School] = []
     
@@ -44,6 +46,11 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
         definesPresentationContext = true
         tableView.tableHeaderView = searchController.searchBar
         
+        refreshControl1 = UIRefreshControl()
+        refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl1.addTarget(self, action: #selector(ListCoursesTableViewController.refresh(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        tableView.addSubview(refreshControl1)
+        
         navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
     }
     
@@ -69,6 +76,12 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
             
             print("Refreshed")
         }
+    }
+    
+    func refresh(sender:AnyObject) {
+        // Code to refresh table view
+        refresh()
+        refreshControl1.endRefreshing()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

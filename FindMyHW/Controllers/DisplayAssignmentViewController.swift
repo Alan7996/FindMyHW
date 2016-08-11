@@ -3,7 +3,7 @@
 //  FindMyHW
 //
 //  Created by 수현 on 7/13/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Copyright © 2016 SooHyun Lee. All rights reserved.
 //
 
 import UIKit
@@ -26,16 +26,23 @@ class DisplayAssignmentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if course!.teacher == PFUser.currentUser() || assignment!["user"].objectId == PFUser.currentUser()?.objectId{
+        if let assignment = assignment {
+            if course!.teacher == PFUser.currentUser() || assignment["user"].objectId == PFUser.currentUser()?.objectId{
+                assignmentTitleTextField.userInteractionEnabled = true
+                assignmentInstructionTextView.userInteractionEnabled = true
+                calendarButton.userInteractionEnabled = true
+                saveButton.enabled = true
+            } else {
+                assignmentTitleTextField.userInteractionEnabled = false
+                assignmentInstructionTextView.userInteractionEnabled = false
+                calendarButton.userInteractionEnabled = false
+                saveButton.enabled = false
+            }
+        } else {
             assignmentTitleTextField.userInteractionEnabled = true
             assignmentInstructionTextView.userInteractionEnabled = true
             calendarButton.userInteractionEnabled = true
             saveButton.enabled = true
-        } else {
-            assignmentTitleTextField.userInteractionEnabled = false
-            assignmentInstructionTextView.userInteractionEnabled = false
-            calendarButton.userInteractionEnabled = false
-            saveButton.enabled = false
         }
         
         dueDate = assignment?.dueDate

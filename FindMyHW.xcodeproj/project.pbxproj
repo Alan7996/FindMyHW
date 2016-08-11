@@ -144,16 +144,16 @@
 		FB961A531D5ABF500067DF00 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				FB961A541D5ABF500067DF00 /* DisplayAssignmentViewController.swift */,
-				FB961A551D5ABF500067DF00 /* DisplayCourseViewController.swift */,
-				FB961A561D5ABF500067DF00 /* DisplaySchoolViewController.swift */,
-				FB961A571D5ABF500067DF00 /* ListAssignmentsTableViewController.swift */,
-				FB961A581D5ABF500067DF00 /* ListCoursesTableViewController.swift */,
-				FB961A591D5ABF500067DF00 /* ListSchoolTableViewController.swift */,
-				FB961A5D1D5ABF500067DF00 /* SearchCoursesTableViewController.swift */,
-				FB961A5E1D5ABF500067DF00 /* SetDueDateViewController.swift */,
 				FB961A5F1D5ABF500067DF00 /* SetUserInfoViewController.swift */,
+				FB961A591D5ABF500067DF00 /* ListSchoolTableViewController.swift */,
+				FB961A561D5ABF500067DF00 /* DisplaySchoolViewController.swift */,
+				FB961A581D5ABF500067DF00 /* ListCoursesTableViewController.swift */,
+				FB961A551D5ABF500067DF00 /* DisplayCourseViewController.swift */,
+				FB961A5D1D5ABF500067DF00 /* SearchCoursesTableViewController.swift */,
 				FB961A601D5ABF500067DF00 /* UserProfileViewController.swift */,
+				FB961A571D5ABF500067DF00 /* ListAssignmentsTableViewController.swift */,
+				FB961A541D5ABF500067DF00 /* DisplayAssignmentViewController.swift */,
+				FB961A5E1D5ABF500067DF00 /* SetDueDateViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";

@@ -3,7 +3,7 @@
 //  FindMyHW
 //
 //  Created by 수현 on 8/2/16.
-//  Copyright © 2016 MakeSchool. All rights reserved.
+//  Copyright © 2016 SooHyun Lee. All rights reserved.
 //
 
 import UIKit
@@ -16,7 +16,9 @@ class SearchCoursesTableViewCell: UITableViewCell {
         didSet {
             courseNameLabel.text = course.name
             
-            courseTeacherLabel.text = course.teacher!["username"] as? String
+            let courseTeacherTitle = course.teacher!["title"] as! String
+            let courseTeacherLastName = course.teacher!["lastName"] as! String
+            courseTeacherLabel.text = courseTeacherTitle + courseTeacherLastName
         }
     }
 }
