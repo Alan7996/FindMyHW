@@ -10,6 +10,7 @@
 		BBFFC66E89BC6EDA07D5CCAE /* Pods_FindMyHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6629D7712446D49B1880F1E /* Pods_FindMyHW.framework */; };
 		FB1C706C1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C706B1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift */; };
 		FB1C706E1D5C6196006878AE /* PastAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C706D1D5C6196006878AE /* PastAssignmentsTableViewCell.swift */; };
+		FB8292071D5D6AD30034DB60 /* PhotoTakingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8292061D5D6AD30034DB60 /* PhotoTakingHelper.swift */; };
 		FB961A801D5ABF500067DF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A501D5ABF500067DF00 /* AppDelegate.swift */; };
 		FB961A811D5ABF500067DF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB961A511D5ABF500067DF00 /* Assets.xcassets */; };
 		FB961A821D5ABF500067DF00 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A521D5ABF500067DF00 /* Calendar.png */; };
@@ -58,6 +59,7 @@
 		D6629D7712446D49B1880F1E /* Pods_FindMyHW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyHW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1C706B1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastAssignmentsTableViewController.swift; sourceTree = "<group>"; };
 		FB1C706D1D5C6196006878AE /* PastAssignmentsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastAssignmentsTableViewCell.swift; sourceTree = "<group>"; };
+		FB8292061D5D6AD30034DB60 /* PhotoTakingHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoTakingHelper.swift; sourceTree = "<group>"; };
 		FB961A501D5ABF500067DF00 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB961A511D5ABF500067DF00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB961A521D5ABF500067DF00 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Calendar.png; path = ../Calendar.png; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				FB961A691D5ABF500067DF00 /* LogoHelper.swift */,
 				FB961A6A1D5ABF500067DF00 /* ParseHelper.swift */,
 				FB961A6B1D5ABF500067DF00 /* ParseLoginHelper.swift */,
+				FB8292061D5D6AD30034DB60 /* PhotoTakingHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -377,6 +380,7 @@
 			files = (
 				FB961AA61D5ABF500067DF00 /* User.swift in Sources */,
 				FB961AA41D5ABF500067DF00 /* Course.swift in Sources */,
+				FB8292071D5D6AD30034DB60 /* PhotoTakingHelper.swift in Sources */,
 				FB961A921D5ABF500067DF00 /* DateHelper.swift in Sources */,
 				FB961A8C1D5ABF500067DF00 /* SetDueDateViewController.swift in Sources */,
 				FB1C706C1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift in Sources */,

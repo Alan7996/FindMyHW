@@ -16,6 +16,12 @@ class DisplayAssignmentViewController: UIViewController {
     @IBOutlet weak var assignmentDueDate: UILabel!
     @IBOutlet weak var calendarButton: UIButton!
     @IBOutlet weak var saveButton: UIBarButtonItem!
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var uploadImageButton: UIButton!
+    @IBOutlet weak var removeImageButton: UIButton!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
+    var photoTakingHelper: PhotoTakingHelper?
     
     var assignment: Assignment?
     var course: Course?
@@ -23,6 +29,7 @@ class DisplayAssignmentViewController: UIViewController {
     var objectID: String?
     var parseAssignment: Assignment?
     let date = NSDate()
+    var imageFile: PFFile?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,18 +42,29 @@ class DisplayAssignmentViewController: UIViewController {
                     assignmentInstructionTextView.userInteractionEnabled = true
                     calendarButton.userInteractionEnabled = true
                     saveButton.enabled = true
+                    uploadImageButton.enabled = true
+                    removeImageButton.enabled = true
                 }
             } else {
                 assignmentTitleTextField.userInteractionEnabled = false
                 assignmentInstructionTextView.userInteractionEnabled = false
                 calendarButton.userInteractionEnabled = false
                 saveButton.enabled = false
+                uploadImageButton.enabled = false
+                removeImageButton.enabled = false
             }
         } else {
             assignmentTitleTextField.userInteractionEnabled = true
             assignmentInstructionTextView.userInteractionEnabled = true
             calendarButton.userInteractionEnabled = true
             saveButton.enabled = true
+            uploadImageButton.enabled = true
+            removeImageButton.enabled = true
+        }
+        
+        if assignment?.imageFile == nil {
+            scrollView.scrollEnabled = false
+            removeImageButton.enabled = false
         }
         
         dueDate = assignment?.dueDate
@@ -59,6 +77,14 @@ class DisplayAssignmentViewController: UIViewController {
             assignmentTitleTextField.text = assignment.title
             assignmentInstructionTextView.text = assignment.instruction
             assignmentDueDate.text = DateHelper.stringFromDate(assignment.dueDate!)
+            if let imageFile = assignment.valueForKey("imageFile") as? PFFile {
+                imageFile.getDataInBackgroundWithBlock{ (imageData: NSData?, error: NSError?) -> Void in
+                    if (error == nil) {
+                        self.imageView.image = UIImage(data: imageData!)
+                    }
+                }
+            }
+            
         } else {
             assignmentTitleTextField.text = ""
             assignmentInstructionTextView.text = ""
@@ -76,6 +102,29 @@ class DisplayAssignmentViewController: UIViewController {
         }
     }
     
+    override func viewWillLayoutSubviews()
+    {
+        super.viewWillLayoutSubviews();
+        self.scrollView.contentSize.height = 720
+    }
+    
+    @IBAction func uploadeImageButtonClicked(sender: AnyObject) {
+        photoTakingHelper = PhotoTakingHelper(viewController: self) { (image: UIImage?) in
+            self.imageFile = PFFile(data: UIImageJPEGRepresentation(image!, 1.0)!)
+            self.imageView.image = image
+            self.scrollView.scrollEnabled = true
+            self.removeImageButton.enabled = true
+        }
+    }
+    
+    @IBAction func removeImageButtonClicked(sender: AnyObject) {
+        self.imageFile = nil
+        self.imageView.image = nil
+        assignment?.imageFile = nil
+//        self.scrollView.scrollEnabled = false
+        self.removeImageButton.enabled = false
+    }
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
 
         if segue.identifier == "Save" {
@@ -86,25 +135,32 @@ class DisplayAssignmentViewController: UIViewController {
                 parseAssignment.title = assignmentTitleTextField.text ?? ""
                 parseAssignment.instruction = assignmentInstructionTextView.text ?? ""
                 parseAssignment.dueDate = dueDate
+                parseAssignment.imageFile = imageFile
                 
                 let alert: UIAlertView = UIAlertView(title: "Loading", message: "Please wait...", delegate: nil, cancelButtonTitle: nil);
                 
                 AlertHelper.showAlert(alert, view: self.view)
                 
-                ParseHelper.saveObjectInBackgroundWithBlock(parseAssignment)
-                
-                // Delay the dismissal by 0.3 seconds
-                let delay = 0.3 * Double(NSEC_PER_SEC)
-                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                dispatch_after(time, dispatch_get_main_queue(), {
-                    alert.dismissWithClickedButtonIndex(-1, animated: true)
-                })
+                parseAssignment.saveInBackgroundWithBlock{(success, error) in
+                    if success == true {
+                        print("save completed")
+                        print("\(parseAssignment) saved to parse")
+                        alert.dismissWithClickedButtonIndex(-1, animated: true)
+                    } else {
+                        print("save failed: \(error)")
+                        alert.dismissWithClickedButtonIndex(-1, animated: true)
+                        let alertController = UIAlertController(title: "Save Failed", message: "Please try again later", preferredStyle: UIAlertControllerStyle.Alert)
+                        alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                    }
+                }
             } else {
                 // if assignment does not exist, create new assignment
                 let newAssignment = Assignment()
                 newAssignment.title = assignmentTitleTextField.text ?? ""
                 newAssignment.instruction = assignmentInstructionTextView.text ?? ""
                 newAssignment.dueDate = dueDate
+                newAssignment.imageFile = imageFile
                 
                 newAssignment.setObject(PFUser.currentUser()!, forKey: "user")
                 newAssignment.setObject(course!, forKey: "course")
@@ -113,14 +169,19 @@ class DisplayAssignmentViewController: UIViewController {
                 
                 AlertHelper.showAlert(alert, view: self.view)
                 
-                newAssignment.addAssignment(newAssignment)
-                
-                // Delay the dismissal by 0.3 seconds
-                let delay = 0.3 * Double(NSEC_PER_SEC)
-                let time = dispatch_time(DISPATCH_TIME_NOW, Int64(delay))
-                dispatch_after(time, dispatch_get_main_queue(), {
-                    alert.dismissWithClickedButtonIndex(-1, animated: true)
-                })
+                newAssignment.saveInBackgroundWithBlock{(success, error) in
+                    if success == true {
+                        print("save completed")
+                        print("\(newAssignment) saved to parse")
+                        alert.dismissWithClickedButtonIndex(-1, animated: true)
+                    } else {
+                        print("save failed: \(error)")
+                        alert.dismissWithClickedButtonIndex(-1, animated: true)
+                        let alertController = UIAlertController(title: "Save Failed", message: "Please try again later", preferredStyle: UIAlertControllerStyle.Alert)
+                        alertController.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))
+                        self.presentViewController(alertController, animated: true, completion: nil)
+                    }
+                }
             }
         } else if segue.identifier == "setDueDate" {
             let setDueDateViewController = segue.destinationViewController as! SetDueDateViewController
