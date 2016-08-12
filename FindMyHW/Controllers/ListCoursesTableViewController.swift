@@ -9,6 +9,8 @@
 import UIKit
 import Parse
 
+var globalCourses: [Course] = []
+
 class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate, UISearchDisplayDelegate {
     
     @IBOutlet weak var addCourseBtn: UIBarButtonItem!
@@ -79,6 +81,8 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
             
             self.tableView.reloadData()
             
+            globalCourses = self.courses
+            
             print("Refreshed")
         }
     }
@@ -104,10 +108,12 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         
         if searchController.active && searchController.searchBar.text != "" {
             course = filteredCourses[indexPath.row]
-        } else {
+        } else if courses != [] {
             course = courses[indexPath.row]
             // app crashes when swiped twice with "fatal eror: Index out of range"
             // issue is still not fixed and needs to be fixed in future
+        } else{
+            course = globalCourses[indexPath.row]
         }
         
         cell.course = course
