@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12A41AC6057777BF99E0ECB0 /* Pods_WhatsTheHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */; };
 		BBFFC66E89BC6EDA07D5CCAE /* Pods_FindMyHW.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6629D7712446D49B1880F1E /* Pods_FindMyHW.framework */; };
 		FB1C706C1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C706B1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift */; };
 		FB1C706E1D5C6196006878AE /* PastAssignmentsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB1C706D1D5C6196006878AE /* PastAssignmentsTableViewCell.swift */; };
@@ -55,7 +54,6 @@
 		1AB7554A7D177B0262B9BB6E /* Pods-WhatsTheHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW.debug.xcconfig"; sourceTree = "<group>"; };
 		50FE71D2F10C982816A9AA64 /* Pods-FindMyHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-FindMyHW/Pods-FindMyHW.release.xcconfig"; sourceTree = "<group>"; };
 		6026D66284A036A7AD732B26 /* Pods-FindMyHW.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FindMyHW.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FindMyHW/Pods-FindMyHW.debug.xcconfig"; sourceTree = "<group>"; };
-		70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WhatsTheHW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FBF1BCF6FDA2D4303805476 /* Pods-WhatsTheHW.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WhatsTheHW.release.xcconfig"; path = "Pods/Target Support Files/Pods-WhatsTheHW/Pods-WhatsTheHW.release.xcconfig"; sourceTree = "<group>"; };
 		D6629D7712446D49B1880F1E /* Pods_FindMyHW.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FindMyHW.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB1C706B1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PastAssignmentsTableViewController.swift; sourceTree = "<group>"; };
@@ -106,7 +104,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12A41AC6057777BF99E0ECB0 /* Pods_WhatsTheHW.framework in Frameworks */,
 				BBFFC66E89BC6EDA07D5CCAE /* Pods_FindMyHW.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -117,7 +114,6 @@
 		B88C7DC7EE6FCDB8B2303076 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				70BEC443EDA24F991B95E77A /* Pods_WhatsTheHW.framework */,
 				D6629D7712446D49B1880F1E /* Pods_FindMyHW.framework */,
 			);
 			name = Frameworks;
