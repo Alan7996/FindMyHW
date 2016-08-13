@@ -192,6 +192,7 @@
                                     <constraint firstAttribute="width" constant="92" id="aoj-b6-sJh"/>
                                     <constraint firstAttribute="height" constant="27" id="oXD-Ex-YXs"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="26"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <segue destination="8ie-rc-Bzy" kind="show" identifier="UpdateInfo" id="ohw-mk-fUQ"/>

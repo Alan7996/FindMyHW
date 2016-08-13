@@ -38,6 +38,9 @@ class DisplayAssignmentTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         if let assignment = assignment {
             let assignmentDueDate = assignment["dueDate"] as! NSDate
             if assignmentDueDate.laterDate(self.date).isEqualToDate(assignmentDueDate) {
@@ -163,6 +166,12 @@ class DisplayAssignmentTableViewController: UITableViewController {
             
             return cell
         }
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
     
     func addImage(sender: UIButton!) {
@@ -296,7 +305,7 @@ class DisplayAssignmentTableViewController: UITableViewController {
                 presentViewController(alert, animated: true, completion: nil)
                 
                 return false
-            } else if assignmentInstructionText == "" {
+            } else if assignmentInstructionText == nil {
                 let alert = UIAlertController(title: "No Instruction", message: "Please Set The Instruction", preferredStyle: UIAlertControllerStyle.Alert)
                 
                 alert.addAction(UIAlertAction(title: "Ok", style: .Cancel, handler: nil))

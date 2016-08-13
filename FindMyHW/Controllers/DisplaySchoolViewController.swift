@@ -25,6 +25,9 @@ class DisplaySchoolViewController: UIViewController, UITextFieldDelegate, UIPick
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: "dismissKeyboard")
+        view.addGestureRecognizer(tap)
+        
         schoolCountryTextField.delegate = self
         countryPickerView.delegate = self
         
@@ -114,5 +117,11 @@ class DisplaySchoolViewController: UIViewController, UITextFieldDelegate, UIPick
         }
         // by default, transition
         return true
+    }
+    
+    //Calls this function when the tap is recognized.
+    func dismissKeyboard() {
+        //Causes the view (or one of its embedded text fields) to resign the first responder status.
+        view.endEditing(true)
     }
 }
