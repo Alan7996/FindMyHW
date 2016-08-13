@@ -104,26 +104,35 @@ class DisplayAssignmentTableViewController: UITableViewController {
             
    
             cell.course = course
-            cell.assignment = assignment
+            if let assignment = assignment {
+                cell.assignment = assignment
+            }
         
             cell.delegate = self
             
             if assignmentTitleText != nil {
                 cell.assignmentTitleTextField.text = assignmentTitleText
+            } else if let assignment = assignment {
+                cell.assignmentTitleTextField.text = assignment.title
             } else {
-                cell.assignmentTitleTextField.text = assignment?.title
+                cell.assignmentTitleTextField.text = ""
             }
             
             if assignmentInstructionText != nil {
                 cell.assignmentInstructionTextView.text = assignmentInstructionText
+            } else if let assignment = assignment {
+                cell.assignmentInstructionTextView.text = assignment.instruction
             } else {
-                cell.assignmentInstructionTextView.text = assignment?.instruction
+                cell.assignmentInstructionTextView.text = ""
             }
+            
             
             if dueDate != nil {
                 cell.assignmentDueDate.text = DateHelper.stringFromDate(dueDate!)
+            } else if let assignment = assignment {
+                cell.assignmentDueDate.text = DateHelper.stringFromDate(assignment.dueDate!)
             } else {
-                cell.assignmentDueDate.text = DateHelper.stringFromDate(assignment!.dueDate!)
+                cell.assignmentDueDate.text = ""
             }
             
             self.tableView.rowHeight = 370
@@ -135,7 +144,9 @@ class DisplayAssignmentTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("displayAssignmentImageTableViewCell", forIndexPath: indexPath) as! DisplayAssignmentImageTableViewCell
 
             cell.course = course
-            cell.assignment = assignment
+            if let assignment = assignment {
+                cell.assignment = assignment
+            }
             
             cell.delegate = self
             
@@ -180,7 +191,10 @@ class DisplayAssignmentTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        let assignmentDueDate = assignment!["dueDate"] as! NSDate
+        var assignmentDueDate = NSDate()
+        if let assignment = assignment {
+            assignmentDueDate = assignment["dueDate"] as! NSDate
+        }
         if assignmentDueDate.laterDate(self.date).isEqualToDate(assignmentDueDate) {
             if section == 1{
                 var footerView : UIView?
