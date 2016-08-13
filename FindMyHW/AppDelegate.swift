@@ -46,6 +46,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         School.registerSubclass()
         Course.registerSubclass()
         Assignment.registerSubclass()
+        Photo.registerSubclass()
         
         // Set up the Parse SDK
         let configuration = ParseClientConfiguration {

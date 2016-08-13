@@ -11,11 +11,11 @@ import UIKit
 typealias PhotoTakingHelperCallback = UIImage? -> Void
 
 class PhotoTakingHelper: NSObject {
-    weak var viewController: UIViewController!
+    weak var viewController: UITableViewController!
     var callback: PhotoTakingHelperCallback
     var imagePickerController: UIImagePickerController?
     
-    init(viewController: UIViewController, callback: PhotoTakingHelperCallback) {
+    init(viewController: UITableViewController, callback: PhotoTakingHelperCallback) {
         self.viewController = viewController
         self.callback = callback
         

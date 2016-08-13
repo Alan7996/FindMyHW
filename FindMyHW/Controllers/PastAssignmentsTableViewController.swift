@@ -162,10 +162,10 @@ class PastAssignmentsTableViewController: UITableViewController, UISearchBarDele
                 print("Table view cell tapped")
                 let indexPath = tableView.indexPathForSelectedRow!
                 let assignment = pastAssignmentsArray[indexPath.row]
-                let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
-                displayAssignmentViewController.assignment = assignment
-                displayAssignmentViewController.course = course
-                displayAssignmentViewController.objectID = assignment.objectId
+                let displayAssignmentTableViewController = segue.destinationViewController as! DisplayAssignmentTableViewController
+                displayAssignmentTableViewController.assignment = assignment
+                displayAssignmentTableViewController.course = course
+                displayAssignmentTableViewController.objectID = assignment.objectId
             }
         }
     }

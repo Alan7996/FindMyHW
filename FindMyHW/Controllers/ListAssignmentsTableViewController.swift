@@ -75,7 +75,9 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         refreshControl1.endRefreshing()
     }
     
+    
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    
         if searchController.active && searchController.searchBar.text != "" {
             return filteredAssignments.count
         }
@@ -171,17 +173,17 @@ class ListAssignmentsTableViewController: UITableViewController, UISearchBarDele
         if let identifier = segue.identifier {
             if identifier == "addAssignment" {
                 print("+ button tapped")
-                let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
-                displayAssignmentViewController.course = course
+                let displayAssignmentTableViewController = segue.destinationViewController as! DisplayAssignmentTableViewController
+                displayAssignmentTableViewController.course = course
                 
             } else if identifier == "displayAssignment" {
                 print("Table view cell tapped")
                 let indexPath = tableView.indexPathForSelectedRow!
                 let assignment = assignments[indexPath.row]
-                let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
-                displayAssignmentViewController.assignment = assignment
-                displayAssignmentViewController.course = course
-                displayAssignmentViewController.objectID = assignment.objectId
+                let displayAssignmentTableViewController = segue.destinationViewController as! DisplayAssignmentTableViewController
+                displayAssignmentTableViewController.assignment = assignment
+                displayAssignmentTableViewController.course = course
+                displayAssignmentTableViewController.objectID = assignment.objectId
                 
             } else if identifier == "pastAssignments" {
                 print ("Previous button tapped")

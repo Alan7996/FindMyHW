@@ -14,7 +14,6 @@
 		FB961A801D5ABF500067DF00 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A501D5ABF500067DF00 /* AppDelegate.swift */; };
 		FB961A811D5ABF500067DF00 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB961A511D5ABF500067DF00 /* Assets.xcassets */; };
 		FB961A821D5ABF500067DF00 /* Calendar.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A521D5ABF500067DF00 /* Calendar.png */; };
-		FB961A831D5ABF500067DF00 /* DisplayAssignmentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A541D5ABF500067DF00 /* DisplayAssignmentViewController.swift */; };
 		FB961A841D5ABF500067DF00 /* DisplayCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A551D5ABF500067DF00 /* DisplayCourseViewController.swift */; };
 		FB961A851D5ABF500067DF00 /* DisplaySchoolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A561D5ABF500067DF00 /* DisplaySchoolViewController.swift */; };
 		FB961A861D5ABF500067DF00 /* ListAssignmentsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A571D5ABF500067DF00 /* ListAssignmentsTableViewController.swift */; };
@@ -49,6 +48,10 @@
 		FB961AA51D5ABF500067DF00 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A7D1D5ABF500067DF00 /* School.swift */; };
 		FB961AA61D5ABF500067DF00 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A7E1D5ABF500067DF00 /* User.swift */; };
 		FB961AA71D5ABF500067DF00 /* SearchCoursesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A7F1D5ABF500067DF00 /* SearchCoursesTableViewCell.swift */; };
+		FB9C13621D5D6DF5008982D0 /* Photo.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C13611D5D6DF5008982D0 /* Photo.swift */; };
+		FB9C13641D5D73EB008982D0 /* DisplayAssignmentTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C13631D5D73EB008982D0 /* DisplayAssignmentTableViewController.swift */; };
+		FB9C13661D5D741B008982D0 /* DisplayAssignmentInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C13651D5D741B008982D0 /* DisplayAssignmentInfoTableViewCell.swift */; };
+		FB9C13681D5D7431008982D0 /* DisplayAssignmentImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9C13671D5D7431008982D0 /* DisplayAssignmentImageTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,7 +66,6 @@
 		FB961A501D5ABF500067DF00 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB961A511D5ABF500067DF00 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FB961A521D5ABF500067DF00 /* Calendar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Calendar.png; path = ../Calendar.png; sourceTree = "<group>"; };
-		FB961A541D5ABF500067DF00 /* DisplayAssignmentViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentViewController.swift; sourceTree = "<group>"; };
 		FB961A551D5ABF500067DF00 /* DisplayCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayCourseViewController.swift; sourceTree = "<group>"; };
 		FB961A561D5ABF500067DF00 /* DisplaySchoolViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplaySchoolViewController.swift; sourceTree = "<group>"; };
 		FB961A571D5ABF500067DF00 /* ListAssignmentsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListAssignmentsTableViewController.swift; sourceTree = "<group>"; };
@@ -98,6 +100,10 @@
 		FB961A7D1D5ABF500067DF00 /* School.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		FB961A7E1D5ABF500067DF00 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB961A7F1D5ABF500067DF00 /* SearchCoursesTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchCoursesTableViewCell.swift; sourceTree = "<group>"; };
+		FB9C13611D5D6DF5008982D0 /* Photo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Photo.swift; sourceTree = "<group>"; };
+		FB9C13631D5D73EB008982D0 /* DisplayAssignmentTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentTableViewController.swift; sourceTree = "<group>"; };
+		FB9C13651D5D741B008982D0 /* DisplayAssignmentInfoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentInfoTableViewCell.swift; sourceTree = "<group>"; };
+		FB9C13671D5D7431008982D0 /* DisplayAssignmentImageTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DisplayAssignmentImageTableViewCell.swift; sourceTree = "<group>"; };
 		FBF99CA61D36123200263E76 /* FindMyHW.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FindMyHW.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -160,7 +166,7 @@
 				FB961A5D1D5ABF500067DF00 /* SearchCoursesTableViewController.swift */,
 				FB961A601D5ABF500067DF00 /* UserProfileViewController.swift */,
 				FB961A571D5ABF500067DF00 /* ListAssignmentsTableViewController.swift */,
-				FB961A541D5ABF500067DF00 /* DisplayAssignmentViewController.swift */,
+				FB9C13631D5D73EB008982D0 /* DisplayAssignmentTableViewController.swift */,
 				FB1C706B1D5C5EE9006878AE /* PastAssignmentsTableViewController.swift */,
 				FB961A5E1D5ABF500067DF00 /* SetDueDateViewController.swift */,
 			);
@@ -213,6 +219,8 @@
 				FB961A7F1D5ABF500067DF00 /* SearchCoursesTableViewCell.swift */,
 				FB961A771D5ABF500067DF00 /* ListAssignmentsTableViewCell.swift */,
 				FB1C706D1D5C6196006878AE /* PastAssignmentsTableViewCell.swift */,
+				FB9C13651D5D741B008982D0 /* DisplayAssignmentInfoTableViewCell.swift */,
+				FB9C13671D5D7431008982D0 /* DisplayAssignmentImageTableViewCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -224,6 +232,7 @@
 				FB961A7C1D5ABF500067DF00 /* Course.swift */,
 				FB961A7D1D5ABF500067DF00 /* School.swift */,
 				FB961A7E1D5ABF500067DF00 /* User.swift */,
+				FB9C13611D5D6DF5008982D0 /* Photo.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -378,8 +387,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9C13681D5D7431008982D0 /* DisplayAssignmentImageTableViewCell.swift in Sources */,
 				FB961AA61D5ABF500067DF00 /* User.swift in Sources */,
+				FB9C13661D5D741B008982D0 /* DisplayAssignmentInfoTableViewCell.swift in Sources */,
 				FB961AA41D5ABF500067DF00 /* Course.swift in Sources */,
+				FB9C13641D5D73EB008982D0 /* DisplayAssignmentTableViewController.swift in Sources */,
 				FB8292071D5D6AD30034DB60 /* PhotoTakingHelper.swift in Sources */,
 				FB961A921D5ABF500067DF00 /* DateHelper.swift in Sources */,
 				FB961A8C1D5ABF500067DF00 /* SetDueDateViewController.swift in Sources */,
@@ -388,7 +400,6 @@
 				FB961A8F1D5ABF500067DF00 /* NSDate+convertToString.swift in Sources */,
 				FB961AA01D5ABF500067DF00 /* ListAssignmentsTableViewCell.swift in Sources */,
 				FB961A8E1D5ABF500067DF00 /* UserProfileViewController.swift in Sources */,
-				FB961A831D5ABF500067DF00 /* DisplayAssignmentViewController.swift in Sources */,
 				FB961A951D5ABF500067DF00 /* ParseHelper.swift in Sources */,
 				FB961A911D5ABF500067DF00 /* AlertHelper.swift in Sources */,
 				FB961AA21D5ABF500067DF00 /* ListSchoolTableViewCell.swift in Sources */,
@@ -402,6 +413,7 @@
 				FB1C706E1D5C6196006878AE /* PastAssignmentsTableViewCell.swift in Sources */,
 				FB961A931D5ABF500067DF00 /* ErrorHandling.swift in Sources */,
 				FB961AA11D5ABF500067DF00 /* ListCoursesTableViewCell.swift in Sources */,
+				FB9C13621D5D6DF5008982D0 /* Photo.swift in Sources */,
 				FB961AA71D5ABF500067DF00 /* SearchCoursesTableViewCell.swift in Sources */,
 				FB961AA31D5ABF500067DF00 /* Assignment.swift in Sources */,
 				FB961A881D5ABF500067DF00 /* ListSchoolTableViewController.swift in Sources */,

@@ -16,6 +16,7 @@ class Assignment: PFObject, PFSubclassing {
     @NSManaged var instruction: String?
     @NSManaged var dueDate: NSDate?
     @NSManaged var imageFile: PFFile?
+    
     var assignment: Assignment?
     var image: Observable<UIImage?> = Observable(nil)
     var photoUploadTask: UIBackgroundTaskIdentifier?

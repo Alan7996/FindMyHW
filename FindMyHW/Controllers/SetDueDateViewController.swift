@@ -38,12 +38,11 @@ class SetDueDateViewController: UIViewController {
             if identifier == "unwindDone" {
                 print("Done button tapped : \(dueDate)")
                 
-                let displayAssignmentViewController = segue.destinationViewController as! DisplayAssignmentViewController
+                let displayAssignmentTableViewController = segue.destinationViewController as! DisplayAssignmentTableViewController
                 
                 
-                displayAssignmentViewController.dueDate = dueDate
-                
-                displayAssignmentViewController.assignmentDueDate.text = DateHelper.stringFromDate(dueDate!)
+                displayAssignmentTableViewController.dueDate = dueDate
+                displayAssignmentTableViewController.tableView.reloadData()
             }
         }
     }
