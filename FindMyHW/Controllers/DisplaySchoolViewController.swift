@@ -69,7 +69,6 @@ class DisplaySchoolViewController: UIViewController, UITextFieldDelegate, UIPick
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let listSchoolTableViewController = segue.destinationViewController as! ListSchoolTableViewController
         if segue.identifier == "Save" {
             print("save clicked")
             

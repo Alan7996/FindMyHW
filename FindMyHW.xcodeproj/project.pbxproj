@@ -33,7 +33,6 @@
 		FB961A951D5ABF500067DF00 /* ParseHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A6A1D5ABF500067DF00 /* ParseHelper.swift */; };
 		FB961A961D5ABF500067DF00 /* ParseLoginHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB961A6B1D5ABF500067DF00 /* ParseLoginHelper.swift */; };
 		FB961A971D5ABF500067DF00 /* Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A6C1D5ABF500067DF00 /* Icon.png */; };
-		FB961A981D5ABF500067DF00 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB961A6E1D5ABF500067DF00 /* Info.plist */; };
 		FB961A991D5ABF500067DF00 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB961A6F1D5ABF500067DF00 /* LaunchScreen.storyboard */; };
 		FB961A9A1D5ABF500067DF00 /* Locked.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A701D5ABF500067DF00 /* Locked.png */; };
 		FB961A9C1D5ABF500067DF00 /* Person.png in Resources */ = {isa = PBXBuildFile; fileRef = FB961A721D5ABF500067DF00 /* Person.png */; };
@@ -321,7 +320,6 @@
 				FB961A9E1D5ABF500067DF00 /* Teacher.png in Resources */,
 				FB961A9D1D5ABF500067DF00 /* Student.png in Resources */,
 				FB961A811D5ABF500067DF00 /* Assets.xcassets in Resources */,
-				FB961A981D5ABF500067DF00 /* Info.plist in Resources */,
 				FB961A971D5ABF500067DF00 /* Icon.png in Resources */,
 				FB961A991D5ABF500067DF00 /* LaunchScreen.storyboard in Resources */,
 				FB961A821D5ABF500067DF00 /* Calendar.png in Resources */,

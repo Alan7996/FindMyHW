@@ -221,7 +221,6 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
                 print("+ button tapped")
             } else if identifier == "searchToAddCourse" {
                 print("Add Course button tapped")
-                let searchCoursesTableViewController = segue.destinationViewController as! SearchCoursesTableViewController
             }
         }
     }
