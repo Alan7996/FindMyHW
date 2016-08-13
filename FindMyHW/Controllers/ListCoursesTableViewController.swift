@@ -50,6 +50,7 @@ class ListCoursesTableViewController: UITableViewController, UISearchBarDelegate
         tableView.tableHeaderView = searchController.searchBar
         
         navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         refreshControl1 = UIRefreshControl()
         refreshControl1.attributedTitle = NSAttributedString(string: "Pull to refresh")

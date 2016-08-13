@@ -52,6 +52,7 @@ class DisplayAssignmentTableViewController: UITableViewController {
             }
         } else {
             saveButton.enabled = true
+            tableView.scrollEnabled = false
         }
             
         
@@ -110,6 +111,10 @@ class DisplayAssignmentTableViewController: UITableViewController {
             if let assignment = assignment {
                 cell.assignment = assignment
             }
+            
+            cell.assignmentInstructionTextView.layer.borderColor = UIColor.blackColor().CGColor
+            cell.assignmentInstructionTextView.layer.borderWidth = 1
+            cell.assignmentInstructionTextView.layer.cornerRadius = 10
         
             cell.delegate = self
             
@@ -128,7 +133,6 @@ class DisplayAssignmentTableViewController: UITableViewController {
             } else {
                 cell.assignmentInstructionTextView.text = ""
             }
-            
             
             if dueDate != nil {
                 cell.assignmentDueDate.text = DateHelper.stringFromDate(dueDate!)

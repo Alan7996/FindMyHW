@@ -52,6 +52,7 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
         tableView.addSubview(refreshControl1)
         
         navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
     }
     
     override func viewWillAppear(animated: Bool) {

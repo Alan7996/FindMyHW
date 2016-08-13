@@ -28,6 +28,7 @@ class SetUserInfoViewController: UIViewController, UITextFieldDelegate, UIPicker
         view.addGestureRecognizer(tap)
         
         navigationController?.navigationBar.barTintColor = UIColor(red: CGFloat(163.0/255.0), green: CGFloat(0.0/255.0), blue: CGFloat(255.0/255.0), alpha: CGFloat(1.0))
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         
         titleTextField.delegate = self
         titlePickerView.delegate = self

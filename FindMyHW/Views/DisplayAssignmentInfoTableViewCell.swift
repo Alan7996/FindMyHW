@@ -37,7 +37,7 @@ class DisplayAssignmentInfoTableViewCell: UITableViewCell {
     
     var assignment: Assignment! {
         didSet {
-
+            
             if let assignment = assignment {
                 let assignmentDueDate = assignment["dueDate"] as! NSDate
                 if assignmentDueDate.laterDate(self.date).isEqualToDate(assignmentDueDate) {
