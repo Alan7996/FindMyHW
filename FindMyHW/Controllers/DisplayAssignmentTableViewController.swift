@@ -191,24 +191,26 @@ class DisplayAssignmentTableViewController: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
-        var assignmentDueDate = NSDate()
         if let assignment = assignment {
+            var assignmentDueDate = NSDate()
+            
             assignmentDueDate = assignment["dueDate"] as! NSDate
-        }
-        if assignmentDueDate.laterDate(self.date).isEqualToDate(assignmentDueDate) {
-            if section == 1{
-                var footerView : UIView?
-                footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
-                
-                let addImageBtn = UIButton(type: UIButtonType.System)
-                
-                addImageBtn.setTitle("Add Image", forState: UIControlState.Normal)
-                addImageBtn.frame = CGRectMake(0, 0, tableView.frame.size.width, 30)
-                addImageBtn.addTarget(self, action: #selector(DisplayAssignmentTableViewController.addImage(_:)), forControlEvents: UIControlEvents.TouchUpInside)
-                
-                footerView?.addSubview(addImageBtn)
-                
-                return footerView
+            
+            if assignmentDueDate.laterDate(self.date).isEqualToDate(assignmentDueDate) {
+                if section == 1{
+                    var footerView : UIView?
+                    footerView = UIView(frame: CGRectMake(0, 0, tableView.frame.size.width, 50))
+                    
+                    let addImageBtn = UIButton(type: UIButtonType.System)
+                    
+                    addImageBtn.setTitle("Add Image", forState: UIControlState.Normal)
+                    addImageBtn.frame = CGRectMake(0, 0, tableView.frame.size.width, 30)
+                    addImageBtn.addTarget(self, action: #selector(DisplayAssignmentTableViewController.addImage(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+                    
+                    footerView?.addSubview(addImageBtn)
+                    
+                    return footerView
+                }
             }
         }
         return nil
@@ -332,6 +334,7 @@ extension DisplayAssignmentTableViewController: DisplayAssignmentImageCellDelega
                         if success == true {
                             print("photo deleted")
                             self.getPhotos()
+                            self.tableView.reloadData()
                             alert.dismissWithClickedButtonIndex(-1, animated: true)
                         } else {
                             print(error)

@@ -363,7 +363,7 @@
                                 <connections>
                                     <outlet property="schoolAddressLabel" destination="Okl-Vh-dzw" id="ogB-Gx-hXl"/>
                                     <outlet property="schoolNameLabel" destination="z5l-eR-axD" id="FWV-ad-jaK"/>
-                                    <segue destination="cbp-3T-OpD" kind="show" id="cEK-1C-b6D"/>
+                                    <segue destination="cbp-3T-OpD" kind="show" identifier="displaySchool" id="cEK-1C-b6D"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>

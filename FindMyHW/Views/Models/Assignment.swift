@@ -44,7 +44,7 @@ class Assignment: PFObject, PFSubclassing {
         assignment = assignment1
         
         if let image = image.value {
-            guard let imageData = UIImageJPEGRepresentation(image, 1.0) else {return}
+            guard let imageData = UIImageJPEGRepresentation(image, 0.8) else {return}
             guard let imageFile = PFFile(name: "image.jpg", data: imageData) else {return}
             
             self.imageFile = imageFile

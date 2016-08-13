@@ -109,7 +109,8 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let school = schools[indexPath.row]
+        
+        let school = self.schools[indexPath.row]
         PFUser.currentUser()?.setObject(school, forKey: "school")
         ParseHelper.saveObjectInBackgroundWithBlock(PFUser.currentUser()!)
     }
@@ -139,6 +140,8 @@ class ListSchoolTableViewController: UITableViewController, UISearchBarDelegate,
         if let identifier = segue.identifier {
             if identifier == "addSchool" {
                 print("+ button tapped")
+            } else if identifier == "displaySchool" {
+                print("display school")
             }
         }
     }
