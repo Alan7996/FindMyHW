@@ -48,6 +48,7 @@ class DisplayCourseViewController: UIViewController {
                 //let newCourse = Course()
                 //newCourse.name = courseNameTextField.text ?? ""
                 //newCourse.teacher = username
+                listCoursesTableViewController.tableView.reloadData()
             } else {
                 // if course does not exist, create new course
                 let newCourse = Course()
@@ -62,6 +63,7 @@ class DisplayCourseViewController: UIViewController {
                 print("courseName: " + newCourse.name!)
                 
                 newCourse.addCourse(newCourse)
+                listCoursesTableViewController.tableView.reloadData()
             }
             listCoursesTableViewController.tableView.reloadData()
             print("Data reloaded")
